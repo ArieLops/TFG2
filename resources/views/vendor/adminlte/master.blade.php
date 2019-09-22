@@ -9,16 +9,24 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/bootstrap/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{asset('vendor/adminlte/vendor/bootstrap/dist/css/bootstrap.min.css') }}">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/font-awesome/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{asset('vendor/adminlte/vendor/font-awesome/css/all.min.css') }}">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/Ionicons/css/ionicons.min.css') }}">
+    <link rel="stylesheet" href="{{asset('vendor/adminlte/vendor/Ionicons/css/ionicons.min.css') }}">
 
     <!-- Adição externa -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">  
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{asset("vendor/adminlte/vendor/bower_components/select2/dist/css/select2.min.css")}}">
+    <!-- bootstrap datepicker -->
+    <link rel="stylesheet" href="{{asset("vendor/adminlte/vendor/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css")}}">    
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="{{asset("vendor/adminlte/vendor/bower_components/bootstrap-daterangepicker/daterangepicker.css")}}">
+    <!-- bootstrap datepicker -->
+    <link rel="stylesheet" href="{{asset("vendor/adminlte/vendor/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css")}}">    
 
     @include('adminlte::plugins', ['type' => 'css'])
 
@@ -39,14 +47,21 @@
 
 @yield('body')
 
-<script src="{{ asset('vendor/adminlte/vendor/jquery/dist/jquery.min.js') }}"></script>
-<script src="{{ asset('vendor/adminlte/vendor/jquery/dist/jquery.slimscroll.min.js') }}"></script>
-<script src="{{ asset('vendor/adminlte/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{asset('vendor/adminlte/vendor/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{asset('vendor/adminlte/vendor/jquery/dist/jquery.slimscroll.min.js') }}"></script>
+<script src="{{asset('vendor/adminlte/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 
 <!-- Adição Externa JS -->
+<!-- Date range picker moment -->
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
-<script src="{{ asset('vendor/adminlte/vendor/jQueryMaskPlugin/dist/jquery.mask.min.js') }}"></script>
+<script src="{{asset("vendor/adminlte/vendor/bower_components/moment/min/moment.min.js")}}"></script>
+<script src="{{asset('vendor/adminlte/vendor/jQueryMaskPlugin/dist/jquery.mask.min.js') }}"></script>
+<!-- Select2 -->
+<script src="{{asset("vendor/adminlte/vendor/bower_components/select2/dist/js/select2.full.min.js")}}"></script>
+<!-- bootstrap datepicker -->
+<script src="{{asset("vendor/adminlte/vendor/bower_components/bootstrap-daterangepicker/daterangepicker.js")}}"></script>
+<script src="{{asset("vendor/adminlte/vendor/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js")}}"></script>    
 
 @include('adminlte::plugins', ['type' => 'js'])
 
