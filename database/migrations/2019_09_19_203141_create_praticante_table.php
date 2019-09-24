@@ -14,8 +14,13 @@ class CreatePraticanteTable extends Migration {
 	{
 		Schema::create('praticante', function(Blueprint $table)
 		{
-			$table->integer('id')->primary();
+			$table->increments('id');
+			$table->integer('users_id')->unsigned();
+			$table->foreign('users_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+			
 			$table->dateTime('data_inicio');
+			$table->timestamps();
+			$table->time('deleted_at')->nullable();
 		});
 	}
 

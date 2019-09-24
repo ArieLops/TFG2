@@ -32,7 +32,8 @@
 
         $('.datepicker').datepicker({
             autoclose: true
-        })          
+        })
+        
     })
 </script>
 @stop

@@ -5,17 +5,15 @@ use Illuminate\Database\Schema\Blueprint;
 
 class CreateAvaliacaoFisicaTable extends Migration {
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
 	public function up()
 	{
 		Schema::create('avaliacao_fisica', function(Blueprint $table)
 		{
-			$table->integer('id', true);
-			$table->integer('praticante_id');
+			
+			$table->increments('id');
+			$table->integer('praticante_id')->unsigned();
+			$table->foreign('praticante_id')->references('id')->on('praticante')->onUpdate('cascade')->onDelete('cascade');
+
 			$table->date('dataInicial');
 			$table->date('dataFinal');
 			$table->float('massa');
@@ -27,7 +25,6 @@ class CreateAvaliacaoFisicaTable extends Migration {
 			$table->float('bicipital');
 			$table->float('supraIliaca');
 			$table->float('abdominal');
-			$table->float('coxa');
 			$table->float('panturrilha');
 			$table->float('torax');
 			$table->float('bracoDireito');
@@ -40,7 +37,6 @@ class CreateAvaliacaoFisicaTable extends Migration {
 			$table->float('coxaEsquerda');
 			$table->float('pernaDireita');
 			$table->float('pernaEsquerda');
-			$table->float('frequenciaCardiaca');
 			$table->timestamps();
 			$table->time('deleted_at')->nullable();
 		});

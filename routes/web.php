@@ -54,11 +54,18 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin'], function(){
     /*Rotas Exame*/
     Route::get('admin/exame/adicionar',          'ExameController@create')->name('adicionarExame');
     Route::post('admin/exame/adicionar',         'ExameController@store')->name('salvarExame');
-    Route::get('admin/exame',                  'ExameController@index')->name('listarExame');
-    Route::post('admin/exame',                 'ExameController@store')->name('salvarExame');
-    Route::get('admin/exame/{id}/editar',      'ExameController@edit')->name('editarExame');
-    Route::put('admin/exame/{id}',             'ExameController@update')->name('atualizarExame');
-    Route::get('admin/exame/{id}/excluir',     'ExameController@destroy')->name('excluirExame');
+    Route::get('admin/exame',                    'ExameController@index')->name('listarExame');
+    Route::post('admin/exame',                   'ExameController@store')->name('salvarExame');
+    Route::get('admin/exame/{id}/editar',        'ExameController@edit')->name('editarExame');
+    Route::put('admin/exame/{id}',               'ExameController@update')->name('atualizarExame');
+    Route::get('admin/exame/{id}/excluir',       'ExameController@destroy')->name('excluirExame');
+    /*Rotas Avaliação*/
+    Route::get('admin/avaliacao/adicionar',       'AvaliacaoController@create')->name('adicionarAvaliacao');
+    Route::get('admin/avaliacao',                 'AvaliacaoController@index')->name('listarAvaliacao');
+    Route::post('admin/avaliacao',                'AvaliacaoController@store')->name('salvarAvaliacao');
+    Route::get('admin/avaliacao/{id}/editar',     'AvaliacaoController@edit')->name('editarAvaliacao');
+    Route::put('admin/avaliacao/{id}',            'AvaliacaoController@update')->name('atualizarAvaliacao');
+    Route::get('admin/avaliacao/{id}/excluir',    'AvaliacaoController@destroy')->name('excluirAvaliacao'); 
 });
 
 Route::get('/', 'Site\SiteController@index')->name('site');
