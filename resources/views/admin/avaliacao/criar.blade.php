@@ -26,45 +26,4 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    $(function() {
-        $('.select2').select2()
-
-        $('.datepicker').daterangepicker({
-            "locale": {
-                "format": "DD/MM/YYYY",
-                "separator": " - ",
-                "applyLabel": "Aplicar",
-                "cancelLabel": "Cancelar",
-                "fromLabel": "De",
-                "toLabel": "Para",
-                "customRangeLabel": "Custom",
-                "daysOfWeek": [
-                    "D",
-                    "S",
-                    "T",
-                    "Q",
-                    "Q",
-                    "S",
-                    "S"
-                ],
-                "monthNames": [
-                    "Janeiro",
-                    "Fevereiro",
-                    "Março",
-                    "Abril",
-                    "Maio",
-                    "Junho",
-                    "Julho",
-                    "Agosto",
-                    "Setembro",
-                    "Outubro",
-                    "Novembro",
-                    "Dezembro"
-                ],
-                "firstDay": 1
-            }
-        })
-    });
-</script>
 @stop

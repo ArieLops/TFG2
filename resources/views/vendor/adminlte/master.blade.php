@@ -59,11 +59,10 @@
 <script src="{{asset("vendor/adminlte/vendor/bower_components/select2/dist/js/select2.full.min.js")}}"></script>
 <!-- bootstrap datepicker -->
 <script src="{{asset("vendor/adminlte/vendor/bower_components/bootstrap-daterangepicker/daterangepicker.js")}}"></script>
-<script src="{{asset("vendor/adminlte/vendor/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js")}}"></script>    
-
+<script src="{{asset("vendor/adminlte/vendor/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js")}}"></script>        
+<script src="{{asset("js/util.js")}}"></script>
 @include('adminlte::plugins', ['type' => 'js'])
 
 @yield('adminlte_js')
-
 </body>
 </html>

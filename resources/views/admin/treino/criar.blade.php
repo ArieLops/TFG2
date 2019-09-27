@@ -32,4 +32,48 @@
         </div>
     </div>
 </div>
-@endsection
+<script type="text/javascript">
+    //Functions de personalização do software
+    $(function() {
+        var qntdDiasPadraoTabela = 1;
+        let data = new Date();
+        let dataPt = {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+        };
+        var dataBR = data.toLocaleDateString('pt-BR', dataPt);
+
+        //Objetivo selecionado
+        $(document).ready(function() {
+            $("#selectObjetivo").change(function() {
+                var objetivoSelecionado = $(this).children("option:selected").text();
+                $("#nomeObjetivoTabela").html(objetivoSelecionado);
+            });
+
+            $("#selectPessoa").change(function() {
+                var pessoaSelecionada = $(this).children("option:selected").text();
+            });
+        });
+
+        $('#btnAdicionar').on('click', function() {
+            $('#tblConteudo').removeClass('hidden');
+            $("#selectPessoa").prop('disabled', true);
+            $("#selectObjetivo").prop('disabled', true);
+            $("#dataTreinoTabela").html(dataBR);
+            $("#semanasTreinoTabela").html(qntdDiasPadraoTabela);
+            //alert(objetivoSelecionado);
+        });
+
+        $('#criar').on('click', function() {
+            $("#divTreino").addClass('hidden');
+            $("#divTreinoSemana").removeClass('hidden');
+            $("#semana").val(qntdDiasPadraoTabela);
+        });
+
+        $('#addOpcaoTreino').on('click', function(){
+            $("#divTreinoAdicionarSemana").removeClass('hidden');
+        });
+    });
+</script>
+@stop

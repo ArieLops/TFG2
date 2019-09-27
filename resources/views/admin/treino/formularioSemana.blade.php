@@ -24,7 +24,7 @@
             <div class="input-group-addon">
                 <i class="fa fa-calendar"></i>
             </div>
-            <input type="text" class="form-control pull-right" id="vigencia">
+            <input type="text" class="form-control pull-right dataRange" id="vigencia">
         </div>
     </div>
     <button type="button" id="addOpcaoTreino" class="btn btn-info">Adicionar treino</button>

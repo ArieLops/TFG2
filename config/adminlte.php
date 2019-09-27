@@ -144,7 +144,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Treino',
-                    'url'  => 'admin/treino',
+                    'url'  => 'admin/treino/adicionar',
                     'icon_color' => 'yellow',
                 ],
                 [

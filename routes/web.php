@@ -9,13 +9,13 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin'], function(){
     Route::get('admin/pessoa/{id}/editar',       'PessoaController@edit')->name('editarPessoa');
     Route::put('admin/pessoa/{id}',              'PessoaController@update')->name('atualizarPessoa');
     Route::get('admin/pessoa/{id}/excluir',      'PessoaController@destroy')->name('excluirPessoa');
-    /*Rotas Treinos*/
-    Route::get('admin/treino/adicionar',         'TreinoController@create')->name('adicionarTreino');
-    Route::get('admin/treino',                   'TreinoController@index')->name('listarTreino');
-    Route::post('admin/treino',                  'TreinoController@store')->name('salvarTreino');
-    Route::get('admin/treino/{id}/editar',       'TreinoController@edit')->name('editarTreino');
-    Route::put('admin/treino/{id}',              'TreinoController@update')->name('atualizarTreino');
-    Route::get('admin/treino/{id}/excluir',      'TreinoController@destroy')->name('excluirTreino');
+     /*Rotas Treinos*/
+     Route::get('admin/treino/adicionar',         'TreinoController@create')->name('adicionarTreino');
+     Route::get('admin/treino',                   'TreinoController@index')->name('listarTreino');
+     Route::post('admin/treino',                  'TreinoController@store')->name('salvarTreino');
+     Route::get('admin/treino/{id}/editar',       'TreinoController@edit')->name('editarTreino');
+     Route::put('admin/treino/{id}',              'TreinoController@update')->name('atualizarTreino');
+     Route::get('admin/treino/{id}/excluir',      'TreinoController@destroy')->name('excluirTreino');
     /*Rotas Objetivo*/
     Route::get('admin/objetivo/adicionar',       'ObjetivoController@create')->name('adicionarObjetivo');
     Route::get('admin/objetivo',                 'ObjetivoController@index')->name('listarObjetivo');

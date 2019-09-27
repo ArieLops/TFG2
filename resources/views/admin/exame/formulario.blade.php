@@ -1,7 +1,7 @@
 <div class="form-row">
     <div class="form-group col-md-6">
         <label for="usuarioID" class="required">Nome</label>
-        <select class="form-control select2" name="usuarioID" id="usuarioID">
+        <select class="form-control selectPesquisa" name="usuarioID" id="usuarioID">
             <option selected="selected">Selecione o Aluno</option>
             @<?php foreach ($arrayPessoas as $dados): ?>
                 <option id="selectPessoaArray" value="{{$dados->id}}">{{$dados->nome}}</option>
@@ -14,7 +14,7 @@
                 <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                 </div>
-            <input type="text" class="form-control pull-right datepicker" name="dataRealizado" id="dataRealizado">
+            <input type="text" class="form-control pull-right dataUnica" name="dataRealizado" id="dataRealizado">
         </div>
     </div>
     <div class="form-group col-md-6">
