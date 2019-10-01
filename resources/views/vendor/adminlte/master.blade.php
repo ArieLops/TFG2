@@ -18,6 +18,7 @@
     <!-- Adição externa -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">  
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script> -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!-- Select2 -->
     <link rel="stylesheet" href="{{asset("vendor/adminlte/vendor/bower_components/select2/dist/css/select2.min.css")}}">
@@ -61,6 +62,7 @@
 <script src="{{asset("vendor/adminlte/vendor/bower_components/bootstrap-daterangepicker/daterangepicker.js")}}"></script>
 <script src="{{asset("vendor/adminlte/vendor/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js")}}"></script>        
 <script src="{{asset("js/util.js")}}"></script>
+<script src="{{asset("js/validacoes.js")}}"></script>
 @include('adminlte::plugins', ['type' => 'js'])
 
 @yield('adminlte_js')

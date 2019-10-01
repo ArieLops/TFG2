@@ -1,4 +1,9 @@
 $(function(){
+    //Mascaras
+    $('.data').mask('00/00/0000');
+    $('.telefone').mask('000000000');
+    $('.cpf').mask('00000000000', {reverse: true});
+
     $('.selectPesquisa').select2()
 
     $('.dataUnica').datepicker({

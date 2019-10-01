@@ -7,7 +7,7 @@ use Illuminate\Support\ServiceProvider;
 
 class ProviderListaObjetivos extends ServiceProvider
 {
-    //Provider setado para realizar o select dinamico na tabela Objetivo para a view treino
+    //Provider setado para realizar o select dinamico na tabela Objetivo
     public function boot()
     {
       view()->composer('*', function($view){

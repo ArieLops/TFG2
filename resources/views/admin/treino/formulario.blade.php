@@ -1,24 +1,26 @@
-<div class="form-row">
+<div class="row">
     <div class="form-group col-md-6">
-        <label for="nome" class="required">Nome</label>
-        <select id="selectPessoa" class="form-control">
+        <label for="usuarioID" class="required">Nome</label>
+        <select class="form-control selectPesquisa" name="usuarioID" id="usuarioID">
             <option selected="selected">Selecione o Aluno</option>
             @<?php foreach ($arrayPessoas as $dados): ?>
-            <option id="selectPessoaArray" id="nome" value="{{$dados->id}}">{{$dados->nome}}</option>
+                <option id="selectPessoaArray" value="{{$dados->id}}">{{$dados->nome}}</option>
             <?php endforeach; ?>
         </select>
     </div>
     <div class="form-group col-md-6">
-        <label for="nome" class="required">Nome</label>
-        <select id="selectObjetivo" class="form-control">
-            <option selected="selected">Selecione o Objetivo</option>
+        <label for="selectObjetivo" class="required">Nome</label>
+        <select class="form-control selectPesquisa" name="selectObjetivo" id="selectObjetivo">
+            <option selected="selected">Selecione o Aluno</option>
             @<?php foreach ($arrayObjetivos as $dados): ?>
-            <option id="selectObjetivoArray" id="nome" value="{{$dados->id}}">{{$dados->nome}}</option>
+                <option id="selectObjetivoArray" value="{{$dados->id}}">{{$dados->nome}}</option>
             <?php endforeach; ?>
         </select>
     </div>
 </div>
-<button type="button" id="btnAdicionar" class="btn btn-info" >Adicionar</button>
+<div class="form-row">
+    <button type="button" id="btnAdicionar" class="btn btn-info" >Adicionar</button>
+</div>
 <div class="row">
     <div class="col-xs-12">
         <br>

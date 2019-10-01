@@ -7,7 +7,7 @@ use Illuminate\Support\ServiceProvider;
 
 class ProviderListaPessoas extends ServiceProvider
 {
-    //Provider setado para realizar o select dinamico na tabela Pessoas para a view Exames
+    //Provider setado para realizar o select dinamico na tabela Pessoas
     public function boot()
     {
       view()->composer('*', function($view){

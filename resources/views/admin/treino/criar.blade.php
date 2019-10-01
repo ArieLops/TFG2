@@ -33,7 +33,6 @@
     </div>
 </div>
 <script type="text/javascript">
-    //Functions de personalização do software
     $(function() {
         var qntdDiasPadraoTabela = 1;
         let data = new Date();
@@ -62,7 +61,6 @@
             $("#selectObjetivo").prop('disabled', true);
             $("#dataTreinoTabela").html(dataBR);
             $("#semanasTreinoTabela").html(qntdDiasPadraoTabela);
-            //alert(objetivoSelecionado);
         });
 
         $('#criar').on('click', function() {
