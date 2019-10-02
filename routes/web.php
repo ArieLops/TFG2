@@ -58,7 +58,8 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin'], function(){
     Route::post('admin/exame',                   'ExameController@store')->name('salvarExame');
     Route::get('admin/exame/{id}/editar',        'ExameController@edit')->name('editarExame');
     Route::put('admin/exame/{id}',               'ExameController@update')->name('atualizarExame');
-    Route::get('admin/exame/{id}/excluir',       'ExameController@destroy')->name('excluirExame');
+    //Route::get('admin/exame/{id}/excluir',       'ExameController@destroy')->name('excluirExame');
+    Route::get('admin/exame/{id}/download',      'ExameController@download')->name('downloadExame');
     /*Rotas Avaliação*/
     Route::get('admin/avaliacao/adicionar',       'AvaliacaoController@create')->name('adicionarAvaliacao');
     Route::get('admin/avaliacao',                 'AvaliacaoController@index')->name('listarAvaliacao');

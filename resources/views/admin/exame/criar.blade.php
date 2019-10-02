@@ -26,4 +26,17 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    function verificaExtensao($input){
+        var extPermitidas = ['jpg', 'png', 'pdf'];
+        var extArquivo = $input.value.split('.').pop();
+        var url = "/admin/exame";
+
+        if($.inArray(extArquivo,extPermitidas) == -1){
+            alert("Esta extensão não pode ser adicionada");
+            window.history.pushState("", "", "/");
+            $(location).attr("href", url);
+        }
+    }
+</script>
 @stop

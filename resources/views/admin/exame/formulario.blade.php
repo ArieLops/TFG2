@@ -19,7 +19,7 @@
     </div>
     <div class="form-group col-md-6">
         <label for="arquivo">Entrada de Arquivos</label>
-        <input type="file" id="arquivo" name="arquivo">
-        <p class="help-block">Adicionar exame! Apenas PDF e JPEG</p>
+        <input type="file" id="arquivo" name="arquivo" onchange="verificaExtensao(this)">
+        <p class="help-block">Adicionar exame! Apenas PDF, JPG e PNG</p>
     </div>
 </div>

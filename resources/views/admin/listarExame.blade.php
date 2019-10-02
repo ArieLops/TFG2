@@ -13,19 +13,16 @@
         <table class="table table-bordered table-hover table-striped">
             <tr style="width: 100%">
                 <th style="width: 5%">ID</th>
-                <th style="width: 70%">Nome</th>
-                <th style="width: 10%">Arquivo</th>
-                <th style="width: 15%">Ação</th>
+                <th style="width: 40%">Nome</th>
+                <th style="width: 40%">Data da realização</th>
+                <th style="width: 15%">Arquivo</th>
             </tr>
             @foreach($exames as $exame)
             <tr>
                 <td>{{$exame->id}}</td>
                 <td>{{$exame->nome}}</td>
-                <td><a href="/admin/exame/{{$exame->id}}/download"><i class="fa fa-download"></i></a></td>
-                <td>
-                    <a href="/admin/exame/{{$exame->id}}/editar" class="btn btn-primary">Editar</a>
-                    <a href="/admin/exame/{{$exame->id}}/excluir" class="btn btn-danger">Excluir</a>
-                </td>
+                <td>{{$exame->dtRealizado}}</td>
+                <td><a href="/admin/exame/{{$exame->id}}/download" class="btn btn-info"><i class="fas fa-download"></i></a></td>
             </tr>
             @endforeach
         </table>

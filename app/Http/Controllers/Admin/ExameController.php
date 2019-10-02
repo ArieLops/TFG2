@@ -31,7 +31,8 @@ class ExameController extends Controller
     }
 
     public function store(Request $request){
-        $path = $request->file('arquivo')->store('pdf','public');
+
+        $path = $request->file('arquivo')->store('storage','public');
         $exame = new Exame();
         $exame->praticante_id = $request->input('usuarioID');
         //$exame->dataRealizado = $request->input('dataRealizado');
