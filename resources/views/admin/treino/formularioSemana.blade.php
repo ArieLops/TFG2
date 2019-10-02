@@ -1,10 +1,10 @@
-<div class="form-row">
+<div class="row">
     <div class="form-group col-md-6">
         <label for="nome" class="required">Nome</label>
         <select id="selectPessoa" class="form-control">
             <option selected="selected">Selecione o Aluno</option>
             @<?php foreach ($arrayPessoas as $dados): ?>
-            <option id="selectPessoaArray" id="nome" value="{{$dados->id}}">{{$dados->nome}}</option>
+                <option id="selectPessoaArray" id="nome" value="{{$dados->id}}">{{$dados->nome}}</option>
             <?php endforeach; ?>
         </select>
     </div>
@@ -13,7 +13,7 @@
         <input type="text" class="form-control" id="semana" name="semana">
     </div>
 </div>
-<div class="form-row">
+<div class="row">
     <div class="form-group col-md-6">
         <label for="treino">Treino selecionado</label>
         <input type="text" class="form-control" id="treinoSemana" name="treinoSemana" value="">
@@ -27,5 +27,7 @@
             <input type="text" class="form-control pull-right dataRange" id="vigencia">
         </div>
     </div>
+</div>
+<div class="form-row">
     <button type="button" id="addOpcaoTreino" class="btn btn-info">Adicionar treino</button>
 </div>

@@ -2,16 +2,16 @@
     <div class="form-group col-md-6">
         <label for="usuarioID" class="required">Nome</label>
         <select class="form-control selectPesquisa" name="usuarioID" id="usuarioID">
-            <option selected="selected">Selecione o Aluno</option>
+            <option selected disabled value="">Selecione o Aluno</option>
             @<?php foreach ($arrayPessoas as $dados): ?>
                 <option id="selectPessoaArray" value="{{$dados->id}}">{{$dados->nome}}</option>
             <?php endforeach; ?>
         </select>
     </div>
     <div class="form-group col-md-6">
-        <label for="selectObjetivo" class="required">Nome</label>
-        <select class="form-control selectPesquisa" name="selectObjetivo" id="selectObjetivo">
-            <option selected="selected">Selecione o Aluno</option>
+        <label for="selectObjetivo" class="required">Objetivo</label>
+        <select class="form-control" name="selectObjetivo" id="selectObjetivo">
+            <option selected disabled value="">Selecione o Objetivo</option>
             @<?php foreach ($arrayObjetivos as $dados): ?>
                 <option id="selectObjetivoArray" value="{{$dados->id}}">{{$dados->nome}}</option>
             <?php endforeach; ?>

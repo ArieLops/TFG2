@@ -15,13 +15,13 @@
             <div class="box-body">
                 <form action="{{route('adicionarTreino')}}" id="formTreino" method="POST" autocomplete="off">
                     {{ csrf_field() }}
-                    <div class="box-body" id="divTreino">
+                    <div class="box-body hidden" id="divTreino">
                         @include('admin.treino.formulario')
                     </div>
                     <div class="box-body hidden" id="divTreinoSemana">
                         @include('admin.treino.formularioSemana')
                     </div>
-                    <div class="box-body hidden" id="divTreinoAdicionarSemana">
+                    <div class="box-body " id="divTreinoAdicionarSemana">
                         @include('admin.treino.formularioAdicionarSemana')
                     </div>
                     <!-- <div class="box-footer">
@@ -72,6 +72,34 @@
         $('#addOpcaoTreino').on('click', function(){
             $("#divTreinoAdicionarSemana").removeClass('hidden');
         });
+
+        AddTableRow = function(){
+            var newRow = $("<tr>");
+            var cols = "";
+
+            cols += '<td>&nbsp;</td>';
+            cols += '<td>&nbsp;</td>';
+            cols += '<td>&nbsp;</td>';
+            cols += '<td>&nbsp;</td>';
+            cols += '<td>&nbsp;</td>';
+            cols += '<td>&nbsp;</td>';
+            cols += '</td>';
+
+            newRow.append(cols);
+            $("#tabelaExercicios").append(newRow);
+
+            return false;
+        };
+
+        RemoveTableRow = function(item){
+            var tr = $(item).closest('tr');
+
+            tr.fadeOut(400, function(){
+                tr.remove();
+            });
+            
+            return false;
+        }
     });
 </script>
 @stop

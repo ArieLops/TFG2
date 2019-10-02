@@ -163,10 +163,12 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Way\Generators\GeneratorsServiceProvider::class,
         Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
-        //Provider registrado para realizar a listagem de pessoas na view exames
+        //Provider registrado para realizar a listagem de pessoas
         App\Providers\ProviderListaPessoas::class,
-        //Provider registrado para realizar a listagem dos objetivos na view treino
+        //Provider registrado para realizar a listagem dos objetivos
         App\Providers\ProviderListaObjetivos::class,
+        //Provider registrado para realizar a listagem dos exercicio
+        App\Providers\ProviderListaExercicios::class,
 
         /*
          * Package Service Providers...
