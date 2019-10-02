@@ -83,6 +83,8 @@
             cols += '<td>&nbsp;</td>';
             cols += '<td>&nbsp;</td>';
             cols += '<td>&nbsp;</td>';
+            cols += '<td>';
+            cols += '<button onclick="RemoveTableRow(this)" class="btn btn-danger" type="button"><i class="fas fa-trash-alt"></i></button>';
             cols += '</td>';
 
             newRow.append(cols);
