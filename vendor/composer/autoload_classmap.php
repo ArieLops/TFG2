@@ -54,6 +54,7 @@ return array(
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
+    'App\\Providers\\ProviderListaExercicios' => $baseDir . '/app/Providers/ProviderListaExercicios.php',
     'App\\Providers\\ProviderListaObjetivos' => $baseDir . '/app/Providers/ProviderListaObjetivos.php',
     'App\\Providers\\ProviderListaPessoas' => $baseDir . '/app/Providers/ProviderListaPessoas.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
