@@ -454,6 +454,7 @@ class ComposerStaticInit882730ad168473ae06b3b26b29ea23fc
         'App\\Http\\Models\\Praticante' => __DIR__ . '/../..' . '/app/Http/Models/Praticante.php',
         'App\\Http\\Models\\Users' => __DIR__ . '/../..' . '/app/Http/Models/Users.php',
         'App\\Http\\Requests\\ValidacaoAparelho' => __DIR__ . '/../..' . '/app/Http/Requests/ValidacaoAparelho.php',
+        'App\\Http\\Requests\\ValidacaoExame' => __DIR__ . '/../..' . '/app/Http/Requests/ValidacaoExame.php',
         'App\\Http\\Requests\\ValidacaoExercicio' => __DIR__ . '/../..' . '/app/Http/Requests/ValidacaoExercicio.php',
         'App\\Http\\Requests\\ValidacaoMusculatura' => __DIR__ . '/../..' . '/app/Http/Requests/ValidacaoMusculatura.php',
         'App\\Http\\Requests\\ValidacaoObjetivo' => __DIR__ . '/../..' . '/app/Http/Requests/ValidacaoObjetivo.php',

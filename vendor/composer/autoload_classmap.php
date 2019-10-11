@@ -46,6 +46,7 @@ return array(
     'App\\Http\\Models\\Praticante' => $baseDir . '/app/Http/Models/Praticante.php',
     'App\\Http\\Models\\Users' => $baseDir . '/app/Http/Models/Users.php',
     'App\\Http\\Requests\\ValidacaoAparelho' => $baseDir . '/app/Http/Requests/ValidacaoAparelho.php',
+    'App\\Http\\Requests\\ValidacaoExame' => $baseDir . '/app/Http/Requests/ValidacaoExame.php',
     'App\\Http\\Requests\\ValidacaoExercicio' => $baseDir . '/app/Http/Requests/ValidacaoExercicio.php',
     'App\\Http\\Requests\\ValidacaoMusculatura' => $baseDir . '/app/Http/Requests/ValidacaoMusculatura.php',
     'App\\Http\\Requests\\ValidacaoObjetivo' => $baseDir . '/app/Http/Requests/ValidacaoObjetivo.php',

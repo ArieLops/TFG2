@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Models\Treino;
 
 class TreinoController extends Controller
 {
@@ -20,7 +21,9 @@ class TreinoController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $treino = new Treino();
+
+        dd($request);
     }
 
     public function show($id)

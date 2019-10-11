@@ -31,7 +31,7 @@ class ExameController extends Controller
         return view('admin.exame.criar');
     }
 
-    public function store(Request $request){
+    public function store(ValidacaoExame $request){
         $path = $request->file('arquivo')->store('storage','public');
         $exame = new Exame();
         $exame->praticante_id = $request->input('usuarioID');

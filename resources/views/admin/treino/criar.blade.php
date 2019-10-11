@@ -13,20 +13,20 @@
                 <a href="" class="btn btn-info btn-sm pull-right">Listar Treinos</a>
             </div>
             <div class="box-body">
-                <form action="{{route('adicionarTreino')}}" class="validacao" id="formTreino" method="POST" autocomplete="off">
+                <form action="{{route('salvarTreino')}}" class="validacao" id="formTreino" method="POST" autocomplete="off">
                     @csrf
-                    <div class="box-body hidden" id="divTreino">
+                    <div class="box-body" id="divTreino">
                         @include('admin.treino.formulario')
                     </div>
                     <div class="box-body hidden" id="divTreinoSemana">
                         @include('admin.treino.formularioSemana')
                     </div>
-                    <div class="box-body " id="divTreinoAdicionarSemana">
+                    <div class="box-body hidden" id="divTreinoAdicionarSemana">
                         @include('admin.treino.formularioAdicionarSemana')
                     </div>
-                    <!-- <div class="box-footer">
+                     <div class="box-footer">
                         @include('includes.botaoFormCriar')
-                    </div> -->
+                    </div>
                 </form>
             </div>
         </div>
@@ -74,28 +74,14 @@
         });
 
         AddTableRow = function(){
-            var newRow = $("<tr>");
-            var cols = "";
-
-            cols += '<td>&nbsp;</td>';
-            cols += '<td>&nbsp;</td>';
-            cols += '<td>&nbsp;</td>';
-            cols += '<td>&nbsp;</td>';
-            cols += '<td>&nbsp;</td>';
-            cols += '<td>&nbsp;</td>';
-            cols += '<td>';
-            cols += '<button onclick="RemoveTableRow(this)" class="btn btn-danger" type="button"><i class="fas fa-trash-alt"></i></button>';
-            cols += '</td>';
-
-            newRow.append(cols);
-            $("#tabelaExercicios").append(newRow);
-
-            return false;
-        };
+            var $tableBody = $("#tabelaExercicios").find('tbody'),
+                $trLast = $tableBody.find("tr:last"),
+                $trNew = $trLast.clone();
+                $trLast.after($trNew);
+        }
 
         RemoveTableRow = function(item){
             var tr = $(item).closest('tr');
-
             tr.fadeOut(400, function(){
                 tr.remove();
             });

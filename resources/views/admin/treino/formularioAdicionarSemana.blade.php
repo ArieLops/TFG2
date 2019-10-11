@@ -22,7 +22,7 @@
                     </tr>
                 </thead>
                 <tbody id="tblConteudo" class="">
-                    <tr style="width: 100%">
+                    <tr style="width: 100%" id="exercicio-1">
                         <td class="text-center" style="width: 20%;">
                             <select class="form-control" name="usuarioID" id="usuarioID">
                                 <option selected disabled value="">Exercício</option>
