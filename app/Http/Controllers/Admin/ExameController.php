@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Models\Exame;
 use App\Http\Requests\ValidacaoExame;
 use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
 
 class ExameController extends Controller
 { 
@@ -34,8 +35,8 @@ class ExameController extends Controller
         $path = $request->file('arquivo')->store('storage','public');
         $exame = new Exame();
         $exame->praticante_id = $request->input('usuarioID');
-        $exame->dataRealizado = $request->input('dataRealizado');
-        $exame->dataRealizado = \DateTime::createFromFormat('d-m-Y', '10-16-2003')->format('Y-m-d');
+        $limpaData = str_replace('/', '-', $request->input('dataRealizado'));
+        $exame->dataRealizado = Carbon::parse($limpaData);
         $exame->arquivo = $path;
         $exame->save();
         return redirect('admin/exame/adicionar')->with('mensagem', 'Registro adicionado com sucesso!');
