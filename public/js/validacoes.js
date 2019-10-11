@@ -28,7 +28,7 @@ $(function(){
                 maxlength: 10
             },
             tipo: {
-                required: true
+                required: true,
             },
         },
         messages: {

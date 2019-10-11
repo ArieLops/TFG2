@@ -13,8 +13,8 @@
                 <a href="" class="btn btn-info btn-sm pull-right">Listar Treinos</a>
             </div>
             <div class="box-body">
-                <form action="{{route('adicionarTreino')}}" id="formTreino" method="POST" autocomplete="off">
-                    {{ csrf_field() }}
+                <form action="{{route('adicionarTreino')}}" class="validacao" id="formTreino" method="POST" autocomplete="off">
+                    @csrf
                     <div class="box-body hidden" id="divTreino">
                         @include('admin.treino.formulario')
                     </div>

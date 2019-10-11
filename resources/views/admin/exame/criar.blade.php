@@ -13,7 +13,7 @@
                 <a href="{{route('listarExame')}}" class="btn btn-info btn-sm pull-right">Listar Exames</a>
             </div>
             <div class="box-body">
-                <form action="{{route('salvarExame')}}" id="formExame" method="POST" autocomplete="off" enctype="multipart/form-data">
+                <form action="{{route('salvarExame')}}" class="validacao" id="formExame" method="POST" autocomplete="off" enctype="multipart/form-data">
                     @csrf
                     <div class="box-body">
                         @include('admin.exame.formulario')
