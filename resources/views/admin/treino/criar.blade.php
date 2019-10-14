@@ -15,13 +15,13 @@
             <div class="box-body">
                 <form action="{{route('salvarTreino')}}" class="validacao" id="formTreino" method="POST" autocomplete="off">
                     @csrf
-                    <div class="box-body" id="divTreino">
+                    <div class="box-body hidden" id="divTreino">
                         @include('admin.treino.formulario')
                     </div>
                     <div class="box-body hidden" id="divTreinoSemana">
                         @include('admin.treino.formularioSemana')
                     </div>
-                    <div class="box-body hidden" id="divTreinoAdicionarSemana">
+                    <div class="box-body" id="divTreinoAdicionarSemana">
                         @include('admin.treino.formularioAdicionarSemana')
                     </div>
                      <div class="box-footer">
@@ -72,22 +72,37 @@
         $('#addOpcaoTreino').on('click', function(){
             $("#divTreinoAdicionarSemana").removeClass('hidden');
         });
+        
+        jQuery(document).delegate('a.delete-registro', 'click', function(e) {
+            e.preventDefault();
 
-        AddTableRow = function(){
-            var $tableBody = $("#tabelaExercicios").find('tbody'),
-                $trLast = $tableBody.find("tr:last"),
-                $trNew = $trLast.clone();
-                $trLast.after($trNew);
-        }
-
-        RemoveTableRow = function(item){
-            var tr = $(item).closest('tr');
-            tr.fadeOut(400, function(){
-                tr.remove();
+        var didConfirm = confirm("Você tem certeza que deseja excluir?");
+            if (didConfirm == true) {
+                var id = jQuery(this).attr('data-id');
+                var targetDiv = jQuery(this).attr('targetDiv');
+            jQuery('#exercicio-' + id).remove();
+      
+            //Regenera o número do indice da tabela
+            $('#tabelaExerciciosBody tr').each(function(index) {
+                $(this).find('span.sn').html(index + 1);
             });
-            
-            return false;
-        }
+                return true;
+            } else {
+                return false;
+            }
+        });
+
+        jQuery(document).delegate('.add-registro', 'click', function(e) {
+            e.preventDefault();    
+            var content = jQuery('#tabelaExercicioAmostra tr'),
+            size = jQuery('#tabelaExercicios >tbody >tr').length + 1,
+            element = null,    
+            element = content.clone();
+            element.attr('id', 'exercicio-'+size);
+            element.find('.delete-registro').attr('data-id', size);
+            element.appendTo('#tabelaExerciciosBody');
+            element.find('.sn').html(size);
+        });
     });
 </script>
 @stop
