@@ -1,7 +1,7 @@
 <div class="form-row">
     <div class="form-group col-md-6">
         <label for="praticante_id" class="required">Nome</label>
-        <select class="form-control selectPesquisa" name="praticante_id" id="praticante_id">
+        <select class="form-control" name="praticante_id" id="praticante_id">
             <option selected="selected">Selecione o Aluno</option>
                 @<?php foreach ($arrayPessoas as $dados): ?>
                 <option id="selectPessoaArray" value="{{$dados->id}}">{{$dados->nome}}</option>
