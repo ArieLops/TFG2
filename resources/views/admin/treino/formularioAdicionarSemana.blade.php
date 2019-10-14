@@ -5,7 +5,8 @@
             <input type="text" class="form-control">
         </div>
         <a class="btn btn-warning pull-right add-registro" data-added="0">
-            <i class="glyphicon glyphicon-plus"></i> Adicionar exercício</a>
+            <i class="glyphicon glyphicon-plus"></i> Adicionar exercício
+        </a>
         </div>
         <div class="row">
             <div class="col-xs-12">
