@@ -14,4 +14,8 @@ class Pessoa extends Model
     protected $fillable = ['nome', 'email', 'data_nascimento', 'sexo', 'telefone', 'cpf', 'rg', 'tipo'];
     protected $dates    = ['deleted_at'];
 
+    public function exames(){
+        return $this->hasMany(Exames::class);
+    }
+
 }

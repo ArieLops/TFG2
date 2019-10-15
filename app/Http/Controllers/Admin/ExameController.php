@@ -35,10 +35,10 @@ class ExameController extends Controller
         return view('admin.exame.criar');
     }
 
-    public function store(ValidacaoExame $request){
+    public function store(Request $request){
         $path = $request->file('arquivo')->store('storage','public');
         $exame = new Exame();
-        $exame->praticante_id = $request->input('usuarioID');
+        $exame->pessoa_id = $request->input('pessoa_id');
         $limpaData = str_replace('/', '-', $request->input('dataRealizado'));
         $exame->dataRealizado = Carbon::parse($limpaData);
         $exame->arquivo = $path;

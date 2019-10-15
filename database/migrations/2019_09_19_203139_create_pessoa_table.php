@@ -14,7 +14,8 @@ class CreatePessoaTable extends Migration {
 	{
 		Schema::create('pessoa', function(Blueprint $table)
 		{
-			$table->integer('id', true);
+			$table->increments('id', true);
+
 			$table->string('nome', 45);
 			$table->string('foto', 45)->nullable();
 			$table->date('data_nascimento')->nullable();

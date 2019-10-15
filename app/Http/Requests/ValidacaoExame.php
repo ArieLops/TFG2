@@ -11,11 +11,11 @@ class ValidacaoExame extends FormRequest
     {
         return true;
     }
-
+    
     public function rules()
     {
         return [
-            'usuarioID'  => 'required',
+            'pessoa_id'  => 'required',
             'dataRealizado' => 'required',
             'arquivo' => 'required|mimes:jpg|mimes:pdf|mimes:png',
         ];
@@ -24,7 +24,7 @@ class ValidacaoExame extends FormRequest
 
     public function messages(){
         return [
-            'usuarioID.required' => "O campo NOME deve ser preenchido",
+            'pessoa_id.required' => "O campo NOME deve ser preenchido",
             'dataRealizado.required' => "O campo DATA deve ser preenchido",
             'arquivo.required' => 'O campo ARQUIVO deve receber um arquivo PDF, JPG ou PNG',
         ];

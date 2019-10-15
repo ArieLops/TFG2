@@ -14,8 +14,10 @@ class CreateExameTable extends Migration {
 	{
 		Schema::create('exame', function(Blueprint $table)
 		{
-			$table->integer('id', true);
-			$table->integer('praticante_id')->nullable();
+			$table->increments('id', true);
+			$table->integer('pessoa_id')->unsigned();
+			$table->foreign('pessoa_id')->references('id')->on('pessoa')->onUpdate('cascade')->onDelete('cascade');
+
 			$table->dateTime('dataRealizado')->nullable();
 			$table->string('arquivo')->nullable();
 			$table->timestamps();

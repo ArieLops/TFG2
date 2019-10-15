@@ -13,4 +13,10 @@ class Exame extends Model
     protected $table    = 'exame';
     protected $fillable = ['praticante_id', 'dataRealizado', 'arquivo'];
     protected $dates    = ['deleted_at'];
+
+    public function pessoa(){
+        $caminhoPessoa = 'App\Http\Models\Pessoa';
+        
+        return $this->belongsTo($caminhoPessoa);
+    }
 }
