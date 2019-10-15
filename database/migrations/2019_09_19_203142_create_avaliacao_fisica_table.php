@@ -11,8 +11,8 @@ class CreateAvaliacaoFisicaTable extends Migration {
 		{
 			
 			$table->increments('id');
-			$table->integer('praticante_id')->unsigned();
-			$table->foreign('praticante_id')->references('id')->on('praticante')->onUpdate('cascade')->onDelete('cascade');
+			$table->integer('pessoa_id')->unsigned();
+			$table->foreign('pessoa_id')->references('id')->on('pessoa')->onUpdate('cascade')->onDelete('cascade');
 
 			$table->date('dataInicial');
 			$table->date('dataFinal');

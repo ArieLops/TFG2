@@ -11,7 +11,7 @@ class Exame extends Model
 
     public $timestamps  = true;
     protected $table    = 'exame';
-    protected $fillable = ['praticante_id', 'dataRealizado', 'arquivo'];
+    protected $fillable = ['pessoa_id', 'dataRealizado', 'arquivo'];
     protected $dates    = ['deleted_at'];
 
     public function pessoa(){

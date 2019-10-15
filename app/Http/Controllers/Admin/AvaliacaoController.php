@@ -21,6 +21,11 @@ class AvaliacaoController extends Controller
         $avaliacoes = Avaliacao::orderBy('id')->get();
         $avaliacoes = $this->avaliacao->paginate($this->paginacao);
 
+        foreach($avaliacoes as $avaliacao){
+            $avaliacao->dataInicial = date('d/m/Y', strtotime($avaliacao->dataInicial));
+            $avaliacao->dataFinal = date('d/m/Y', strtotime($avaliacao->dataFinal));
+        }
+
         return view('admin.listarAvaliacao', compact('avaliacoes'));
     }
 
@@ -53,7 +58,7 @@ class AvaliacaoController extends Controller
         $avaliacao->dataInicial;
         $avaliacao->dataFinal;
         
-        $avaliacao->praticante_id = $request->praticante_id;
+        $avaliacao->pessoa_id = $request->pessoa_id;
         $avaliacao->massa = $request->input('massa');
         $avaliacao->estatura = $request->input('estatura');
         $avaliacao->peitoral = $request->input('peitoral');

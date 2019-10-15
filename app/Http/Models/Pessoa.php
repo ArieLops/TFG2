@@ -18,4 +18,8 @@ class Pessoa extends Model
         return $this->hasMany(Exames::class);
     }
 
+    public function avaliacoes(){
+        return $this->hasMany(Avaliacao::class);
+    }
+    
 }
