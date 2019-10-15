@@ -24,6 +24,10 @@ class ExameController extends Controller
         $exames = Exame::orderBy('id')->get();
         $exames = $this->exame->paginate($this->paginacao);
 
+        foreach($exames as $exame){
+            $exame->dataRealizado = date('d/m/Y', strtotime($exame->dataRealizado));
+        }
+        
         return view('admin.listarExame', compact('exames'));
     }
 

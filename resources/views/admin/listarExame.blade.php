@@ -21,7 +21,7 @@
             <tr>
                 <td>{{$exame->id}}</td>
                 <td>{{$exame->nome}}</td>
-                <td>{{$exame->dtRealizado}}</td>
+                <td>{{$exame->dataRealizado}}</td>
                 <td><a href="/admin/exame/{{$exame->id}}/download" class="btn btn-info"><i class="fas fa-download"></i></a></td>
             </tr>
             @endforeach
