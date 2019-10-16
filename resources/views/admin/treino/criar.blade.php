@@ -15,16 +15,16 @@
             <div class="box-body">
                 <form action="{{route('salvarTreino')}}" class="validacao" id="formTreino" method="POST" autocomplete="off">
                     @csrf
-                    <div class="box-body hidden" id="divTreino">
+                    <div class="box-body " id="divTreino">
                         @include('admin.treino.formulario')
                     </div>
                     <div class="box-body hidden" id="divTreinoSemana">
                         @include('admin.treino.formularioSemana')
                     </div>
-                    <div class="box-body" id="divTreinoAdicionarSemana">
+                    <div class="box-body hidden" id="divTreinoAdicionarSemana">
                         @include('admin.treino.formularioAdicionarSemana')
                     </div>
-                     <div class="box-footer">
+                     <div class="box-footer hidden">
                         @include('includes.botaoFormCriar')
                     </div>
                 </form>

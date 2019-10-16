@@ -45,4 +45,8 @@ $(function(){
         "firstDay": 1
         }
     });
+
+    $('.numerico').keyup(function() {
+        $(this).val(this.value.replace(/\D/g, ''));
+    });
 });

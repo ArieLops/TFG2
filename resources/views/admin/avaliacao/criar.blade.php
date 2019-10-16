@@ -13,7 +13,7 @@
                 <a href="{{route('listarAvaliacao')}}" class="btn btn-info btn-sm pull-right">Listar Avaliações</a>
             </div>
             <div class="box-body">
-                <form action="{{route('salvarAvaliacao')}}" id="formAvaliacao" method="POST" autocomplete="off">
+                <form action="{{route('salvarAvaliacao')}}" class="validacao" id="formAvaliacao" method="POST" autocomplete="off">
                     @csrf
                     <div class="box-body">
                         @include('admin.avaliacao.formulario')

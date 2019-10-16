@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Models\Avaliacao;
+use App\Http\Requests\ValidacaoAvaliacao;
 
 class AvaliacaoController extends Controller
 {
