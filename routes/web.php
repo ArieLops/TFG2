@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Models\Exercicio;
+use App\Http\Models\Musculatura;
+use App\Http\Models\Exercicio_Musculatura;
+
 Route::group(['middleware' => ['auth'], 'namespace' => 'Admin'], function(){
     Route::get('admin',        'AdminController@index')->name('admin');
     /*Rotas Pessoa*/

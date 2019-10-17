@@ -14,7 +14,8 @@ class CreateMusculaturaTable extends Migration {
 	{
 		Schema::create('musculatura', function(Blueprint $table)
 		{
-			$table->integer('id', true);
+			$table->increments('id');
+
 			$table->string('nome', 45);
 			$table->timestamps();
 			$table->time('deleted_at')->nullable();

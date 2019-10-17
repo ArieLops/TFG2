@@ -4,13 +4,10 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
     public function run()
     {
-        $this->call(UsersTableSeeder::class);
+        $this->call(ExercicioSeeder::class);
+        $this->call(MusculaturaSeeder::class);
+        $this->call(Exercicio_MusculaturaSeeder::class);
     }
 }
