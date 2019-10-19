@@ -13,7 +13,8 @@
         <table class="table table-bordered table-hover table-striped">
             <tr style="width: 100%">
                 <th style="width: 5%">ID</th>
-                <th style="width: 70%">Nome</th>
+                <th style="width: 35%">Nome</th>
+                <th style="width: 35%">Musculatura</th>
                 <th>Ação</th>
             </tr>
             @foreach($exercicios as $exercicio)
@@ -21,7 +22,14 @@
                 <td>{{$exercicio->id}}</td>
                 <td>{{$exercicio->nome}}</td>
                 <td>
-                    <a href="/admin/exercicio/{{$exercicio->id}}/editar" class="btn btn-primary">Editar</a>
+                <!-- No foreach abaixo estou percorrendo o objeto exercicio com a function musculaturas para 
+                identificar quais os exercicios com suas musculaturas = tags -->
+                @foreach($exercicio->musculaturas as $umaTag)
+                    <span class="label label-info label-many">{{$umaTag->nome}}</span>
+                @endforeach
+                </td>
+                <td>
+                    <!--<a href="/admin/exercicio/{{$exercicio->id}}/editar" class="btn btn-primary">Editar</a>-->
                     <a href="/admin/exercicio/{{$exercicio->id}}/excluir" class="btn btn-danger">Excluir</a>
                 </td>
             </tr>
