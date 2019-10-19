@@ -33,7 +33,7 @@
                     <div class="icon">
                         <i class="fa fa-fw fa-edit"></i>
                     </div>
-                    <a href="#" class="small-box-footer">Listar <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="{{route('listarExercicio')}}" class="small-box-footer">Listar <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <div class="col-lg-3 col-xs-6">
