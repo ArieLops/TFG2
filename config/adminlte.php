@@ -139,32 +139,33 @@ return [
             'icon' => 'fas fa-users',
         ],
         [
-            'text'    => 'Treinos',
-            'icon'    => 'fa fa-edit',
+            'text' => 'Treinos',
+            'url'  => 'admin/treino/adicionar',
+            'icon' => 'fa fa-edit',
+        ],
+        [
+            'text'    => 'Configurações',
+            'url'  => 'admin/configuracao/adicionar',
+            'icon'    => 'fa fa-cogs',
             'submenu' => [
                 [
-                    'text' => 'Treino',
-                    'url'  => 'admin/treino/adicionar',
-                    'icon_color' => 'yellow',
-                ],
-                [
                     'text' => 'Musculatura',
-                    'url'  => 'admin/musculatura',
+                    'url'  => 'admin/configuracao/musculatura',
                     'icon_color' => 'yellow',
                 ],
                 [
                     'text' => 'Exercício',
-                    'url'  => 'admin/exercicio',
+                    'url'  => 'admin/configuracao/exercicio',
                     'icon_color' => 'yellow',
                 ],
                 [
                     'text' => 'Aparelho',
-                    'url'  => 'admin/aparelho',
+                    'url'  => 'admin/configuracao/aparelho',
                     'icon_color' => 'yellow',
                 ],
                 [
                     'text' => 'Objetivo',
-                    'url'  => 'admin/objetivo',
+                    'url'  => 'admin/configuracao/objetivo',
                     'icon_color' => 'yellow',
                 ],
             ],

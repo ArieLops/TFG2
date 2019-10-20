@@ -47,35 +47,18 @@ class ExercicioController extends Controller
         $exercicio = Exercicio::create($request->all());
         //Na linha abaixo estou utilizando a function 'musculaturas' que foi criada dentro da model de exercicio 
         //para apontar um relacionamento de n para n
-        $exercicio->musculaturas()->sync((array)$request->input('tags'));
+        $exercicio->musculaturas()->sync((array)$request->input('tagsMusculatura'));
         $exercicio->aparelhos()->sync((array)$request->input('tagsAparelho'));
-        return redirect('admin/exercicio/adicionar')->with('mensagem', 'Registro adicionado com sucesso!');
+        return redirect('admin/configuracao/exercicio/adicionar')->with('mensagem', 'Registro adicionado com sucesso!');
     }
-
-    /*
-    public function edit($id)
-    {
-        $dados = Exercicio::findOrFail($id);
-        return view('admin.exercicio.editar', compact('dados'));
-    }
-    */
-    
-    /*
-    public function update(ValidacaoExercicio $request, $id)
-    {
-        Exercicio::findOrFail($id)->update($request->all());
-        $exercicio->musculaturas()->sync((array)$request->input('tags'));
-        return redirect('admin/exercicio')->with('mensagem', 'Registros atualizado com sucesso!');
-    }
-    */
 
     public function destroy($id)
     {
         Exercicio::destroy($id);
-        return redirect('admin/exercicio')->with('mensagem', 'Registro excluído com sucesso!');
+        return redirect('admin/configuracao/exercicio')->with('mensagem', 'Registro excluído com sucesso!');
     }
 
-    public function find(Request $request)
+    public function findMusculatura(Request $request)
     {
         $term = trim($request->q);
 
@@ -83,12 +66,12 @@ class ExercicioController extends Controller
             return \Response::json([]);
         }
     
-        $tags = Musculatura::search($term)->limit(10)->get();
+        $tagsMusculatura = Musculatura::search($term)->limit(10)->get();
 
         $formatted_tags = [];
 
-        foreach($tags as $tag){
-            $formatted_tags[] = ['id' => $tag->id, 'text' => $tag->nome];
+        foreach($tagsMusculatura as $tagMusculatura){
+            $formatted_tags[] = ['id' => $tagMusculatura->id, 'text' => $tagMusculatura->nome];
         }
 
         return \Response::json($formatted_tags);

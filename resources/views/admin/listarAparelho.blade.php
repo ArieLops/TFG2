@@ -21,8 +21,8 @@
                 <td>{{$aparelho->id}}</td>
                 <td>{{$aparelho->nome}}</td>
                 <td>
-                    <a href="/admin/aparelho/{{$aparelho->id}}/editar"  class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                    <a href="/admin/aparelho/{{$aparelho->id}}/excluir" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                    <a href="/admin/configuracao/aparelho/{{$aparelho->id}}/editar"  class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                    <a href="/admin/configuracao/aparelho/{{$aparelho->id}}/excluir" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
             @endforeach

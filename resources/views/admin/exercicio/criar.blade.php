@@ -32,11 +32,11 @@
 <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <script>
-    $("#tags").select2({
+    $("#tagsMusculatura").select2({
         placeholder: "Escolha as tags das musculaturas ...",
         minimumInputLength: 1,
         ajax: {
-            url: '/admin/exercicio/find',
+            url: '/admin/configuracao/exercicio/findMusculatura',
             dataType: 'json',
             data: function (params) {
                 return {
@@ -57,7 +57,7 @@
         placeholder: "Escolha as tags dos aparelhos ...",
         minimumInputLength: 1,
         ajax: {
-            url: '/admin/exercicio/findAparelho',
+            url: '/admin/configuracao/exercicio/findAparelho',
             dataType: 'json',
             data: function (params) {
                 return {

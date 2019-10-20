@@ -21,8 +21,8 @@
                 <td>{{$objetivo->id}}</td>
                 <td>{{$objetivo->nome}}</td>
                 <td>
-                    <a href="/admin/objetivo/{{$objetivo->id}}/editar" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                    <a href="/admin/objetivo/{{$objetivo->id}}/excluir" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                    <a href="/admin/configuracao/objetivo/{{$objetivo->id}}/editar" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                    <a href="/admin/configuracao/objetivo/{{$objetivo->id}}/excluir" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
             @endforeach

@@ -33,7 +33,7 @@ class ObjetivoController extends Controller
     public function store(ValidacaoObjetivo $request)
     {
         Objetivo::create($request->all());
-        return redirect('admin/objetivo/adicionar')->with('mensagem', 'Registro adicionado com sucesso!');
+        return redirect('admin/configuracao/objetivo/adicionar')->with('mensagem', 'Registro adicionado com sucesso!');
     }
 
     public function show($id)
@@ -50,12 +50,12 @@ class ObjetivoController extends Controller
     public function update(ValidacaoObjetivo $request, $id)
     {
         Objetivo::findOrFail($id)->update($request->all());
-        return redirect('admin/objetivo')->with('mensagem', 'Registros atualizado com sucesso!');
+        return redirect('admin/configuracao/objetivo')->with('mensagem', 'Registros atualizado com sucesso!');
     }
 
     public function destroy($id)
     {
         Objetivo::destroy($id);
-        return redirect('admin/objetivo')->with('mensagem', 'Registro excluído com sucesso!');
+        return redirect('admin/configuracao/objetivo')->with('mensagem', 'Registro excluído com sucesso!');
     }
 }

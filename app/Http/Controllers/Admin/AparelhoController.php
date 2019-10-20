@@ -33,7 +33,7 @@ class AparelhoController extends Controller
     public function store(ValidacaoAparelho $request)
     {
         Aparelho::create($request->all());
-        return redirect('admin/aparelho/adicionar')->with('mensagem', 'Registro adicionado com sucesso!');
+        return redirect('admin/configuracao/aparelho/adicionar')->with('mensagem', 'Registro adicionado com sucesso!');
     }
 
     public function show($id)
@@ -50,12 +50,12 @@ class AparelhoController extends Controller
     public function update(ValidacaoAparelho $request, $id)
     {
         Aparelho::findOrFail($id)->update($request->all());
-        return redirect('admin/aparelho')->with('mensagem', 'Registros atualizado com sucesso!');
+        return redirect('admin/configuracao/aparelho')->with('mensagem', 'Registros atualizado com sucesso!');
     }
 
     public function destroy($id)
     {
         Aparelho::destroy($id);
-        return redirect('admin/aparelho')->with('mensagem', 'Registro excluído com sucesso!');
+        return redirect('admin/configuracao/aparelho')->with('mensagem', 'Registro excluído com sucesso!');
     }
 }

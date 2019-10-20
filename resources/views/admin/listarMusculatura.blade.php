@@ -21,8 +21,8 @@
                 <td>{{$musculatura->id}}</td>
                 <td>{{$musculatura->nome}}</td>
                 <td>
-                    <a href="/admin/musculatura/{{$musculatura->id}}/editar" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                    <a href="/admin/musculatura/{{$musculatura->id}}/excluir" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                    <a href="/admin/configuracao/musculatura/{{$musculatura->id}}/editar" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                    <a href="/admin/configuracao/musculatura/{{$musculatura->id}}/excluir" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
             @endforeach

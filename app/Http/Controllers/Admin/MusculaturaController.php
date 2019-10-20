@@ -33,7 +33,7 @@ class MusculaturaController extends Controller
     public function store(ValidacaoMusculatura $request)
     {
         Musculatura::create($request->all());
-        return redirect('admin/musculatura/adicionar')->with('mensagem', 'Registro adicionado com sucesso!');
+        return redirect('admin/configuracao/musculatura/adicionar')->with('mensagem', 'Registro adicionado com sucesso!');
     }
 
     public function show($id)
@@ -50,12 +50,12 @@ class MusculaturaController extends Controller
     public function update(ValidacaoMusculatura $request, $id)
     {
         Musculatura::findOrFail($id)->update($request->all());
-        return redirect('admin/musculatura')->with('mensagem', 'Registros atualizado com sucesso!');
+        return redirect('admin/configuracao/musculatura')->with('mensagem', 'Registros atualizado com sucesso!');
     }
 
     public function destroy($id)
     {
         Musculatura::destroy($id);
-        return redirect('admin/musculatura')->with('mensagem', 'Registro excluído com sucesso!');
+        return redirect('admin/configuracao/musculatura')->with('mensagem', 'Registro excluído com sucesso!');
     }
 }

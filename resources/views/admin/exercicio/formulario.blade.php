@@ -4,8 +4,8 @@
         <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" value="{{old('nome', $dados->nome ?? '')}}" />
     </div>
     <div class="form-group col-md-4">
-        <label for="tags">Tags Musculatura:</label>
-        <select id="tags" name="tags[]" class="form-control" multiple></select>
+        <label for="tagsMusculatura">Tags Musculatura:</label>
+        <select id="tagsMusculatura" name="tagsMusculatura[]" class="form-control" multiple></select>
     </div>
     <div class="form-group col-md-4">
         <label for="tagsAparelho">Tags Aparelho:</label>
