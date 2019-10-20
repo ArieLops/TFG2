@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Models\Pessoa;
+use App\Http\Models\Objetivo;
 use App\Http\Requests\ValidacaoPessoa;
 
 class PessoaController extends Controller
@@ -78,5 +79,21 @@ class PessoaController extends Controller
     {
         Pessoa::destroy($id);
         return redirect('admin/pessoa')->with('mensagem', 'Registro excluído com sucesso!');
+    }
+
+    public function searchPessoaObjetivo(Request $request){
+        $pessoa = new Pessoa;
+        $objetivo = new Objetivo;
+
+        $usuario = $request->usuarioID;
+        
+        $consultaObjetivoId   = Pessoa::where('id',"=", $usuario)->select('objetivo_id')->get();
+        $consultaObjetivoNome = Objetivo::where('id',"=", $consultaObjetivoId)->select('nome')->get();
+
+        $data = \json_encode($consultaObjetivoNome);
+
+        return response()->json($data);
+        
+        //return view('admin/treino/adicionar');
     }
 }

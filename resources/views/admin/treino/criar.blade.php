@@ -33,6 +33,28 @@
     </div>
 </div>
 <script type="text/javascript">
+    $(function(){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $("#btnAdicionar").click(function(){
+            var usuarioID = $("#usuarioID option:selected").val();
+            $("usuarioID").val(usuarioID);
+            $.ajax({
+                url: '/admin/pessoa/searchPessoaObjetivo',
+                type: 'GET',
+                dataType: 'json',
+                data: 'usuarioID=' + usuarioID,
+                success: function(data){
+                    alert(data);
+                }
+            });
+        });
+    });
+
     $(function() {
         var qntdDiasPadraoTabela = 1;
         let data = new Date();
@@ -43,22 +65,9 @@
         };
         var dataBR = data.toLocaleDateString('pt-BR', dataPt);
 
-        //Objetivo selecionado
-        $(document).ready(function() {
-            $("#selectObjetivo").change(function() {
-                var objetivoSelecionado = $(this).children("option:selected").text();
-                $("#nomeObjetivoTabela").html(objetivoSelecionado);
-            });
-
-            $("#selectPessoa").change(function() {
-                var pessoaSelecionada = $(this).children("option:selected").text();
-            });
-        });
-
         $('#btnAdicionar').on('click', function() {
             $('#tblConteudo').removeClass('hidden');
             $("#selectPessoa").prop('disabled', true);
-            $("#selectObjetivo").prop('disabled', true);
             $("#dataTreinoTabela").html(dataBR);
             $("#semanasTreinoTabela").html(qntdDiasPadraoTabela);
         });
