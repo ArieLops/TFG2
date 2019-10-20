@@ -144,6 +144,21 @@ return [
             'icon' => 'fa fa-edit',
         ],
         [
+            'text' => 'Avaliações',
+            'url'  => 'admin/avaliacao',
+            'icon' => 'fa fa-address-book',
+        ],
+        [
+            'text' => 'Exames',
+            'url'  => 'admin/exame',
+            'icon' => 'fa fa-heartbeat',
+        ],
+        [
+            'text' => 'Anamnese',
+            'url'  => 'admin/anamnese',
+            'icon' => 'fa fa-stethoscope',
+        ],
+        [
             'text'    => 'Configurações',
             'url'  => 'admin/configuracao/adicionar',
             'icon'    => 'fa fa-cogs',
@@ -169,21 +184,6 @@ return [
                     'icon_color' => 'yellow',
                 ],
             ],
-        ],
-        [
-            'text' => 'Avaliações',
-            'url'  => 'admin/avaliacao',
-            'icon' => 'fa fa-address-book',
-        ],
-        [
-            'text' => 'Exames',
-            'url'  => 'admin/exame',
-            'icon' => 'fa fa-heartbeat',
-        ],
-        [
-            'text' => 'Anamnese',
-            'url'  => 'admin/anamnese',
-            'icon' => 'fa fa-stethoscope',
         ],
     ],
 
