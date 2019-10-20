@@ -42,7 +42,7 @@ class ExercicioController extends Controller
         return view('admin.exercicio.criar');
     }
 
-    public function store(Request $request)
+    public function store(ValidacaoExercicio $request)
     {
         $exercicio = Exercicio::create($request->all());
         //Na linha abaixo estou utilizando a function 'musculaturas' que foi criada dentro da model de exercicio 

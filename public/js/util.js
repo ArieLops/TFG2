@@ -7,6 +7,7 @@ $(function(){
     $('.selectPesquisa').select2()
 
     $('.dataUnica').datepicker({
+        format: "dd/mm/yyyy",
         autoclose: true
     })
 
