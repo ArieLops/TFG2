@@ -22,4 +22,7 @@ class Pessoa extends Model
         return $this->hasMany(Avaliacao::class);
     }
     
+    public function objetivo(){
+        return $this->belongsTo(Objetivo::class);
+    }
 }

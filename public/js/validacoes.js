@@ -105,6 +105,12 @@ $(function(){
             tagsAparelho: {
                 required: true,
             },
+            objetivo_id: {
+                required: true,
+            },
+            tipo: {
+                required: true,
+            },
         },
         messages: {
             nome: {
@@ -206,6 +212,12 @@ $(function(){
             },
             tagsAparelho: {
                 required: "Tags é um campo obrigatório",
+            },
+            objetivo_id: {
+                required: "Objetivo é um campo obrigatório",
+            },
+            tipo: {
+                required: "Tipo é um campo obrigatório",
             },
         }
     });

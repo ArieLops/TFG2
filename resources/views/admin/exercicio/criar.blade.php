@@ -15,7 +15,7 @@
                 <a href="{{route('listarExercicio')}}"      class="btn btn-info btn-sm pull-right">Listar Exercicios</a>
             </div>
             <div class="box-body">
-                <form action="{{route('salvarExercicio')}}" id="formExercicio" method="POST" autocomplete="off">
+                <form action="{{route('salvarExercicio')}}" class="validacao" id="formExercicio" method="POST" autocomplete="off">
                     @csrf
                     <div class="box-body">
                         @include('admin.exercicio.formulario')

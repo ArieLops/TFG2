@@ -46,6 +46,15 @@
     </div>
 </div>
 <div class="form-row">
+    <div class="form-group col-md-6">
+        <label for="objetivo_id" class="required">Objetivo</label>
+        <select class="form-control" name="objetivo_id" id="objetivo_id">
+            <option selected disabled value="">Selecione o Objetivo</option>
+            @<?php foreach ($arrayObjetivos as $dados): ?>
+                <option id="selectObjetivoArray" value="{{$dados->id}}">{{$dados->nome}}</option>
+            <?php endforeach; ?>
+        </select>
+    </div>
     <div class="form-group col-md-4">
         <label>Tipo</label>
         <select id="tipo" name="tipo" class="form-control" value="{{old('tipo', $dados->tipo ?? '')}}">

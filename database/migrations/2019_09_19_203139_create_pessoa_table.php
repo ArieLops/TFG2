@@ -16,6 +16,8 @@ class CreatePessoaTable extends Migration {
 		{
 			$table->increments('id', true);
 
+			$table->integer('objetivo_id')->unsigned();
+			$table->foreign('objetivo_id')->references('id')->on('objetivo')->onUpdate('cascade')->onDelete('cascade');;
 			$table->string('nome', 45);
 			$table->string('foto', 45)->nullable();
 			$table->date('data_nascimento')->nullable();

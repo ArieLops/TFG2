@@ -40,7 +40,20 @@ class PessoaController extends Controller
 
     public function store(ValidacaoPessoa $request)
     {
-        Pessoa::create($request->all());
+        $pessoa = new Pessoa;
+
+        $pessoa->nome = $request->nome;
+        $pessoa->email = $request->email;
+        $pessoa->data_nascimento = $request->data_nascimento;
+        $pessoa->sexo = $request->sexo;
+        $pessoa->telefone = $request->telefone;
+        $pessoa->cpf = $request->cpf;
+        $pessoa->rg = $request->rg;
+        $pessoa->objetivo_id = $request->objetivo_id;
+        $pessoa->tipo = $request->tipo;
+
+        $pessoa->save();
+
         return redirect('admin/pessoa/adicionar')->with('mensagem', 'Registro adicionado com sucesso!'); 
     }
 

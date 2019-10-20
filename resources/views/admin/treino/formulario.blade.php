@@ -8,15 +8,6 @@
             <?php endforeach; ?>
         </select>
     </div>
-    <div class="form-group col-md-6">
-        <label for="selectObjetivo" class="required">Objetivo</label>
-        <select class="form-control" name="selectObjetivo" id="selectObjetivo">
-            <option selected disabled value="">Selecione o Objetivo</option>
-            @<?php foreach ($arrayObjetivos as $dados): ?>
-                <option id="selectObjetivoArray" value="{{$dados->id}}">{{$dados->nome}}</option>
-            <?php endforeach; ?>
-        </select>
-    </div>
 </div>
 <div class="form-row">
     <button type="button" id="btnAdicionar" class="btn btn-info" >Adicionar</button>

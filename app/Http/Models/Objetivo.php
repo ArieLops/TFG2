@@ -14,4 +14,7 @@ class Objetivo extends Model
     protected $fillable = ['nome'];
     protected $dates    = ['deleted_at'];
 
+    public function pessoas(){
+        return $this->hasMany(Pessoa::class);
+    }
 }
