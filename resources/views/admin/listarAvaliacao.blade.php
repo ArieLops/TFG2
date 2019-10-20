@@ -26,7 +26,7 @@
                 <td>{{$avaliacao->dataFinal}}</td>
                 <td>
                     {{-- <a href="/admin/avaliacao/{{$avaliacao->id}}/editar" class="btn btn-primary">Editar</a> --}}
-                    <a href="/admin/avaliacao/{{$avaliacao->id}}/excluir" class="btn btn-danger">Excluir</a>
+                    <a href="/admin/avaliacao/{{$avaliacao->id}}/excluir" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
             @endforeach

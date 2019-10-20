@@ -26,8 +26,8 @@
                     <td>{{$pessoa->nome}}</td>
                     <td>{{$pessoa->tipo}}</td>
                     <td>
-                        <a href="/admin/pessoa/{{$pessoa->id}}/editar" class="btn btn-primary">Editar</a>
-                        <a href="/admin/pessoa/{{$pessoa->id}}/excluir" class="btn btn-danger">Excluir</a>
+                        <a href="/admin/pessoa/{{$pessoa->id}}/editar" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                        <a href="/admin/pessoa/{{$pessoa->id}}/excluir" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
                 @endforeach  
