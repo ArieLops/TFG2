@@ -96,6 +96,15 @@ $(function(){
             pernaEsquerda: {
                 required: true,
             },
+            pernaEsquerda: {
+                required: true,
+            },
+            tags: {
+                required: true,
+            },
+            tagsAparelho: {
+                required: true,
+            },
         },
         messages: {
             nome: {
@@ -191,6 +200,12 @@ $(function(){
             },
             pernaEsquerda: {
                 required: "Perna Esquerda é um campo obrigatório",
+            },
+            tags: {
+                required: "Tags é um campo obrigatório",
+            },
+            tagsAparelho: {
+                required: "Tags é um campo obrigatório",
             },
         }
     });

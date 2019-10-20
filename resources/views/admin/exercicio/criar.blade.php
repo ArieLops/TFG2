@@ -10,8 +10,9 @@
         <div class="box box-danger">
             <div class="box-header with-border">
                 <h3 class="box-title">Adicionar Exercicio</h3>
+                <a href="{{route('adicionarAparelho')}}"    class="btn btn btn-sm pull-right" style="margin:0 0px 5px; background-color: #3c8dbc; color:white;">Adicionar Aparelho</a>
                 <a href="{{route('adicionarMusculatura')}}" class="btn btn btn-sm pull-right" style="margin:0 5px; background-color: #ffa500; color:white;">Adicionar Musculatura</a>
-                <a href="{{route('listarExercicio')}}" class="btn btn-info btn-sm pull-right">Listar Exercicios</a>
+                <a href="{{route('listarExercicio')}}"      class="btn btn-info btn-sm pull-right">Listar Exercicios</a>
             </div>
             <div class="box-body">
                 <form action="{{route('salvarExercicio')}}" id="formExercicio" method="POST" autocomplete="off">
@@ -32,10 +33,31 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <script>
     $("#tags").select2({
-        placeholder: "Escolha as tags da musculatura ...",
+        placeholder: "Escolha as tags das musculaturas ...",
         minimumInputLength: 1,
         ajax: {
             url: '/admin/exercicio/find',
+            dataType: 'json',
+            data: function (params) {
+                return {
+                    q: $.trim(params.term)
+                };
+            },
+            processResults: function (data) {
+                return {
+                    results: data
+                };
+            },
+            cache: true
+        }
+    });
+</script>
+<script>
+    $("#tagsAparelho").select2({
+        placeholder: "Escolha as tags dos aparelhos ...",
+        minimumInputLength: 1,
+        ajax: {
+            url: '/admin/exercicio/findAparelho',
             dataType: 'json',
             data: function (params) {
                 return {

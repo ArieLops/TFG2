@@ -19,4 +19,8 @@ class Exercicio extends Model
     public function musculaturas(){
         return $this->belongsToMany("App\Http\Models\Musculatura", "Exercicio_Musculatura");
     }
+
+    public function aparelhos(){
+        return $this->belongsToMany("App\Http\Models\Aparelho", "Exercicio_Aparelho");
+    }
 }

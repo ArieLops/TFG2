@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Models\Exercicio;
 use App\Http\Models\Musculatura;
+use App\Http\Models\Aparelho;
 use App\Http\Requests\ValidacaoExercicio;
 
 class ExercicioController extends Controller
 { 
     private $exercicio;
     private $musculatura;
+    private $aparelho;
     private $paginacao = 5;
 
     public function __construct(Exercicio $exercicio){
@@ -20,6 +22,10 @@ class ExercicioController extends Controller
 
     public function __construct1(Musculatura $musculatura){
         $this->musculatura = $musculatura;
+    }
+
+    public function __construct2(Aparelho $aparelho){
+        $this->aparelho = $aparelho;
     }
 
     public function index()
@@ -42,6 +48,7 @@ class ExercicioController extends Controller
         //Na linha abaixo estou utilizando a function 'musculaturas' que foi criada dentro da model de exercicio 
         //para apontar um relacionamento de n para n
         $exercicio->musculaturas()->sync((array)$request->input('tags'));
+        $exercicio->aparelhos()->sync((array)$request->input('tagsAparelho'));
         return redirect('admin/exercicio/adicionar')->with('mensagem', 'Registro adicionado com sucesso!');
     }
 
@@ -75,8 +82,8 @@ class ExercicioController extends Controller
         if(empty($term)){
             return \Response::json([]);
         }
-
-        $tags = Musculatura::search($term)->limit(2)->get();
+    
+        $tags = Musculatura::search($term)->limit(10)->get();
 
         $formatted_tags = [];
 
@@ -85,5 +92,24 @@ class ExercicioController extends Controller
         }
 
         return \Response::json($formatted_tags);
+    }
+
+    public function findAparelho(Request $request)
+    {
+        $term = trim($request->q);
+
+        if(empty($term)){
+            return \Response::json([]);
+        }
+
+        $tagsAparelho = Aparelho::search($term)->limit(10)->get();
+
+        $formatted_tags_aparelho = [];
+
+        foreach($tagsAparelho as $tagAparelho){
+            $formatted_tags_aparelho[] = ['id' => $tagAparelho->id, 'text' => $tagAparelho->nome];
+        }
+
+        return \Response::json($formatted_tags_aparelho);
     }
 }
