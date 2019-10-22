@@ -87,13 +87,7 @@ class PessoaController extends Controller
 
         $usuario = $request->usuarioID;
         
-        $consultaObjetivoId   = Pessoa::where('id',"=", $usuario)->select('objetivo_id')->get();
-        $consultaObjetivoNome = Objetivo::where('id',"=", $consultaObjetivoId)->select('nome')->get();
-
-        $data = \json_encode($consultaObjetivoNome);
-
-        return response()->json($data);
-        
-        //return view('admin/treino/adicionar');
+        $consultaObjetivoId   = Pessoa::where('id',"=", $usuario)->with('objetivo')->get()->first();
+        return \json_encode($consultaObjetivoId);
     }
 }

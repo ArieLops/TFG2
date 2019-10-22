@@ -42,14 +42,14 @@
 
         $("#btnAdicionar").click(function(){
             var usuarioID = $("#usuarioID option:selected").val();
-            $("usuarioID").val(usuarioID);
             $.ajax({
                 url: '/admin/pessoa/searchPessoaObjetivo',
                 type: 'GET',
                 dataType: 'json',
                 data: 'usuarioID=' + usuarioID,
-                success: function(data){
-                    alert(data);
+                success: function(dados){
+                    var result = dados.objetivo.nome;
+                    document.getElementById('nomeObjetivoTabela').innerHTML = result
                 }
             });
         });
