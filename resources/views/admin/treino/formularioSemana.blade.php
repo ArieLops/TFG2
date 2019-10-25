@@ -1,24 +1,15 @@
 <div class="row">
     <div class="form-group col-md-6">
-        <label for="nome" class="required">Nome</label>
-        <select id="selectPessoa" class="form-control">
-            <option selected="selected">Selecione o Aluno</option>
-            @<?php foreach ($arrayPessoas as $dados): ?>
-                <option id="selectPessoaArray" id="nome" value="{{$dados->id}}">{{$dados->nome}}</option>
-            <?php endforeach; ?>
-        </select>
+        <label for="pessoaSelecionada">Pessoa selecionada</label>
+        <input type="text" class="form-control" id="pessoaSelecionada" name="pessoaSelecionada" disabled>
     </div>
     <div class="form-group col-md-6">
-        <label for="treino">Semana</label>
-        <input type="text" class="form-control" id="semana" name="semana">
+        <label for="objetivoSelecionado">Objetivo selecionado</label>
+        <input type="text" class="form-control" id="objetivoSelecionado" name="objetivoSelecionado" disabled>
     </div>
 </div>
 <div class="row">
-    <div class="form-group col-md-6">
-        <label for="treino">Treino selecionado</label>
-        <input type="text" class="form-control" id="treinoSemana" name="treinoSemana" value="">
-    </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-3">
         <label for="treino">Vigência do treino</label>
         <div class="input-group">
             <div class="input-group-addon">

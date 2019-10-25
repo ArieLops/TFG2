@@ -17,7 +17,7 @@ class AnamneseController extends Controller
 
     public function index()
     {
-        //Listar todos as musculaturas cadastradas
+        //Listar todos as anamneses cadastradas
         $anamneses = Anamnese::orderBy('id')->get();
         $anamneses = $this->anamnese->paginate($this->paginacao);
 

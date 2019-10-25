@@ -30,7 +30,6 @@
                             <th class="text-center" style="width: 5%">Visualizar</th>
                             <th class="text-center" style="width: 26,66%">Objetivo</th>
                             <th class="text-center" style="width: 26,66%">Cadastro</th>
-                            <th class="text-center" style="width: 26,66%">Semana</th>
                         </tr>
                     </thead>
                     <tbody id="tblConteudo" class="hidden">
@@ -42,7 +41,6 @@
                             <td class="text-center" style="width: 5%"><a class="btn-class"><i class="glyphicon glyphicon-zoom-in"></i></a></td>
                             <td class="text-center" style="width: 26,66%" id="nomeObjetivoTabela"></td>
                             <td class="text-center" style="width: 26,66%" id="dataTreinoTabela"></td>
-                            <td class="text-center" style="width: 26,66%" id="semanasTreinoTabela"></td>
                         </tr>
                     </tbody>
                 </table>

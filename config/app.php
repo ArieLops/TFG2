@@ -169,6 +169,8 @@ return [
         App\Providers\ProviderListaObjetivos::class,
         //Provider registrado para realizar a listagem dos exercicio
         App\Providers\ProviderListaExercicios::class,
+        //Provider registrado para realizar a listagem dos sinais
+        App\Providers\ProviderListaSinais::class,
 
         /*
          * Package Service Providers...

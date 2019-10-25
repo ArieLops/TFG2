@@ -53,10 +53,16 @@
                 }
             });
         });
+
+        $("#criar").click(function(){
+            var nomePessoa = $("#usuarioID option:selected").html();
+            var objetivo = $("#nomeObjetivoTabela").html();
+            $("#pessoaSelecionada").val(nomePessoa);
+            $("#objetivoSelecionado").val(objetivo);
+        });
     });
 
     $(function() {
-        var qntdDiasPadraoTabela = 1;
         let data = new Date();
         let dataPt = {
             year: 'numeric',
@@ -69,22 +75,21 @@
             $('#tblConteudo').removeClass('hidden');
             $("#selectPessoa").prop('disabled', true);
             $("#dataTreinoTabela").html(dataBR);
-            $("#semanasTreinoTabela").html(qntdDiasPadraoTabela);
         });
 
         $('#criar').on('click', function() {
             $("#divTreino").addClass('hidden');
             $("#divTreinoSemana").removeClass('hidden');
-            $("#semana").val(qntdDiasPadraoTabela);
         });
 
         $('#addOpcaoTreino').on('click', function(){
             $("#divTreinoAdicionarSemana").removeClass('hidden');
         });
         
+        //Criado para deletar registro da listagem de exercicios
         jQuery(document).delegate('a.delete-registro', 'click', function(e) {
             e.preventDefault();
-
+        //Mensagem de confirmação de exclusão
         var didConfirm = confirm("Você tem certeza que deseja excluir?");
             if (didConfirm == true) {
                 var id = jQuery(this).attr('data-id');
@@ -100,7 +105,7 @@
                 return false;
             }
         });
-
+        //Adiciona exercicio na listagem para adição do mesmo
         jQuery(document).delegate('.add-registro', 'click', function(e) {
             e.preventDefault();    
             var content = jQuery('#tabelaExercicioAmostra tr'),
