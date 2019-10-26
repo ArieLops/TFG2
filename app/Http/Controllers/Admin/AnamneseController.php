@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Models\Anamnese;
+use App\Http\Models\Anamnese_Sinal;
+use Carbon\Carbon;
 
 class AnamneseController extends Controller
 {
@@ -33,7 +35,28 @@ class AnamneseController extends Controller
     {
         $anamnese = new Anamnese;
 
-        dd($request);
+        //dd($request);
+
+        $anamnese->pessoa_id       = $request->pessoa_id;
+        $anamnese->condicionamento = $request->condicionamento;
+
+        $limpaData = str_replace('/', '-', $request->input('dataUltimoCheckup'));
+        $anamnese->dataUltimoCheckup = Carbon::parse($limpaData);
+
+        $anamnese->tipoSanguineo        = $request->tipoSanguineo;
+        $anamnese->atividadeOcupacional = $request->atividadeOcupacional;
+        $anamnese->pressaoSistolica     = $request->pressaoSistolica;
+        $anamnese->pressaoDiastolica    = $request->pressaoDiastolica;
+        $anamnese->glicose              = $request->glicose;
+        $anamnese->triglicerideos       = $request->triglicerideos;
+
+        $id = $anamnese->save();
+
+        if($id != 0){
+            foreach($request->sinalID as $key => $value){
+                (new Anamnese_Sinal())->createAnamneseSinal($id, $request->sinalID[$key]);
+            }
+        }
     }
 
     public function show($id)

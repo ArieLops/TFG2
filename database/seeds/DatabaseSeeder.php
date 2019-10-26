@@ -10,5 +10,7 @@ class DatabaseSeeder extends Seeder
         $this->call(MusculaturaSeeder::class);
         $this->call(Exercicio_MusculaturaSeeder::class);
         $this->call(SinalSeeder::class);
+        $this->call(ObjetivoSeeder::class);
+        $this->call(PessoaSeeder::class);
     }
 }

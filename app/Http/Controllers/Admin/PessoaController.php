@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Models\Pessoa;
 use App\Http\Models\Objetivo;
 use App\Http\Requests\ValidacaoPessoa;
+use App\Http\Controllers\Admin\DB;
 
 class PessoaController extends Controller
 {
