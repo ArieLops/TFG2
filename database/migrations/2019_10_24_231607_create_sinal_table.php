@@ -12,7 +12,6 @@ class CreateSinalTable extends Migration
             $table->increments('id');
 
             $table->string('nome', 255);
-            $table->string('comentario', 255);
             $table->timestamps();
             $table->time('deleted_at')->nullable();
         });

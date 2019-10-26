@@ -13,6 +13,7 @@ class CreateAnamneseSinalTable extends Migration
             $table->foreign('anamnese_id')->references('id')->on('anamnese')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('sinal_id')->unsigned();
             $table->foreign('sinal_id')->references('id')->on('sinal')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('comentario', 255);
         });
     }
     

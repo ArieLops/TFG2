@@ -16,7 +16,7 @@
             <option value="1">Não condicionado</option>
         </select>
     </div>
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-2">
         <label for="dataUltimoCheckup" class="required">Último checkup</label>
         <div class="input-group date">
             <div class="input-group-addon">
@@ -25,10 +25,10 @@
             <input type="text" class="form-control pull-right dataUnica" name="dataUltimoCheckup" id="dataUltimoCheckup">
         </div>
     </div>
-    <div class="form-group col-md-2">
+    <div class="form-group col-md-3">
         <label>Tipo sanguíneo</label>
         <select id="tipoSanguineo" name="tipoSanguineo" class="form-control" value="{{old('tipoSanguineo', $dados->tipoSanguineo ?? '')}}">
-            <option selected="selected" disabled>Selecione um nível</option>
+            <option selected="selected" disabled>Selecione o tipo sanguíneo</option>
             <option value="0">A +</option>
             <option value="1">A -</option>
             <option value="2">B +</option>
@@ -97,9 +97,9 @@
                                     <?php endforeach; ?>
                                 </select>
                             </td>
-                            <!--<td class="text-center" style="width:60%;">
+                            <td class="text-center" style="width:60%;">
                                 <input type="text" class="form-control" name="comentario[]" id="comentario">
-                            </td>-->
+                            </td>
                             <td class="text-center" style="width:10%;">
                                 <a class="btn btn-danger remove type="button"><i class="fas fa-trash-alt"></i></a>
                             </td>

@@ -53,7 +53,7 @@ class AnamneseController extends Controller
 
         if($id != 0){
             foreach($request->sinalID as $key => $value){
-                (new Anamnese_Sinal())->createAnamneseSinal($id, $request->sinalID[$key]);
+                (new Anamnese_Sinal())->createAnamneseSinal($id, $request->sinalID[$key], $request->comentario[$key]);
             }
         }
         

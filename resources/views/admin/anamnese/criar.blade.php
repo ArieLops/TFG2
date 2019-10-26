@@ -53,6 +53,9 @@
                       '<?php endforeach; ?>'+
                       '</select>'+
                       '</td>'+
+                      '<td class="text-center" style="width:60%;">'+
+                      '<input type="text" class="form-control" name="comentario[]" id="comentario">'+
+                      '</td>'+
                       '</td>'+
                       '<td class="text-center" style="width:10%;">'+
                       '<a class="btn btn-danger remove type=" button"><i class="fas fa-trash-alt"></i></a>'+
