@@ -50,13 +50,16 @@ class AnamneseController extends Controller
         $anamnese->glicose              = $request->glicose;
         $anamnese->triglicerideos       = $request->triglicerideos;
 
-        $id = $anamnese->save();
+        $anamnese->save();
+        $id = $anamnese->id;
 
         if($id != 0){
             foreach($request->sinalID as $key => $value){
                 (new Anamnese_Sinal())->createAnamneseSinal($id, $request->sinalID[$key]);
             }
         }
+        
+        return redirect('admin/anamnese/adicionar')->with('mensagem', 'Registro adicionado com sucesso!');
     }
 
     public function show($id)
