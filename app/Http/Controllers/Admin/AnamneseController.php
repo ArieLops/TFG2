@@ -35,8 +35,6 @@ class AnamneseController extends Controller
     {
         $anamnese = new Anamnese;
 
-        //dd($request);
-
         $anamnese->pessoa_id       = $request->pessoa_id;
         $anamnese->condicionamento = $request->condicionamento;
 
