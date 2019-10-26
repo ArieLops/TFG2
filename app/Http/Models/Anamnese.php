@@ -13,5 +13,5 @@ class Anamnese extends Model
     protected $table    = 'anamnese';
     protected $fillable = ['praticante_id'];
     protected $dates    = ['deleted_at'];
-
+    
 }

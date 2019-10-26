@@ -31,7 +31,9 @@ class AnamneseController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $anamnese = new Anamnese;
+
+        dd($request);
     }
 
     public function show($id)

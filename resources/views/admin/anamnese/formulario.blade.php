@@ -29,14 +29,14 @@
         <label>Tipo sanguíneo</label>
         <select id="tipoSanguineo" name="tipoSanguineo" class="form-control" value="{{old('tipoSanguineo', $dados->tipoSanguineo ?? '')}}">
             <option selected="selected" disabled>Selecione um nível</option>
-            <option value="A+">A +</option>
-            <option value="A-">A -</option>
-            <option value="B+">B +</option>
-            <option value="B-">B -</option>
-            <option value="AB+">AB +</option>
-            <option value="AB-">AB -</option>
-            <option value="O+">O +</option>
-            <option value="O-">O -</option>
+            <option value="0">A +</option>
+            <option value="1">A -</option>
+            <option value="2">B +</option>
+            <option value="3">B -</option>
+            <option value="4">AB +</option>
+            <option value="5">AB -</option>
+            <option value="6">O +</option>
+            <option value="7">O -</option>
         </select>
     </div>
 </div>
@@ -78,10 +78,10 @@
                 <table class="table table-bordered table-hover" id="tabelaSinais">
                     <thead>
                         <tr style="width: 100%">
-                            <th class="text-center" style="width: 2%">ID</th>
+                            <th class="text-center" style="width: 1%">ID</th>
                             <th class="text-center" style="width: 30%">Sinais</th>
-                            <th class="text-center" style="width: 55%">Comentário</th>
-                            <th class="text-center" style="width: 14%">Ação</th>
+                            <th class="text-center" style="width: 59%">Comentário</th>
+                            <th class="text-center" style="width: 10%">Ação</th>
                         </tr>
                     </thead>
                     <tbody id="tabelaSinaisBody" class="">
@@ -95,10 +95,10 @@
                                     <?php endforeach; ?>
                                 </select>
                             </td>
-                            <td class="text-center" style="width:55%;">
-                                <input type="text" class="form-control">
+                            <td class="text-center" style="width:59%;">
+                                <input type="text" class="form-control" id="comentario" name="comentario">
                             </td>
-                            <td class="text-center" style="width:14%;">
+                            <td class="text-center" style="width:10%;">
                                 <a class="btn btn-info add-registro type="button" data-added="0"><i class="fas fa-plus"></i></a>
                                 <a class="btn btn-danger delete-registro type="button" data-id="1"><i class="fas fa-trash-alt"></i></a>
                             </td>
@@ -117,10 +117,10 @@
                                     <?php endforeach; ?>
                                 </select>
                             </td>
-                            <td class="text-center" style="width:55%;">
+                            <td class="text-center" style="width:59%;">
                                 <input type="text" class="form-control">
                             </td>
-                            <td class="text-center" style="width:14%;">
+                            <td class="text-center" style="width:10%;">
                                 <a class="btn btn-info add-registro type="button" data-added="0"><i class="fas fa-plus"></i></a>
                                 <a class="btn btn-danger delete-registro type="button" data-id="1"><i class="fas fa-trash-alt"></i></a>
                             </td>

@@ -25,4 +25,8 @@ class Pessoa extends Model
     public function objetivo(){
         return $this->belongsTo(Objetivo::class);
     }
+
+    public function anamnese(){
+        return $this->hasOne(Anamnese::class);
+    }
 }

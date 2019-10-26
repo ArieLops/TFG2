@@ -14,7 +14,7 @@ class CreatePessoaTable extends Migration {
 	{
 		Schema::create('pessoa', function(Blueprint $table)
 		{
-			$table->increments('id', true);
+			$table->increments('id');
 
 			$table->integer('objetivo_id')->unsigned();
 			$table->foreign('objetivo_id')->references('id')->on('objetivo')->onUpdate('cascade')->onDelete('cascade');;
