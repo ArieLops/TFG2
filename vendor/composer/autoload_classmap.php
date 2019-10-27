@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AparelhoSeeder' => $baseDir . '/database/seeds/AparelhoSeeder.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\ExercicioAparelho' => $baseDir . '/app/Http/Models/Exercicio_Aparelho.php',
@@ -66,6 +67,7 @@ return array(
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\ProviderListaExercicios' => $baseDir . '/app/Providers/ProviderListaExercicios.php',
+    'App\\Providers\\ProviderListaLesoes' => $baseDir . '/app/Providers/ProviderListaLesoes.php',
     'App\\Providers\\ProviderListaObjetivos' => $baseDir . '/app/Providers/ProviderListaObjetivos.php',
     'App\\Providers\\ProviderListaPessoas' => $baseDir . '/app/Providers/ProviderListaPessoas.php',
     'App\\Providers\\ProviderListaSinais' => $baseDir . '/app/Providers/ProviderListaSinais.php',

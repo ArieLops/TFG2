@@ -171,6 +171,10 @@ return [
         App\Providers\ProviderListaExercicios::class,
         //Provider registrado para realizar a listagem dos sinais
         App\Providers\ProviderListaSinais::class,
+        //Provider registrado para realizar a listagem das lesões
+        App\Providers\ProviderListaLesoes::class,
+        //Provider registrado para realizar a listagem de tipos
+        App\Providers\ProviderListaTipos::class,
 
         /*
          * Package Service Providers...

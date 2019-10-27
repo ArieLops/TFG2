@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Models\Anamnese;
 use App\Http\Models\Anamnese_Sinal;
 use Carbon\Carbon;
+use DB;
 
 class AnamneseController extends Controller
 {
@@ -60,23 +61,10 @@ class AnamneseController extends Controller
         return redirect('admin/anamnese/adicionar')->with('mensagem', 'Registro adicionado com sucesso!');
     }
 
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
+    public function getLocalList(Request $request){
+        $local = DB::table("local")
+        ->where("tipo_id", $request->tipo_id)
+        ->pluck("nome", "id");
+        return response()->json($local);
     }
 }

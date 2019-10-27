@@ -101,7 +101,7 @@
                                 <input type="text" class="form-control" name="comentario[]" id="comentario">
                             </td>
                             <td class="text-center" style="width:10%;">
-                                <a class="btn btn-danger remove type="button"><i class="fas fa-trash-alt"></i></a>
+                                <a class="btn btn-danger type="button" id="removeSinal" onclick="remove(this)"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     </tbody>
@@ -131,6 +131,34 @@
                             <th class="text-center" style="width: 10%">Ação</th>
                         </tr>
                     </thead>
+                    <tbody id="tabelaLesoesBody" class="">
+                        <tr>
+                            <td class="text-center" style="" style="width: 30%;">
+                                <select class="form-control" name="lesao_id[]" id="lesao_id">
+                                    <option selected disabled value="">Selecione a lesão</option>
+                                    @<?php foreach ($arrayLesoes as $dados): ?>
+                                    <option id="selectLesaoArray" value="{{$dados->id}}">{{$dados->nome}}</option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </td>
+                            <td class="text-center" style="width:30%;">
+                                <select class="form-control" name="tipo_id[]" id="tipo_id">
+                                    <option selected disabled value="">Selecione o tipo</option>
+                                    @<?php foreach ($arrayTipos as $dados): ?>
+                                    <option id="selectTipoArray" value="{{$dados->id}}">{{$dados->nome}}</option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </td>
+                            <td class="text-center" style="width:30%;">
+                                <select name="local" id="local" class="form-control">
+                                    <option selected disabled value="">Selecione o local</option>
+                                </select>
+                            </td>
+                            <td class="text-center" style="width:10%;">
+                                <a class="btn btn-danger type="button" id="removeLesao" onclick="removeLinhaLesoes(this)"><i class="fas fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>

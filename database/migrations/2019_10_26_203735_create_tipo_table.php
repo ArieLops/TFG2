@@ -13,6 +13,7 @@ class CreateTipoTable extends Migration
             $table->increments('id');
             $table->string('nome')->unique();
             $table->timestamps();
+            $table->time('deleted_at')->nullable();
         });
     }
 

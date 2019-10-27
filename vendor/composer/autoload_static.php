@@ -429,6 +429,7 @@ class ComposerStaticInit882730ad168473ae06b3b26b29ea23fc
     );
 
     public static $classMap = array (
+        'AparelhoSeeder' => __DIR__ . '/../..' . '/database/seeds/AparelhoSeeder.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\ExercicioAparelho' => __DIR__ . '/../..' . '/app/Http/Models/Exercicio_Aparelho.php',
@@ -489,6 +490,7 @@ class ComposerStaticInit882730ad168473ae06b3b26b29ea23fc
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\ProviderListaExercicios' => __DIR__ . '/../..' . '/app/Providers/ProviderListaExercicios.php',
+        'App\\Providers\\ProviderListaLesoes' => __DIR__ . '/../..' . '/app/Providers/ProviderListaLesoes.php',
         'App\\Providers\\ProviderListaObjetivos' => __DIR__ . '/../..' . '/app/Providers/ProviderListaObjetivos.php',
         'App\\Providers\\ProviderListaPessoas' => __DIR__ . '/../..' . '/app/Providers/ProviderListaPessoas.php',
         'App\\Providers\\ProviderListaSinais' => __DIR__ . '/../..' . '/app/Providers/ProviderListaSinais.php',
