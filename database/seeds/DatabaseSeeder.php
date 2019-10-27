@@ -12,5 +12,8 @@ class DatabaseSeeder extends Seeder
         $this->call(SinalSeeder::class);
         $this->call(ObjetivoSeeder::class);
         $this->call(PessoaSeeder::class);
+        $this->call(LesaoSeeder::class);
+        $this->call(TipoSeeder::class);
+        $this->call(LocalSeeder::class);
     }
 }

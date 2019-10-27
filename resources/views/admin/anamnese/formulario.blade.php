@@ -67,7 +67,7 @@
         <input type="number" class="form-control numerico" id="triglicerideos" name="triglicerideos" value="{{old('triglicerideos', $dados->triglicerideos ?? '')}}" />
     </div>
 </div>
-<!-- Inicio da tabela -->
+<!-- Inicio dos sinais -->
 <div class="form-row">
     <div class="col-xs-12">
         <br>
@@ -105,6 +105,32 @@
                             </td>
                         </tr>
                     </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fim dos sinais -->
+<div class="form-row">
+    <div class="col-xs-12">
+        <br>
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Lesões</h3>
+                <a class="btn btn-warning pull-right addRowLesao" data-added="0">
+                    <i class="glyphicon glyphicon-plus"></i> Adicionar Lesão
+                </a>
+            </div>
+            <div class="box-body">
+                <table class="table table-bordered table-hover" id="tabelaLesoes">
+                    <thead>
+                        <tr style="width: 100%">
+                            <th class="text-center" style="width: 30%">Lesão</th>
+                            <th class="text-center" style="width: 30%">Tipo</th>
+                            <th class="text-center" style="width: 30%">Local</th>
+                            <th class="text-center" style="width: 10%">Ação</th>
+                        </tr>
+                    </thead>
                 </table>
             </div>
         </div>
