@@ -111,6 +111,7 @@
     </div>
 </div>
 <!-- Fim dos sinais -->
+<!-- Inicio das lesoes -->
 <div class="form-row">
     <div class="col-xs-12">
         <br>
@@ -160,6 +161,35 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fim das lesoes -->
+<div class="form-row">
+    <div class="col-xs-12">
+        <br>
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Informações de emergência</h3>
+            </div>
+            <div class="form-row">
+            <br>
+                <div class="form-group col-md-4">
+                <br>
+                    <label for="contatoEmergencia" class="required">Contato de emergência</label>
+                    <input type="text" class="form-control" id="contatoEmergencia" name="contatoEmergencia" placeholder="Nome" value="" required />
+                </div>
+                <div class="form-group col-md-4">
+                <br>
+                <label>Telefone</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-phone"></i>
+                    </div>
+                    <input type="number" class="form-control telefone" name="telefone" value="">
+                </div>
+                </div>
             </div>
         </div>
     </div>
