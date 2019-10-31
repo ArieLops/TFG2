@@ -126,7 +126,7 @@
                 <table class="table table-bordered table-hover" id="tabelaLesoes">
                     <thead>
                         <tr style="width: 100%">
-                            <th class="text-center" style="width: 30%">Lesão</th>
+                            <th class="text-center" style="width: 28%">Lesão</th>
                             <th class="text-center" style="width: 30%">Tipo</th>
                             <th class="text-center" style="width: 30%">Local</th>
                             <th class="text-center" style="width: 10%">Ação</th>
@@ -134,7 +134,7 @@
                     </thead>
                     <tbody id="tabelaLesoesBody" class="">
                         <tr>
-                            <td class="text-center" style="" style="width: 30%;">
+                            <td class="text-center" style="" style="width: 28%;">
                                 <select class="form-control" name="lesao_id[]" id="lesao_id">
                                     <option selected disabled value="">Selecione a lesão</option>
                                     @<?php foreach ($arrayLesoes as $dados): ?>

@@ -91,33 +91,33 @@
     })(jQuery);
 
     function addRowLesao(){
-        var tr = '<tr>'+
-                  '<td class="text-center" style="" style="width: 30%;">'+
-                  '<select class="form-control" name="lesao_id[]" id="lesao_id">'+
-                  '<option selected disabled value="">Selecione a lesão</option>'+
-                  '@<?php foreach ($arrayLesoes as $dados): ?>'+
-                  '<option id="selectLesaoArray" value="{{$dados->id}}">{{$dados->nome}}</option>'+
-                  '<?php endforeach; ?>'+
-                  '</select>'+
-                  '</td>'+
-                  '<td class="text-center" style="width:30%;">'+
-                  '<select class="form-control" name="tipo_id[]" id="tipo_id">'+
-                  '<option selected disabled value="">Selecione o tipo</option>'+
-                  '@<?php foreach ($arrayTipos as $dados): ?>'+
-                  '<option id="selectTipoArray" value="{{$dados->id}}">{{$dados->nome}}</option>'+
-                  '<?php endforeach; ?>'+
-                  '</select>'+
-                  '</td>'+
-                  '<td class="text-center" style="width:30%;">'+
-                  '<select name="local" id="local" class="form-control">'+
-                  '<option selected disabled value="">Selecione o local</option>'+
-                  '</select>'+
-                  '</td>'+
-                  '<td class="text-center" style="width:10%;">'+
-                  '<a class="btn btn-danger type="button" id="removeLesao" onclick="removeLinhaLesoes(this)"><i class="fas fa-trash-alt"></i></a>'+
-                  '</td>'+
-                  '</tr>'
-        $('#tabelaLesoesBody').append(tr);
+        var tr = "<tr>"+
+                  "<td class='text-center' style='' style='width: 30%;'>"+
+                  "<select class='form-control name='lesao_id[]' id='lesao_id'>"+
+                  "<option selected disabled value=''>Selecione a lesão</option>"+
+                  "@<?php foreach ($arrayLesoes as $dados): ?>"+
+                  "<option id='selectLesaoArray' value='{{$dados->id}}'>{{$dados->nome}}</option>"+
+                  "<?php endforeach; ?>"+
+                  "</select>"+
+                  "</td>"+
+                  "<td class='text-center' style='width:30%;'>"+
+                  "<select class='form-control' name='tipo_id[]' id='tipo_id'>"+
+                  "<option selected disabled value=''>Selecione o tipo</option>"+
+                  "@<?php foreach ($arrayTipos as $dados): ?>"+
+                  "<option id='selectTipoArray' value='{{$dados->id}}'>{{$dados->nome}}</option>"+
+                  "<?php endforeach; ?>"+
+                  "</select>"+
+                  "</td>"+
+                  "<td class='text-center' style='width:30%;'>"+
+                  "<select name='local' id='local' class='form-control'>"+
+                  "<option selected disabled value=''>Selecione o local</option>"+
+                  "</select>"+
+                  "</td>"+
+                  "<td class='text-center' style='width:10%;'>"+
+                  "<a class='btn btn-danger' type='button' id='removeLesao' onclick='removeLinhaLesoes(this)'><i class='fas fa-trash-alt'></i></a>"+
+                  "</td>"+
+                  "</tr>"
+        $("#tabelaLesoesBody").append(tr);
     };
 
     $('#tipo_id').on('change', function(){
@@ -129,6 +129,7 @@
                 dataType: 'json',
                 data: 'tipo_id=' + tipo_id,
                 success:function(res){
+                    alert(JSON.stringify(res));
                     if(res){
                         $("#local").empty();
                         $.each(res, function(key, value){
