@@ -11,7 +11,7 @@ class Anamnese extends Model
 
     public $timestamps  = true;
     protected $table    = 'anamnese';
-    protected $fillable = ['pessoa_id', 'condicionamento','dataUltimoCheckup','tipoSanguineo','atividadeOcupacional','pressaoSistolica','pressaoDiastolica','glicose','triglicerideos'];
+    protected $fillable = ['users_id', 'condicionamento','dataUltimoCheckup','tipoSanguineo','atividadeOcupacional','pressaoSistolica','pressaoDiastolica','glicose','triglicerideos'];
     protected $dates    = ['deleted_at'];
     
     public function sinais(){

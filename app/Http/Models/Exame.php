@@ -11,12 +11,12 @@ class Exame extends Model
 
     public $timestamps  = true;
     protected $table    = 'exame';
-    protected $fillable = ['pessoa_id', 'dataRealizado', 'arquivo'];
+    protected $fillable = ['users_id', 'dataRealizado', 'arquivo'];
     protected $dates    = ['deleted_at'];
 
-    public function pessoa(){
-        $caminhoPessoa = 'App\Http\Models\Pessoa';
+    public function user(){
+        $caminhoUser = 'App\Http\Models\Users';
         
-        return $this->belongsTo($caminhoPessoa);
+        return $this->belongsTo($caminhoUser);
     }
 }

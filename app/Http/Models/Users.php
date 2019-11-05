@@ -7,15 +7,15 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-use App\Models\Educador;
-use App\Models\Praticante;
-
 class Users extends Authenticatable
 {
     use Notifiable;
 
+    public $timestamps  = true;
+    protected $table    = 'users';
+
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'data_nascimento', 'data_nascimento', 'sexo', 'telefone', 'cpf', 'rg', 'tipo'
     ];
 
     protected $hidden = [
@@ -26,11 +26,21 @@ class Users extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function educador(){
-        $this->hasOne(Educador::class);
+    public function exames(){
+        return $this->hasMany(Exames::class);
     }
 
-    public function praticante(){
-        $this->hasOne(Praticante::class);
+    public function avaliacoes(){
+        return $this->hasMany(Avaliacao::class);
+    }
+    
+    /*
+    public function objetivo(){
+        return $this->belongsTo(Objetivo::class);
+    }
+    */
+
+    public function anamnese(){
+        return $this->hasOne(Anamnese::class);
     }
 }

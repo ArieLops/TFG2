@@ -15,9 +15,7 @@ class CreatePessoaTable extends Migration {
 		Schema::create('pessoa', function(Blueprint $table)
 		{
 			$table->increments('id');
-
-			$table->integer('objetivo_id')->unsigned();
-			$table->foreign('objetivo_id')->references('id')->on('objetivo')->onUpdate('cascade')->onDelete('cascade');;
+			
 			$table->string('nome', 45);
 			$table->string('foto', 45)->nullable();
 			$table->date('data_nascimento')->nullable();
@@ -27,8 +25,6 @@ class CreatePessoaTable extends Migration {
 			$table->string('email', 30);
 			$table->string('telefone', 45)->nullable();
 			$table->string('tipo', 1);
-			$table->integer('praticante_id')->nullable()->index('pessoa_id');
-			$table->integer('educador_fisico_id')->nullable()->index('educador_fisico_id');
 			$table->timestamps();
 			$table->time('deleted_at')->nullable();
 		});

@@ -19,7 +19,7 @@ class Musculatura extends Model
     protected $dates    = ['deleted_at'];
 
     public function exercicios(){
-        return $this->belongsToMany("App\Http\Models\Musculatura", "exercicio_musculatura");
+        return $this->belongsToMany("App\Http\Models\Exercicio", 'exercicio_musculatura', 'musculatura_id', 'exercicio_id');
     }
 
 }

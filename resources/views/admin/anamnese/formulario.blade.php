@@ -143,7 +143,7 @@
                                 </select>
                             </td>
                             <td class="text-center" style="width:30%;">
-                                <select class="form-control" name="tipo_id[]" id="tipo_id">
+                                <select class="form-control tipo_id" name="tipo_id[]" id="tipo_id">
                                     <option selected disabled value="">Selecione o tipo</option>
                                     @<?php foreach ($arrayTipos as $dados): ?>
                                     <option id="selectTipoArray" value="{{$dados->id}}">{{$dados->nome}}</option>

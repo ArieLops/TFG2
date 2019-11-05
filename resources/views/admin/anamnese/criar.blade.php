@@ -101,7 +101,7 @@
                   "</select>"+
                   "</td>"+
                   "<td class='text-center' style='width:30%;'>"+
-                  "<select class='form-control' name='tipo_id[]' id='tipo_id'>"+
+                  "<select class='form-control tipo_id' name='tipo_id[]' id='tipo_id'>"+
                   "<option selected disabled value=''>Selecione o tipo</option>"+
                   "@<?php foreach ($arrayTipos as $dados): ?>"+
                   "<option id='selectTipoArray' value='{{$dados->id}}'>{{$dados->nome}}</option>"+
@@ -120,8 +120,9 @@
         $("#tabelaLesoesBody").append(tr);
     };
 
-    $('#tipo_id').on('change', function(){
-        var tipo_id = $(this).val();
+    $(document).on("change", ".tipo_id" , function(e) {
+        var tipo_id = $(this).val(),
+            local = $(this).parent().next().find('select');
         if(tipo_id){
             $.ajax({
                 url: "/admin/anamnese/getLocalList",
@@ -130,18 +131,19 @@
                 data: 'tipo_id=' + tipo_id,
                 success:function(res){
                     if(res){
-                        $("#local").empty();
+                        local.empty();
                         $.each(res, function(key, value){
-                            $("#local").append('<option value="'+key+'">'+value+'</option>');
+                            local.append('<option value="'+key+'">'+value+'</option>');
                         });
                     }else{
-                        $("#local").empty();
+                        local.empty();
                     }
                 }
             });
         }else{
-            $("#local").empty();
+            local.empty();
         }
     });
+
 </script>
 @stop

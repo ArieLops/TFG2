@@ -11,13 +11,13 @@ class Avaliacao extends Model
 
     public $timestamps  = true;
     protected $table    = 'avaliacao_fisica';
-    protected $fillable = ['pessoa_id','dataInicial','dataFinal','massa','estatura','peitoral','axMedio','subEscapular','tricipital','bicipital','supraIliaca','abdominal','panturrilha','torax','bracoDireito','bracoEsquerdo','antebracoDireito','antebracoEsquerdo','cintura','quadril','coxaDireita','coxaEsquerda','pernaDireita','pernaEsquerda'];
+    protected $fillable = ['users_id','dataInicial','dataFinal','massa','estatura','peitoral','axMedio','subEscapular','tricipital','bicipital','supraIliaca','abdominal','panturrilha','torax','bracoDireito','bracoEsquerdo','antebracoDireito','antebracoEsquerdo','cintura','quadril','coxaDireita','coxaEsquerda','pernaDireita','pernaEsquerda'];
     protected $dates    = ['deleted_at'];
 
-    public function pessoa(){
-        $caminhoPessoa = 'App\Http\Models\Pessoa';
+    public function user(){
+        $caminhoUser = 'App\Http\Models\Users';
         
-        return $this->belongsTo($caminhoPessoa);
+        return $this->belongsTo($caminhoUser);
     }
 
 }

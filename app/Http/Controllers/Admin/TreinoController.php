@@ -31,33 +31,14 @@ class TreinoController extends Controller
     public function getExercicioList(Request $request){
 
         $musculatura_id = $request->musculatura_id;
-        
-        /*
-            SELECT exercicio.id, exercicio.nome, exercicio_musculatura.musculatura_id, musculatura.id, musculatura.nome 
-            FROM exercicio
-            JOIN exercicio_musculatura
-            ON exercicio.id = exercicio_musculatura.exercicio_id
-            JOIN musculatura
-            ON exercicio_musculatura.musculatura_id = musculatura.id
-            WHERE musculatura.id = 3"
-        */
 
-        $exercicio = Exercicio::load();
+        //DB::enableQueryLog();
 
-        dd($exercicio);
+        $exercicio = Musculatura::find($musculatura_id)->exercicios()->get();
 
-        /*
-        $exercicio = DB::select(`exercicio.id`,`exercicio.nome`,`exercicio_musculatura.musculatura_id`,`musculatura.id`,`musculatura.nome`)
-		->from(`exercicio`)
-		->join(`exercicio_musculatura`, function($join) {
-			$join->on(`exercicio.id`, `=`, `exercicio_musculatura.exercicio_id`);
-			})
-		->join(`musculatura`, function($join) {
-			$join->on(`exercicio_musculatura.musculatura_id`, `=`, `musculatura.id`);
-			})
-		->where(`musculatura.id`, `=`, $musculatura_id)
-        ->get();
-        */
+        //$exercicio = App\User::find(1)->roles()->orderBy('name')->get();
+
+        //dd(DB::getQueryLog());
         
         return response()->json($exercicio);
     }

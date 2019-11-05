@@ -4,24 +4,24 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Pessoa;
+use App\Http\Models\Users;
 use App\Http\Models\Objetivo;
-use App\Http\Requests\ValidacaoPessoa;
+use App\Http\Requests\ValidacaoPesso;
 use App\Http\Controllers\Admin\DB;
 
 class PessoaController extends Controller
 {
-    private $pessoa;
+    private $user;
     private $paginacao = 5;
 
-    public function __construct(Pessoa $pessoa){
-        $this->pessoa = $pessoa;
+    public function __construct(User $user){
+        $this->user = $user;
     }
     
     public function index()
     {
         //Listar todos as pessoas cadastradas
-        $pessoas = Pessoa::orderBy('id')->get();
+        $pessoas = Users::orderBy('id')->get();
         $pessoas = $this->pessoa->paginate($this->paginacao);
         
         foreach($pessoas as $pessoa):
