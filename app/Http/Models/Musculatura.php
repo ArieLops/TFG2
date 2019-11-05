@@ -18,4 +18,8 @@ class Musculatura extends Model
     protected $fillable = ['nome'];
     protected $dates    = ['deleted_at'];
 
+    public function exercicios(){
+        return $this->belongsToMany("App\Http\Models\Musculatura", "exercicio_musculatura");
+    }
+
 }

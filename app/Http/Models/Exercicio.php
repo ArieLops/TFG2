@@ -17,10 +17,10 @@ class Exercicio extends Model
     //Aqui é o método que retorna todos os exercicios com suas respectivas musculaturas pré cadastradas no banco
     //o método vai buscar no segundo parametro deste return "na tabela associativa exercicio_musculatura"
     public function musculaturas(){
-        return $this->belongsToMany("App\Http\Models\Musculatura", "Exercicio_Musculatura");
+        return $this->belongsToMany("App\Http\Models\Musculatura", "exercicio_musculatura");
     }
 
     public function aparelhos(){
-        return $this->belongsToMany("App\Http\Models\Aparelho", "Exercicio_Aparelho");
+        return $this->belongsToMany("App\Http\Models\Aparelho", "exercicio_aparelho");
     }
 }

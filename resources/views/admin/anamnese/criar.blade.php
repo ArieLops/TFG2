@@ -129,7 +129,6 @@
                 dataType: 'json',
                 data: 'tipo_id=' + tipo_id,
                 success:function(res){
-                    alert(JSON.stringify(res));
                     if(res){
                         $("#local").empty();
                         $.each(res, function(key, value){

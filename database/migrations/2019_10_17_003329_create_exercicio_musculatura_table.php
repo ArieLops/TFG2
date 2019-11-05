@@ -14,6 +14,7 @@ class CreateExercicioMusculaturaTable extends Migration
             $table->foreign('exercicio_id')->references('id')->on('exercicio')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('musculatura_id')->unsigned();
             $table->foreign('musculatura_id')->references('id')->on('musculatura')->onUpdate('cascade')->onDelete('cascade');
+            $table->primary(['musculatura_id', 'exercicio_id']);
         });
     }
 

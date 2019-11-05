@@ -15,13 +15,13 @@
             <div class="box-body">
                 <form action="{{route('salvarTreino')}}" class="validacao" id="formTreino" method="POST" autocomplete="off">
                     @csrf
-                    <div class="box-body " id="divTreino">
+                    <div class="box-body hidden" id="divTreino">
                         @include('admin.treino.formulario')
                     </div>
-                    <div class="box-body hidden" id="divTreinoSemana">
+                    <div class="box-body" id="divTreinoSemana">
                         @include('admin.treino.formularioSemana')
                     </div>
-                    <div class="box-body hidden" id="divTreinoAdicionarSemana">
+                    <div class="box-body" id="divTreinoAdicionarSemana">
                         @include('admin.treino.formularioAdicionarSemana')
                     </div>
                      <div class="box-footer hidden">
@@ -117,6 +117,35 @@
             element.appendTo('#tabelaExerciciosBody');
             element.find('.sn').html(size);
         });
+    });
+
+    //Treino - Adicionar - Musculatura
+    $(function(){
+        $('#musculaturaID').on('change', function(){
+        var musculatura_id = $(this).val();
+        alert(musculatura_id);
+        if(musculatura_id){
+            $.ajax({
+                url: "/admin/treino/getExercicioList",
+                type:"GET",
+                dataType: 'json',
+                data: 'musculatura_id=' + musculatura_id,
+                success:function(res){
+                    alert(JSON.stringify(res));
+                    if(res){
+                        $("#exercicio").empty();
+                        $.each(res, function(key, value){
+                            $("#exercicio").append('<option value="'+key+'">'+value+'</option>');
+                        });
+                    }else{
+                        $("#exercicio").empty();
+                    }
+                }
+            });
+        }else{
+            $("#exercicio").empty();
+        }
+    });
     });
 </script>
 @stop

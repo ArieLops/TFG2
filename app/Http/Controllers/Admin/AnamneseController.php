@@ -8,6 +8,7 @@ use App\Http\Models\Anamnese;
 use App\Http\Models\Anamnese_Sinal;
 use Carbon\Carbon;
 use DB;
+use Gate;
 
 class AnamneseController extends Controller
 {

@@ -175,6 +175,8 @@ return [
         App\Providers\ProviderListaLesoes::class,
         //Provider registrado para realizar a listagem de tipos
         App\Providers\ProviderListaTipos::class,
+        //Provider registrado para realizar a listagem de musculaturas
+        App\Providers\ProviderListaMusculaturas::class,
 
         /*
          * Package Service Providers...

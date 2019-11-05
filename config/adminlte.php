@@ -126,17 +126,19 @@ return [
     | Awesome. A string instead of an array represents a header in sidebar
     | layout. The 'can' is a filter on Laravel's built in Gate functionality.
     */
-
     'menu' => [
         [
             'text' => 'Dashboard',
             'url'  => 'admin',
             'icon' => 'fas fa-tachometer-alt',
+            'can'  => 'isAdmin',
+
         ],
         [
             'text' => 'Pessoas',
             'url'  => 'admin/pessoa',
             'icon' => 'fas fa-users',
+            'can'  => 'isAdmin',
         ],
         [
             'text' => 'Treinos',
@@ -147,6 +149,7 @@ return [
             'text' => 'Avaliações',
             'url'  => 'admin/avaliacao',
             'icon' => 'fa fa-address-book',
+            'can'  => 'isAdmin',
         ],
         [
             'text' => 'Exames',
@@ -162,6 +165,7 @@ return [
             'text'    => 'Configurações',
             'url'  => 'admin/configuracao/adicionar',
             'icon'    => 'fa fa-cogs',
+            'can'  => 'isAdmin',
             'submenu' => [
                 [
                     'text' => 'Musculatura',
