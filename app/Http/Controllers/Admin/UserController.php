@@ -21,7 +21,8 @@ class UserController extends Controller
     public function index()
     {
         //Listar todos as pessoas cadastradas
-        //$users = DB::table('users')->where('tipo', '0')->get();
+        $users = DB::table('users')->where('tipo',1)->get();
+        
         $users = $this->user->paginate($this->paginacao);
 
         return view('admin.listarPessoas', compact('users'));

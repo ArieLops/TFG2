@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Http\Models\Users;
 use Illuminate\Support\ServiceProvider;
+use DB;
 
 class ProviderListaUsers extends ServiceProvider
 {
@@ -11,7 +12,7 @@ class ProviderListaUsers extends ServiceProvider
     public function boot()
     {
       view()->composer('*', function($view){
-        $view->with('arrayUsers', Users::all()->where('tipo', 0));
+        $view->with('arrayUsers', DB::table('users')->where('tipo',1)->get());
       });
     }
 }
