@@ -7,13 +7,13 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Praticante'], function(){
 Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function(){
     Route::get('admin',        'AdminController@index')->name('admin');
     /*Rotas Pessoa*/
-    Route::get('admin/pessoa/adicionar',            'PessoaController@create')->name('adicionarPessoa');
-    Route::get('admin/pessoa/',                     'PessoaController@index')->name('listarPessoa');
-    Route::post('admin/pessoa/',                    'PessoaController@store')->name('salvarPessoa');
-    Route::get('admin/pessoa/{id}/editar',          'PessoaController@edit')->name('editarPessoa');
-    Route::put('admin/pessoa/{id}',                 'PessoaController@update')->name('atualizarPessoa');
-    Route::get('admin/pessoa/{id}/excluir',         'PessoaController@destroy')->name('excluirPessoa');
-    Route::get('admin/pessoa/searchPessoaObjetivo', 'PessoaController@searchPessoaObjetivo');
+    Route::get('admin/pessoa/adicionar',            'UserController@create')->name('adicionarPessoa');
+    Route::get('admin/pessoa/',                     'UserController@index')->name('listarPessoa');
+    Route::post('admin/pessoa/',                    'UserController@store')->name('salvarPessoa');
+    Route::get('admin/pessoa/{id}/editar',          'UserController@edit')->name('editarPessoa');
+    Route::put('admin/pessoa/{id}',                 'UserController@update')->name('atualizarPessoa');
+    Route::get('admin/pessoa/{id}/excluir',         'UserController@destroy')->name('excluirPessoa');
+    Route::get('admin/pessoa/searchUserObjetivo',   'UserController@searchUserObjetivo');
     /*Rotas Treinos*/
     Route::get('admin/treino/adicionar',         'TreinoController@create')->name('adicionarTreino');
     Route::get('admin/treino',                   'TreinoController@index')->name('listarTreino');

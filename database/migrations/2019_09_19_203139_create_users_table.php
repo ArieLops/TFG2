@@ -11,6 +11,8 @@ class CreateUsersTable extends Migration {
 		{
 			$table->increments('id');
 			
+			$table->integer('objetivo_id')->unsigned()->nullable();
+			$table->foreign('objetivo_id')->references('id')->on('objetivo')->onUpdate('cascade')->onDelete('cascade')->nullable();
 			$table->string('name');
 			$table->string('foto', 45)->nullable();
 			$table->date('data_nascimento')->nullable();
@@ -20,18 +22,13 @@ class CreateUsersTable extends Migration {
 			$table->string('email')->unique();
 			$table->string('telefone', 45)->nullable();
 			$table->string('user_type', 50)->default('user')->nullable();
-			$table->string('password');
+			$table->string('password')->default(bcrypt('123456'));
+			$table->string('tipo', 1)->default('1');
 			$table->timestamps();
 			$table->time('deleted_at')->nullable();
 		});
 	}
 
-
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
 	public function down()
 	{
 		Schema::drop('users');

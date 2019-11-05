@@ -164,7 +164,7 @@ return [
         Way\Generators\GeneratorsServiceProvider::class,
         Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
         //Provider registrado para realizar a listagem de pessoas
-        App\Providers\ProviderListaPessoas::class,
+        App\Providers\ProviderListaUsers::class,
         //Provider registrado para realizar a listagem dos objetivos
         App\Providers\ProviderListaObjetivos::class,
         //Provider registrado para realizar a listagem dos exercicio
