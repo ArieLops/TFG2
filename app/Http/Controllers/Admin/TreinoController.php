@@ -36,8 +36,6 @@ class TreinoController extends Controller
 
         $exercicio = Musculatura::find($musculatura_id)->exercicios()->get();
 
-        //$exercicio = App\User::find(1)->roles()->orderBy('name')->get();
-
         //dd(DB::getQueryLog());
         
         return response()->json($exercicio);

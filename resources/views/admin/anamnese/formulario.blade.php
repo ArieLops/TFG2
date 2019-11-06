@@ -177,8 +177,8 @@
             <br>
                 <div class="form-group col-md-4">
                 <br>
-                    <label for="contatoEmergencia" class="required">Contato de emergência</label>
-                    <input type="text" class="form-control" id="contatoEmergencia" name="contatoEmergencia" placeholder="Nome" value="" required />
+                    <label for="contatoEmergencia" class="">Contato de emergência</label>
+                    <input type="text" class="form-control" id="contatoEmergencia" name="contatoEmergencia" placeholder="Nome" value="" />
                 </div>
                 <div class="form-group col-md-4">
                 <br>

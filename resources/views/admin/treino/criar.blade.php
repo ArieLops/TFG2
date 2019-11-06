@@ -18,7 +18,7 @@
                     <div class="box-body hidden" id="divTreino">
                         @include('admin.treino.formulario')
                     </div>
-                    <div class="box-body" id="divTreinoSemana">
+                    <div class="box-body hidden" id="divTreinoSemana">
                         @include('admin.treino.formularioSemana')
                     </div>
                     <div class="box-body" id="divTreinoAdicionarSemana">
@@ -61,8 +61,7 @@
             $("#objetivoSelecionado").val(objetivo);
         });
     });
-
-    $(function() {
+        
         let data = new Date();
         let dataPt = {
             year: 'numeric',
@@ -85,45 +84,61 @@
         $('#addOpcaoTreino').on('click', function(){
             $("#divTreinoAdicionarSemana").removeClass('hidden');
         });
-        
-        //Criado para deletar registro da listagem de exercicios
-        jQuery(document).delegate('a.delete-registro', 'click', function(e) {
-            e.preventDefault();
-        //Mensagem de confirmação de exclusão
-        var didConfirm = confirm("Você tem certeza que deseja excluir?");
-            if (didConfirm == true) {
-                var id = jQuery(this).attr('data-id');
-                var targetDiv = jQuery(this).attr('targetDiv');
-            jQuery('#exercicio-' + id).remove();
-      
-            //Regenera o número do indice da tabela
-            $('#tabelaExerciciosBody tr').each(function(index) {
-                $(this).find('span.sn').html(index + 1);
-            });
-                return true;
-            } else {
+
+        $('.addRowExercicio').on('click', function(){
+            addRowExercicio();
+        });
+
+        (function($) {
+            removeLinhaExercicios = function(item) {
+            var tr = $(item).closest('tr');
+
+            tr.fadeOut(400, function() {
+                tr.remove();  
+            }); 
                 return false;
             }
-        });
-        //Adiciona exercicio na listagem para adição do mesmo
-        jQuery(document).delegate('.add-registro', 'click', function(e) {
-            e.preventDefault();    
-            var content = jQuery('#tabelaExercicioAmostra tr'),
-            size = jQuery('#tabelaExercicios >tbody >tr').length + 1,
-            element = null,    
-            element = content.clone();
-            element.attr('id', 'exercicio-'+size);
-            element.find('.delete-registro').attr('data-id', size);
-            element.appendTo('#tabelaExerciciosBody');
-            element.find('.sn').html(size);
-        });
-    });
+        })(jQuery);
+    
+        function addRowExercicio(){
+                   var tr = '<tr>'+
+                            '<td class="text-center" style="width: 20%;">'+
+                            '<select class="form-control exercicio_id" name="exercicio_id[]" id="exercicio_id">'+
+                            '<option selected disabled value="">Exercício</option>'+
+                            '@<?php foreach ($arrayExercicios as $dados): ?>'+
+                            '<option id="selectExercicioArray" value="{{$dados->id}}">{{$dados->nome}}</option>'+
+                            '<?php endforeach; ?>'+
+                            '</select>'+
+                            '</td>'+
+                            '<td class="text-center" style="width:13%;">'+
+                            '<input type="text" class="form-control">'+
+                            '</td>'+
+                            '<td class="text-center" style="width:13%;">'+
+                            '<input type="text" class="form-control">'+
+                            '</td>'+
+                            '<td class="text-center" style="width:13%;">'+
+                            '<input type="text" class="form-control">'+
+                            '</td>'+
+                            '<td class="text-center" style="width:13%;">'+
+                            '<input type="text" class="form-control">'+
+                            '</td>'+
+                            '<td class="text-center" style="width:13%;">'+
+                            '<input type="text" class="form-control">'+
+                            '</td>'+
+                            '<td class="text-center" style="width:5%;">'+
+                            '<a class="btn btn-danger" type="button" onclick="removeLinhaExercicios(this)"><i class="fas fa-trash-alt"></i></a>'+
+                            '</td>'+
+                            '</tr>'
+            $("#tabelaExerciciosBody").append(tr);
+        };
+        
+    //NAO ESTÀ FUNCIONANDO
 
     //Treino - Adicionar - Musculatura
-    $(function(){
-        $('#musculaturaID').on('change', function(){
-        var musculatura_id = $(this).val();
-        alert(musculatura_id);
+    $(document).on("change", ".musculatura_id" , function(e) {
+        var musculatura_id = $(this).val(),
+            exercicio_id = $(this).parent().next().find('select');
+
         if(musculatura_id){
             $.ajax({
                 url: "/admin/treino/getExercicioList",
@@ -131,21 +146,20 @@
                 dataType: 'json',
                 data: 'musculatura_id=' + musculatura_id,
                 success:function(res){
-                    alert(JSON.stringify(res));
                     if(res){
-                        $("#exercicio").empty();
+                        exercicio_id.empty();
                         $.each(res, function(key, value){
-                            $("#exercicio").append('<option value="'+key+'">'+value+'</option>');
+                            exercicio_id.append('<option value="' + res[key]["id"] + '">' + res[key]["nome"] + '</option>');
                         });
                     }else{
-                        $("#exercicio").empty();
+                        exercicio_id.empty();
                     }
                 }
             });
         }else{
-            $("#exercicio").empty();
+            exercicio_id.empty();
         }
     });
-    });
+
 </script>
 @stop

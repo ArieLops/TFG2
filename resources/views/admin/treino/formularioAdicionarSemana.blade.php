@@ -2,14 +2,14 @@
     <div class="box-body">
         <div class="form-group col-xs-5">
             <label for="musculaturaSelecionada">Musculatura</label>
-            <select class="form-control" name="musculaturaID" id="musculaturaID">
+            <select class="form-control musculatura_id" name="musculatura_id" id="musculatura_id">
                 <option selected disabled value="">Selecione a Musculatura</option>
                 @<?php foreach ($arrayMusculaturas as $dados): ?>
                     <option id="selectMusculaturaArray" value="{{$dados->id}}">{{$dados->nome}}</option>
                 <?php endforeach; ?>
             </select>
         </div>
-        <a class="btn btn-warning pull-right add-registro" data-added="0">
+        <a class="btn btn-warning pull-right addRowExercicio">
             <i class="glyphicon glyphicon-plus"></i> Adicionar exercício
         </a>
         </div>
@@ -19,7 +19,6 @@
                 <table class="table table-bordered table-hover" id="tabelaExercicios">
                     <thead>
                         <tr style="width: 100%">
-                            <th class="text-center" style="width: 2%">ID</th>
                             <th class="text-center" style="width: 20%">Exercício</th>
                             <th class="text-center" style="width: 14,6%">Série</th>
                             <th class="text-center" style="width: 14,6%">Repetição</th>
@@ -30,67 +29,36 @@
                         </tr>
                     </thead>
                     <tbody id="tabelaExerciciosBody" class="">
-                        <tr style="width: 100%" id="exercicio-1">
-                            <td><span class="sn">1</span>.</td>
+                        <tr>
                             <td class="text-center" style="width: 20%;">
-                                <select class="form-control" name="usuarioID" id="usuarioID">
+                                <select class="form-control exercicio_id" name="exercicio_id[]" id="exercicio_id">
                                     <option selected disabled value="">Exercício</option>
                                     @<?php foreach ($arrayExercicios as $dados): ?>
                                         <option id="selectExercicioArray" value="{{$dados->id}}">{{$dados->nome}}</option>
                                     <?php endforeach; ?>
                                 </select>
                             </td>
-                            <td class="text-center" style="width:13%;">
+                            <td class="text-center" style="width:14%;">
                                 <input type="text" class="form-control">
                             </td>
-                            <td class="text-center" style="width:13%;">
+                            <td class="text-center" style="width:14%;">
                                 <input type="text" class="form-control">
                             </td>
-                            <td class="text-center" style="width:13%;">
+                            <td class="text-center" style="width:14%;">
                                 <input type="text" class="form-control">
                             </td>
-                            <td class="text-center" style="width:13%;">
+                            <td class="text-center" style="width:14%;">
                                 <input type="text" class="form-control">
                             </td>
-                            <td class="text-center" style="width:13%;">
+                            <td class="text-center" style="width:14%;">
                                 <input type="text" class="form-control">
                             </td>
-                            <td class="text-center" style="width:5%;">
-                                <a class="btn btn-danger delete-registro type="button" data-id="1"><i class="fas fa-trash-alt"></i></a>
+                            <td class="text-center" style="width:10%;">
+                                <a class="btn btn-danger" onclick="removeLinhaExercicios(this)" type="button"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-                <div style="display:none;">
-                    <table id="tabelaExercicioAmostra">
-                        <tr id="">
-                            <td><span class="sn"></span>.</td>
-                            <td class="text-center" style="width: 20%;">
-                                <select name="exercicio" id="exercicio" class="form-control">
-                                    <option selected disabled value="">Selecione o exercício</option>
-                                </select>
-                            </td>
-                            <td class="text-center" style="width:13%;">
-                                <input type="text" class="form-control">
-                            </td>
-                            <td class="text-center" style="width:13%;">
-                                <input type="text" class="form-control">
-                            </td>
-                            <td class="text-center" style="width:13%;">
-                                <input type="text" class="form-control">
-                            </td>
-                            <td class="text-center" style="width:13%;">
-                                <input type="text" class="form-control">
-                            </td>
-                            <td class="text-center" style="width:13%;">
-                                <input type="text" class="form-control">
-                            </td>
-                            <td class="text-center" style="width:5%;">
-                                <a class="btn btn-danger delete-registro type="button" data-id="0"><i class="fas fa-trash-alt"></i></a>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
             </div>
         </div>
     </div>

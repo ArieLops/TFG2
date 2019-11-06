@@ -37,7 +37,7 @@ class AnamneseController extends Controller
     {
         $anamnese = new Anamnese;
 
-        $anamnese->pessoa_id       = $request->pessoa_id;
+        $anamnese->users_id       = $request->user_id;
         $anamnese->condicionamento = $request->condicionamento;
 
         $limpaData = str_replace('/', '-', $request->input('dataUltimoCheckup'));
@@ -55,7 +55,7 @@ class AnamneseController extends Controller
 
         if($id != 0){
             foreach($request->sinalID as $key => $value){
-                (new Anamnese_Sinal())->createAnamneseSinal($id, $request->sinalID[$key], $request->comentario[$key]);
+                (new Anamnese_Sinal())->createAnamneseSinal($id, $request->sinalID[$key]);
             }
         }
         

@@ -21,7 +21,7 @@ class UserController extends Controller
     public function index()
     {
         //Listar todos as pessoas cadastradas
-        $users = DB::table('users')->where('tipo',1)->get();
+        $users = DB::table('users')->where('id',5)->get();
         
         $users = $this->user->paginate($this->paginacao);
 
