@@ -26,6 +26,11 @@ class Users extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function objetivo(){
+        return $this->belongsTo(Objetivo::class);
+    }
+
+    /*
     public function exames(){
         return $this->hasMany(Exames::class);
     }
@@ -41,4 +46,5 @@ class Users extends Authenticatable
     public function anamnese(){
         return $this->hasOne(Anamnese::class);
     }
+    */
 }

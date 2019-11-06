@@ -1567,17 +1567,17 @@
     },
     {
         "name": "nesbot/carbon",
-        "version": "2.25.3",
-        "version_normalized": "2.25.3.0",
+        "version": "2.26.0",
+        "version_normalized": "2.26.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/briannesbitt/Carbon.git",
-            "reference": "d07636581795383e2fea2d711212d30f941f2039"
+            "reference": "e01ecc0b71168febb52ae1fdc1cfcc95428e604e"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/d07636581795383e2fea2d711212d30f941f2039",
-            "reference": "d07636581795383e2fea2d711212d30f941f2039",
+            "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/e01ecc0b71168febb52ae1fdc1cfcc95428e604e",
+            "reference": "e01ecc0b71168febb52ae1fdc1cfcc95428e604e",
             "shasum": ""
         },
         "require": {
@@ -1593,7 +1593,7 @@
             "phpunit/phpunit": "^7.5 || ^8.0",
             "squizlabs/php_codesniffer": "^3.4"
         },
-        "time": "2019-10-20T11:05:44+00:00",
+        "time": "2019-10-21T21:32:25+00:00",
         "bin": [
             "bin/carbon"
         ],
@@ -2128,17 +2128,17 @@
     },
     {
         "name": "phpoption/phpoption",
-        "version": "1.5.0",
-        "version_normalized": "1.5.0.0",
+        "version": "1.5.1",
+        "version_normalized": "1.5.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/schmittjoh/php-option.git",
-            "reference": "94e644f7d2051a5f0fcf77d81605f152eecff0ed"
+            "reference": "894e8f93890b79f29911cce497fe811fe9d931ba"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/94e644f7d2051a5f0fcf77d81605f152eecff0ed",
-            "reference": "94e644f7d2051a5f0fcf77d81605f152eecff0ed",
+            "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/894e8f93890b79f29911cce497fe811fe9d931ba",
+            "reference": "894e8f93890b79f29911cce497fe811fe9d931ba",
             "shasum": ""
         },
         "require": {
@@ -2147,7 +2147,7 @@
         "require-dev": {
             "phpunit/phpunit": "4.7.*"
         },
-        "time": "2015-07-25T16:39:46+00:00",
+        "time": "2019-11-06T12:42:47+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2162,7 +2162,7 @@
         },
         "notification-url": "https://packagist.org/downloads/",
         "license": [
-            "Apache2"
+            "Apache-2.0"
         ],
         "authors": [
             {

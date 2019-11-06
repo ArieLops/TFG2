@@ -21,7 +21,7 @@ class UserController extends Controller
     public function index()
     {
         //Listar todos as pessoas cadastradas
-        $users = DB::table('users')->where('id',5)->get();
+        $users = Users::orderBy('id')->get();
         
         $users = $this->user->paginate($this->paginacao);
 
@@ -47,6 +47,7 @@ class UserController extends Controller
         $user->rg = $request->rg;
         $user->objetivo_id = $request->objetivo_id;
         $user->tipo = $request->tipo;
+        $user->password = bcrypt('123456');
 
         $user->save();
 
@@ -75,7 +76,7 @@ class UserController extends Controller
         $user = new Users;
         $objetivo = new Objetivo;
 
-        $usuario = $request->usuarioID;
+        $usuario = $request->users_id;
         
         $consultaObjetivoId   = Users::where('id',"=", $usuario)->with('objetivo')->get()->first();
         return \json_encode($consultaObjetivoId);

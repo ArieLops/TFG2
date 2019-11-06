@@ -15,13 +15,13 @@
             <div class="box-body">
                 <form action="{{route('salvarTreino')}}" class="validacao" id="formTreino" method="POST" autocomplete="off">
                     @csrf
-                    <div class="box-body hidden" id="divTreino">
+                    <div class="box-body " id="divTreino">
                         @include('admin.treino.formulario')
                     </div>
                     <div class="box-body hidden" id="divTreinoSemana">
                         @include('admin.treino.formularioSemana')
                     </div>
-                    <div class="box-body" id="divTreinoAdicionarSemana">
+                    <div class="box-body hidden" id="divTreinoAdicionarSemana">
                         @include('admin.treino.formularioAdicionarSemana')
                     </div>
                      <div class="box-footer hidden">
@@ -41,12 +41,12 @@
         });
 
         $("#btnAdicionar").click(function(){
-            var usuarioID = $("#usuarioID option:selected").val();
+            var users_id = $("#users_id option:selected").val();
             $.ajax({
-                url: '/admin/pessoa/searchPessoaObjetivo',
+                url: '/admin/pessoa/searchUserObjetivo',
                 type: 'GET',
                 dataType: 'json',
-                data: 'usuarioID=' + usuarioID,
+                data: 'users_id=' + users_id,
                 success: function(dados){
                     var result = dados.objetivo.nome;
                     document.getElementById('nomeObjetivoTabela').innerHTML = result
@@ -55,7 +55,7 @@
         });
 
         $("#criar").click(function(){
-            var nomePessoa = $("#usuarioID option:selected").html();
+            var nomePessoa = $("#users_id option:selected").html();
             var objetivo = $("#nomeObjetivoTabela").html();
             $("#pessoaSelecionada").val(nomePessoa);
             $("#objetivoSelecionado").val(objetivo);
