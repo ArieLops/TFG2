@@ -17,4 +17,8 @@ class Anamnese extends Model
     public function sinais(){
         return $this->belongsToMany("App\Http\Models\Sinal", "Anamnese_Sinal");
     }
+
+    public function lesoes(){
+        return $this->belongsToMany("App\Http\Models\Lesao", "Anamnese_Lesao");
+    }
 }

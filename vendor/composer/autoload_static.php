@@ -463,6 +463,7 @@ class ComposerStaticInit882730ad168473ae06b3b26b29ea23fc
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Models\\Anamnese' => __DIR__ . '/../..' . '/app/Http/Models/Anamnese.php',
+        'App\\Http\\Models\\Anamnese_Lesao' => __DIR__ . '/../..' . '/app/Http/Models/Anamnese_Lesao.php',
         'App\\Http\\Models\\Anamnese_Sinal' => __DIR__ . '/../..' . '/app/Http/Models/Anamnese_Sinal.php',
         'App\\Http\\Models\\Aparelho' => __DIR__ . '/../..' . '/app/Http/Models/Aparelho.php',
         'App\\Http\\Models\\Avaliacao' => __DIR__ . '/../..' . '/app/Http/Models/Avaliacao.php',

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Models\Anamnese;
 use App\Http\Models\Anamnese_Sinal;
+use App\Http\Models\Anamnese_Lesao;
 use Carbon\Carbon;
 use DB;
 use Gate;
@@ -56,6 +57,12 @@ class AnamneseController extends Controller
         if($id != 0){
             foreach($request->sinalID as $key => $value){
                 (new Anamnese_Sinal())->createAnamneseSinal($id, $request->sinalID[$key]);
+            }
+        }
+
+        if($id != 0){
+            foreach($request->lesao_id as $key => $value){
+                (new Anamnese_Lesao())->createAnamneseLesao($id, $request->lesao_id[$key], $request->tipo_id[$key], $request->local_id[$key]);
             }
         }
         

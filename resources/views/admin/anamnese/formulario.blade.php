@@ -82,23 +82,19 @@
                 <table class="table table-bordered table-hover" id="tabelaSinais">
                     <thead>
                         <tr style="width: 100%">
-                            <th class="text-center" style="width: 30%">Sinais</th>
-                            <th class="text-center" style="width: 60%">Comentário</th>
+                            <th class="text-center" style="width: 90%">Sinais</th>
                             <th class="text-center" style="width: 10%">Ação</th>
                         </tr>
                     </thead>
                     <tbody id="tabelaSinaisBody" class="">
                         <tr>
-                            <td class="text-center" style="" style="width: 30%;">
+                            <td class="text-center" style="" style="width: 90%;">
                                 <select class="form-control" name="sinalID[]" id="sinalID">
                                     <option selected disabled value="">Selecione o sinal</option>
                                     @<?php foreach ($arraySinais as $dados): ?>
                                     <option id="selectSinalArray" value="{{$dados->id}}">{{$dados->nome}}</option>
                                     <?php endforeach; ?>
                                 </select>
-                            </td>
-                            <td class="text-center" style="width:60%;">
-                                <input type="text" class="form-control" name="comentario[]" id="comentario">
                             </td>
                             <td class="text-center" style="width:10%;">
                                 <a class="btn btn-danger type="button" id="removeSinal" onclick="remove(this)"><i class="fas fa-trash-alt"></i></a>
@@ -151,7 +147,7 @@
                                 </select>
                             </td>
                             <td class="text-center" style="width:30%;">
-                                <select name="local" id="local" class="form-control">
+                                <select name="local_id[]" id="local_id[]" class="form-control">
                                     <option selected disabled value="">Selecione o local</option>
                                 </select>
                             </td>

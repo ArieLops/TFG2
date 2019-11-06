@@ -59,7 +59,7 @@ class AvaliacaoController extends Controller
         $avaliacao->dataInicial;
         $avaliacao->dataFinal;
         
-        $avaliacao->pessoa_id = $request->pessoa_id;
+        $avaliacao->users_id = $request->users_id;
         $avaliacao->massa = $request->input('massa');
         $avaliacao->estatura = $request->input('estatura');
         $avaliacao->peitoral = $request->input('peitoral');
