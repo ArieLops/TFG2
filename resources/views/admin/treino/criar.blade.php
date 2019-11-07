@@ -85,54 +85,38 @@
             $("#divTreinoAdicionarSemana").removeClass('hidden');
         });
 
-        /*Remove linha exercicio*/
-        $('.addRowExercicio').on('click', function(){
-            addRowExercicio();
+        //Adicionar exercicio
+        jQuery(document).delegate('.add-exercicio', 'click', function(e) {
+            e.preventDefault();
+
+            var content = jQuery('#sample_table tr'),
+                size = jQuery('#tabelaExercicios >tbody >tr').length + 1,
+                element = null,    
+                element = content.clone();
+                element.attr('id', 'exercicio-' + size);
+                element.find('.delete-exercicio').attr('data-id', size);
+                element.appendTo('#tabelaExerciciosBody');
+                element.find('.sn').html(size);
         });
 
-        (function($) {
-            removeLinhaExercicios = function(item) {
-            var tr = $(item).closest('tr');
+        //Remover linha
+        jQuery(document).delegate('.delete-exercicio', 'click', function(e) {
+            e.preventDefault();    
 
-            tr.fadeOut(400, function() {
-                tr.remove();  
-            }); 
+            var didConfirm = confirm("Deseja remover esta linha?");
+                if (didConfirm == true) {
+                    var id = jQuery(this).attr('data-id');
+                    var targetDiv = jQuery(this).attr('targetDiv');
+                jQuery('#exercicio-' + id).remove();
+      
+                $('#tabelaExerciciosBody tr').each(function(index) {
+                $(this).find('span.sn').html(index+1);
+            });
+                return true;
+            } else {
                 return false;
             }
-        })(jQuery);
-        /*Adicionar linha exercicio*/
-        function addRowExercicio(){
-                   var tr = '<tr>'+
-                            '<td class="text-center" style="width: 20%;">'+
-                            '<select class="form-control exercicio_id" name="exercicio_id[]" id="exercicio_id">'+
-                            '<option selected disabled value="">Exercício</option>'+
-                            '@<?php foreach ($arrayExercicios as $dados): ?>'+
-                            '<option id="selectExercicioArray" value="{{$dados->id}}">{{$dados->nome}}</option>'+
-                            '<?php endforeach; ?>'+
-                            '</select>'+
-                            '</td>'+
-                            '<td class="text-center" style="width:13%;">'+
-                            '<input type="text" class="form-control">'+
-                            '</td>'+
-                            '<td class="text-center" style="width:13%;">'+
-                            '<input type="text" class="form-control">'+
-                            '</td>'+
-                            '<td class="text-center" style="width:13%;">'+
-                            '<input type="text" class="form-control">'+
-                            '</td>'+
-                            '<td class="text-center" style="width:13%;">'+
-                            '<input type="text" class="form-control">'+
-                            '</td>'+
-                            '<td class="text-center" style="width:13%;">'+
-                            '<input type="text" class="form-control">'+
-                            '</td>'+
-                            '<td class="text-center" style="width:5%;">'+
-                            '<a class="btn btn-danger" type="button" onclick="removeLinhaExercicios(this)"><i class="fas fa-trash-alt"></i></a>'+
-                            '</td>'+
-                            '</tr>'
-            $("#tabelaExerciciosBody").append(tr);
-        };
-        
+        });
     //NAO ESTÀ FUNCIONANDO
 
     //Treino - Adicionar - Musculatura
@@ -148,6 +132,7 @@
                 data: 'musculatura_id=' + musculatura_id,
                 success:function(res){
                     if(res){
+                        alert(JSON.stringify(res));
                         exercicio_id.empty();
                         $.each(res, function(key, value){
                             exercicio_id.append('<option value="' + res[key]["id"] + '">' + res[key]["nome"] + '</option>');
