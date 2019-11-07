@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Models\Anamnese;
 use App\Http\Models\Anamnese_Sinal;
 use App\Http\Models\Anamnese_Lesao;
+use App\Http\Requests\ValidacaoAnamnese;
 use Carbon\Carbon;
 use DB;
 use Gate;
@@ -22,7 +23,6 @@ class AnamneseController extends Controller
 
     public function index()
     {
-        //Listar todos as anamneses cadastradas
         $anamneses = Anamnese::orderBy('id')->get();
         $anamneses = $this->anamnese->paginate($this->paginacao);
 
@@ -34,11 +34,11 @@ class AnamneseController extends Controller
         return view('admin.anamnese.criar');
     }
 
-    public function store(Request $request)
+    public function store(ValidacaoAnamnese $request)
     {
         $anamnese = new Anamnese;
 
-        $anamnese->users_id       = $request->user_id;
+        $anamnese->users_id       = $request->users_id;
         $anamnese->condicionamento = $request->condicionamento;
 
         $limpaData = str_replace('/', '-', $request->input('dataUltimoCheckup'));
@@ -54,15 +54,19 @@ class AnamneseController extends Controller
         $anamnese->save();
         $id = $anamnese->id;
 
-        if($id != 0){
-            foreach($request->sinalID as $key => $value){
-                (new Anamnese_Sinal())->createAnamneseSinal($id, $request->sinalID[$key]);
+        if($request->sinalID != NULL){
+            if($id != 0){
+                foreach($request->sinalID as $key => $value){
+                    (new Anamnese_Sinal())->createAnamneseSinal($id, $request->sinalID[$key]);
+                }
             }
-        }
+        }        
 
-        if($id != 0){
-            foreach($request->lesao_id as $key => $value){
-                (new Anamnese_Lesao())->createAnamneseLesao($id, $request->lesao_id[$key], $request->tipo_id[$key], $request->local_id[$key]);
+        if($request->lesao_id != NULL){
+            if($id != 0){
+                foreach($request->lesao_id as $key => $value){
+                    (new Anamnese_Lesao())->createAnamneseLesao($id, $request->lesao_id[$key], $request->tipo_id[$key], $request->local_id[$key]);
+                }
             }
         }
         

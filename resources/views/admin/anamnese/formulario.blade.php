@@ -1,14 +1,14 @@
 <div class="form-row">
-    <div class="form-group col-md-4">
-        <label for="user_id" class="required">Nome</label>
-        <select class="form-control" name="user_id" id="user_id">
+    <div class="form-group col-md-3">
+        <label for="users_id" class="">Nome</label>
+        <select class="form-control" name="users_id" id="users_id">
             <option selected="selected" disabled>Selecione o Aluno</option>
             @<?php foreach ($arrayUsers as $dados): ?>
             <option id="selectUserArray" value="{{$dados->id}}">{{$dados->name}}</option>
             <?php endforeach; ?>
         </select>
     </div>
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-4">
         <label>Nível de Condicionamento</label>
         <select id="condicionamento" name="condicionamento" class="form-control" value="{{old('condicionamento', $dados->condicionamento ?? '')}}">
             <option selected="selected" disabled>Selecione um condicionamento</option>
@@ -17,7 +17,7 @@
         </select>
     </div>
     <div class="form-group col-md-2">
-        <label for="dataUltimoCheckup" class="required">Último checkup</label>
+        <label for="dataUltimoCheckup">Último checkup</label>
         <div class="input-group date">
             <div class="input-group-addon">
                 <i class="fa fa-calendar"></i>
@@ -51,19 +51,19 @@
         </select>
     </div>
     <div class="form-group col-md-2">
-        <label for="pressaoSistolica" class="required">Pressão sistólica</label>
+        <label for="pressaoSistolica" class="">Pressão sistólica</label>
         <input type="number" class="form-control numerico" id="pressaoSistolica" name="pressaoSistolica" value="{{old('pressaoSistolica', $dados->pressaoSistolica ?? '')}}" />
     </div>
     <div class="form-group col-md-2">
-        <label for="pressaoDiastolica" class="required">Pressão diastólica</label>
+        <label for="pressaoDiastolica" class="">Pressão diastólica</label>
         <input type="number" class="form-control numerico" id="pressaoDiastolica" name="pressaoDiastolica" value="{{old('pressaoDiastolica', $dados->pressaoDiastolica ?? '')}}" />
     </div>
     <div class="form-group col-md-2">
-        <label for="glicose" class="required">Glicose</label>
+        <label for="glicose" class="">Glicose</label>
         <input type="number" class="form-control numerico" id="glicose" name="glicose" value="{{old('glicose', $dados->glicose ?? '')}}" />
     </div>
     <div class="form-group col-md-2">
-        <label for="triglicerideos" class="required">Triglicerídeos</label>
+        <label for="triglicerideos" class="">Triglicerídeos</label>
         <input type="number" class="form-control numerico" id="triglicerideos" name="triglicerideos" value="{{old('triglicerideos', $dados->triglicerideos ?? '')}}" />
     </div>
 </div>
@@ -131,7 +131,7 @@
                     <tbody id="tabelaLesoesBody" class="">
                         <tr>
                             <td class="text-center" style="" style="width: 28%;">
-                                <select class="form-control" name="lesao_id[]" id="lesao_id">
+                                <select class="form-control lesao_id" name="lesao_id[]" id="lesao_id">
                                     <option selected disabled value="">Selecione a lesão</option>
                                     @<?php foreach ($arrayLesoes as $dados): ?>
                                     <option id="selectLesaoArray" value="{{$dados->id}}">{{$dados->nome}}</option>
@@ -147,7 +147,7 @@
                                 </select>
                             </td>
                             <td class="text-center" style="width:30%;">
-                                <select name="local_id[]" id="local_id[]" class="form-control">
+                                <select name="local_id[]" id="local_id" class="form-control">
                                     <option selected disabled value="">Selecione o local</option>
                                 </select>
                             </td>
@@ -162,31 +162,3 @@
     </div>
 </div>
 <!-- Fim das lesoes -->
-<div class="form-row">
-    <div class="col-xs-12">
-        <br>
-        <div class="box">
-            <div class="box-header">
-                <h3 class="box-title">Informações de emergência</h3>
-            </div>
-            <div class="form-row">
-            <br>
-                <div class="form-group col-md-4">
-                <br>
-                    <label for="contatoEmergencia" class="">Contato de emergência</label>
-                    <input type="text" class="form-control" id="contatoEmergencia" name="contatoEmergencia" placeholder="Nome" value="" />
-                </div>
-                <div class="form-group col-md-4">
-                <br>
-                <label>Telefone</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <i class="fa fa-phone"></i>
-                    </div>
-                    <input type="number" class="form-control telefone" name="telefone" value="">
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>

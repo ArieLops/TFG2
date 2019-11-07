@@ -35,7 +35,7 @@ class AvaliacaoController extends Controller
         return view('admin.avaliacao.criar');
     }
 
-    public function store(Request $request)
+    public function store(ValidacaoAvaliacao $request)
     {
         $avaliacao = new Avaliacao;
 

@@ -13,7 +13,7 @@
                 <a href="{{route('listarAnamnese')}}" class="btn btn-info btn-sm pull-right">Listar Anamneses</a>
             </div>
             <div class="box-body">
-                <form action="{{route('salvarAnamnese')}}" id="formAnamnese" method="POST" autocomplete="off">
+                <form action="{{route('salvarAnamnese')}}" class="validacao" id="formAnamnese" method="POST" autocomplete="off">
                     @csrf
                     <div class="box-body">
                         @include('admin.anamnese.formulario')
@@ -90,7 +90,7 @@
     function addRowLesao(){
         var tr = "<tr>"+
                   "<td class='text-center' style='' style='width: 30%;'>"+
-                  "<select class='form-control name='lesao_id[]' id='lesao_id'>"+
+                  "<select class='form-control lesao_id' name='lesao_id[]' id='lesao_id'>"+
                   "<option selected disabled value=''>Selecione a lesão</option>"+
                   "@<?php foreach ($arrayLesoes as $dados): ?>"+
                   "<option id='selectLesaoArray' value='{{$dados->id}}'>{{$dados->nome}}</option>"+
@@ -106,7 +106,7 @@
                   "</select>"+
                   "</td>"+
                   "<td class='text-center' style='width:30%;'>"+
-                  "<select name='local_id[]' id='local_id[]' class='form-control'>"+
+                  "<select name='local_id[]' id='local_id' class='form-control'>"+
                   "<option selected disabled value=''>Selecione o local</option>"+
                   "</select>"+
                   "</td>"+

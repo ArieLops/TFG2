@@ -15,7 +15,7 @@ class ValidacaoAvaliacao extends FormRequest
     public function rules()
     {
         return [
-            'pessoa_id'  => 'required',
+            'users_id'  => 'required',
             'vigenciaAvaliacao'  => 'required',
             'massa' => 'required|numeric',
             'estatura' => 'required|numeric',
@@ -43,7 +43,7 @@ class ValidacaoAvaliacao extends FormRequest
 
     public function messages(){
         return [
-            'pessoa_id.required'         => "O campo NOME escolhido",
+            'users_id.required'         => "O campo NOME escolhido",
             'vigenciaAvaliacao.required' => "O campo VIGÊNCIA deve ser preenchido",
             'massa.required'             => 'O campo MASSA deve ser preenchido',
             'estatura.required'          => 'O campo ESTATURA deve ser preenchido',
