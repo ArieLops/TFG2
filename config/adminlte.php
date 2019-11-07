@@ -127,40 +127,63 @@ return [
     | layout. The 'can' is a filter on Laravel's built in Gate functionality.
     */
     'menu' => [
+        //Dashboard - Administrador
         [
             'text' => 'Dashboard',
             'url'  => 'admin',
             'icon' => 'fas fa-tachometer-alt',
             'can'  => 'isAdmin',
-
         ],
+        //Dashboard - Praticante
+        [
+            'text' => 'Dashboard',
+            'url'  => 'praticante',
+            'icon' => 'fas fa-tachometer-alt',
+            'can'  => 'isUser',
+        ],
+        //Dashboard - Administrador
         [
             'text' => 'Pessoas',
             'url'  => 'admin/pessoa',
             'icon' => 'fas fa-users',
             'can'  => 'isAdmin',
         ],
+        //Dashboard - Administrador
         [
             'text' => 'Treinos',
             'url'  => 'admin/treino/adicionar',
             'icon' => 'fa fa-edit',
+            'can'  => 'isAdmin',
         ],
+        //Dashboard - Administrador
         [
             'text' => 'Avaliações',
             'url'  => 'admin/avaliacao',
             'icon' => 'fa fa-address-book',
             'can'  => 'isAdmin',
         ],
+        //Dashboard - Administrador
         [
             'text' => 'Exames',
             'url'  => 'admin/exame',
             'icon' => 'fa fa-heartbeat',
+            'can'  => 'isAdmin',
         ],
+        //Dashboard - Administrador
         [
             'text' => 'Anamnese',
             'url'  => 'admin/anamnese',
             'icon' => 'fa fa-stethoscope',
+            'can'  => 'isAdmin',
         ],
+        //Anamense - Praticante
+        [
+            'text' => 'Anamnese',
+            'url'  => 'praticante/anamnese',
+            'icon' => 'fa fa-stethoscope',
+            'can'  => 'isUser',
+        ],
+        //Configurações - Administrador
         [
             'text'    => 'Configurações',
             'url'  => 'admin/configuracao/adicionar',

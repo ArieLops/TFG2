@@ -24,7 +24,7 @@ class AvaliacaoController extends Controller
 
         foreach($avaliacoes as $avaliacao){
             $avaliacao->dataInicial = date('d/m/Y', strtotime($avaliacao->dataInicial));
-            $avaliacao->dataFinal = date('d/m/Y', strtotime($avaliacao->dataFinal));
+            $avaliacao->dataFinal   = date('d/m/Y', strtotime($avaliacao->dataFinal));
         }
 
         return view('admin.listarAvaliacao', compact('avaliacoes'));

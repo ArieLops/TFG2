@@ -1,7 +1,8 @@
 <?php
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Praticante'], function(){
-    Route::get('praticante', 'PraticanteController@index')->name('praticante');
+    Route::get('praticante',           'PraticanteController@index')->name('praticante');
+    Route::get('praticante/anamnese/', 'AnamnesePraticanteController@index')->name('ListarAnamnesePraticante');
 });
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function(){
