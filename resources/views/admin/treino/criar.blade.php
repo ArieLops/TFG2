@@ -85,6 +85,7 @@
             $("#divTreinoAdicionarSemana").removeClass('hidden');
         });
 
+        /*Remove linha exercicio*/
         $('.addRowExercicio').on('click', function(){
             addRowExercicio();
         });
@@ -99,7 +100,7 @@
                 return false;
             }
         })(jQuery);
-    
+        /*Adicionar linha exercicio*/
         function addRowExercicio(){
                    var tr = '<tr>'+
                             '<td class="text-center" style="width: 20%;">'+
