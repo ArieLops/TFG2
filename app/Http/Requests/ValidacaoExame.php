@@ -15,18 +15,18 @@ class ValidacaoExame extends FormRequest
     public function rules()
     {
         return [
-            'pessoa_id'  => 'required',
+            'users_id'  => 'required',
             'dataRealizado' => 'required',
-            'arquivo' => 'required|mimes:jpg|mimes:pdf|mimes:png',
+            //'arquivo' => 'required|mimes:jpg|mimes:png',
         ];
         
     }
 
     public function messages(){
         return [
-            'pessoa_id.required' => "O campo NOME deve ser preenchido",
+            'users_id.required' => "O campo NOME deve ser preenchido",
             'dataRealizado.required' => "O campo DATA deve ser preenchido",
-            'arquivo.required' => 'O campo ARQUIVO deve receber um arquivo PDF, JPG ou PNG',
+            'arquivo.required' => 'O campo ARQUIVO deve receber um arquivo JPG ou PNG',
         ];
     }
 }

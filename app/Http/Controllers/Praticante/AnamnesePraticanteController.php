@@ -19,22 +19,12 @@ class AnamnesePraticanteController extends Controller
     }
 
     public function index(){
-        $NomeUsuarioLogado = Auth::user()->name;
-        $idUsuarioLogado   = Auth::user()->id;
+        $anamense = new Anamnese;
 
-        echo $idUsuarioLogado;
+        //$NomeUsuarioLogado = Auth::user()->name;
+        //$idUsuarioLogado   = Auth::user()->id;
 
-        //$anamneses = Anamnese::find($idUsuarioLogado);
-
-        $anamneses = Anamnese::where('users_id', "=", $idUsuarioLogado)->get();
-        
-        dd($anamneses);
-
-        if($anamneses != NULL){
-            foreach($anamneses as $anamense){
-                $anamense->dataUltimoCheckup = date('d/m/Y', strtotime($anamense->dataUltimoCheckup));
-            }
-        }
+        //$anamneses = Anamnese::where('users_id', "=", $idUsuarioLogado)->get()->toArray();
 
         return view('praticante.praticanteAnamnese', compact('anamneses'));
     }

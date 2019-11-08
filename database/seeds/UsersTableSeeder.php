@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Seeder;
 use App\Http\Models\Users;
 
@@ -13,7 +12,7 @@ class UsersTableSeeder extends Seeder
          'user_type' => 'admin',
          'tipo' => '0',
          'password' => bcrypt('123456')]);
-
+         
          DB::table('users')->insert([
           'name' => 'Praticante', 
           'email' => 'praticante@teste.com.br', 

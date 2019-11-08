@@ -21,7 +21,7 @@
             @foreach($avaliacoes as $avaliacao)
             <tr>
                 <td>{{$avaliacao->id}}</td>
-                <td>{{$avaliacao->user->name}}</td>
+                <td></td>
                 <td>{{$avaliacao->dataInicial}}</td>
                 <td>{{$avaliacao->dataFinal}}</td>
                 <td>

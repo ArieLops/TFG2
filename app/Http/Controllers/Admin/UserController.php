@@ -22,9 +22,15 @@ class UserController extends Controller
     {
         //Listar todos as pessoas cadastradas
         $users = Users::orderBy('id')->get();
-        
-        $users = $this->user->paginate($this->paginacao);
 
+        foreach($users as $user):
+            if($user->tipo == 0){
+                $user->tipo = "Educador Físico";
+            }else{
+                $user->tipo = "Aluno";
+            }
+        endforeach;
+        
         return view('admin.listarPessoas', compact('users'));
     }
 
@@ -35,7 +41,6 @@ class UserController extends Controller
 
     public function store(ValidacaoUser $request)
     {
-        //dd($request);
         $user = new Users;
 
         $user->name = $request->name;

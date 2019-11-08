@@ -13,8 +13,8 @@
             <div class="col-lg-3 col-xs-6">
                 <div class="small-box bg-green">
                     <div class="inner">
-                        @inject('pessoa', '\App\Http\Models\Pessoa')
-                        <h3>{{$pessoa->where('tipo','0')->count()}}</h3>
+                        @inject('users', '\App\Http\Models\Users')
+                        <h3>{{$users->where('tipo','1')->count()}}</h3>
                         <p>Alunos cadastrados</p>
                     </div>
                     <div class="icon">

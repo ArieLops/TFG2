@@ -30,21 +30,15 @@ class Users extends Authenticatable
         return $this->belongsTo(Objetivo::class);
     }
 
-    /*
-    public function exames(){
-        return $this->hasMany(Exames::class);
-    }
-
     public function avaliacoes(){
         return $this->hasMany(Avaliacao::class);
     }
-    
-    public function objetivo(){
-        return $this->belongsTo(Objetivo::class);
+
+    public function exames(){
+        return $this->hasMany(Exames::class);
     }
 
     public function anamnese(){
         return $this->hasOne(Anamnese::class);
     }
-    */
 }
