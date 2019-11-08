@@ -1,4 +1,4 @@
-$(function(){
+$(function () {
     $('.validacao').validate({
         rules: {
             nome: {
@@ -112,7 +112,7 @@ $(function(){
                 required: true,
             },
             sinalID: {
-                
+
             }
         },
         messages: {

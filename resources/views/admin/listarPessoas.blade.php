@@ -20,22 +20,18 @@
                 <th style="width: 28,33%">Tipo</th>
                 <th style="width: 10%">Ação</th>
             </tr>
-            
-            @if($users != NULL)
-                @foreach($users as $user)
+                @foreach($users as $key => $value)
                 <tr>
-                    <td>{{$user->id}}</td>
-                    <td>{{$user->name}}</td>
-                    <td></td>
-                    <td>{{$user->tipo}}</td>
+                    <td>{{$users[$key]["id"]}}</td>
+                    <td>{{$users[$key]["name"]}}</td>
+                    <td>{{$users[$key]["objetivo"]["nome"]}}</td>
+                    <td>{{$users[$key]["tipo"]}}</td>
                     <td>
-                        <a href="/admin/pessoa/{{$user->id}}/editar" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                        <a href="/admin/pessoa/{{$user->id}}/excluir" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                        <a href="/admin/pessoa/{{$users[$key]["id"]}}/editar" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                        <a href="/admin/pessoa/{{$users[$key]["id"]}}/excluir" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
                 @endforeach  
-            @endif
-
             </tr>
         </table>
     </div>

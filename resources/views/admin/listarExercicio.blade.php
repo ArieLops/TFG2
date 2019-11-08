@@ -35,7 +35,6 @@
                 @endforeach
                 </td>
                 <td>
-                    <!--<a href="/admin/exercicio/{{$exercicio->id}}/editar" class="btn btn-primary">Editar</a>-->
                     <a href="/admin/configuracao/exercicio/{{$exercicio->id}}/excluir" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
