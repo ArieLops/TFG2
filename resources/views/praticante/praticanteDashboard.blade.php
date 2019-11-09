@@ -20,14 +20,17 @@
             <div class="col-lg-3 col-xs-6">
                 <div class="small-box bg-red">
                     <div id="resultado" class="inner">  
-                        <h3>{{$dados[1]}}</h3>
-                        <p>{{$dados[0]}}</p>
+                        <h3>{{$dados["imc"]}}</h3>
+                        <p>{{$dados["situacao"]}}</p>
                     </div>
                     <div class="icon">
                         <i class="fas fa-weight"></i>
                     </div>
                 </div>
             </div>
+            <span class="label label-success">{{$dados["objetivo"][0]}}</span>
+            <span class="label label-info">   {{$dados["ultimaAvaliacao"][0] = date('d/m/Y', strtotime($dados["ultimaAvaliacao"][0]))}}</span>
+            <span class="label label-warning">{{$dados["proximaAvaliacao"][0] = date('d/m/Y', strtotime($dados["proximaAvaliacao"][0]))}}</span>
         </div>
     </div>
 </div>

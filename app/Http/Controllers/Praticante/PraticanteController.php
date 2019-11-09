@@ -5,12 +5,14 @@ namespace App\Http\Controllers\Praticante;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Models\Avaliacao;
+use App\Http\Models\Objetivo;
 use App\Http\Models\Users;
 use DB;
 use Auth;
 
 class PraticanteController extends Controller
 {
+
     public function index(){
 
         //Identifica o usuario logado com o nome e o id
@@ -29,6 +31,18 @@ class PraticanteController extends Controller
         //Selectiona apenas a massa e a altura 
         $massa  = $avaliacao->pluck('massa')->all();
         $altura = $avaliacao->pluck('estatura')->all();
+        $ultimaAvaliacao = $avaliacao->pluck('dataInicial');
+        $proximaAvaliacao = $avaliacao->pluck('dataFinal');
+
+        $dados["ultimaAvaliacao"] = $ultimaAvaliacao;
+        $dados["proximaAvaliacao"] = $proximaAvaliacao;
+
+        //Pega o objetivo
+        $objetivo        = $usuario->pluck('objetivo_id');
+        $getNomeObjetivo = Objetivo::where("id", "=", $objetivo)->get();
+        $getNomeObjetivo = $getNomeObjetivo->pluck('nome');
+
+        $dados["objetivo"] = $getNomeObjetivo;
 
         //Apenas a ultima massa e altura da ultima avaliacao
         $massa  = end($massa);
@@ -43,26 +57,26 @@ class PraticanteController extends Controller
             $imc = \number_format($imc,2,',','-');
         
             if($imc < 16){
-                $dados[0] = "Magreza Grave";
+                $dados["situacao"] = "Magreza Grave";
             }else if($imc >= 16 && $imc < 17){
-                $dados[0] = "Magreza Moderada";
+                $dados["situacao"] = "Magreza Moderada";
             }else if($imc >= 17 && $imc < 18.50){
-                $dados[0] = "Magreza Leve";
+                $dados["situacao"] = "Magreza Leve";
             }else if($imc >= 18.5 && $imc < 25){
-                $dados[0] = "Saudável";
+                $dados["situacao"] = "Saudável";
             }else if($imc >= 25 && $imc < 30){
-                $dados[0] = "Sobrepeso";
+                $dados["situacao"] = "Sobrepeso";
             }else if($imc >= 30 && $imc < 35){
-                $dados[0] = "Obesidade I";
+                $dados["situacao"] = "Obesidade I";
             }else if($imc >= 35 && $imc < 40){
-                $dados[0] = "Obesidade II";
+                $dados["situacao"] = "Obesidade II";
             }else{
-                $dados[0] = "Obesidade III";
+                $dados["situacao"] = "Obesidade III";
             }
 
-            $dados[1] = $imc;
+            $dados["imc"] = $imc;
         }else{
-            $dados[0] = "Não existe nenhuma avaliação";
+            $dados["situacao"] = "Não existe nenhuma avaliação";
         }
         
         return view('praticante.praticanteDashboard', compact('dados'));
