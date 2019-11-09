@@ -3,6 +3,7 @@ $(function(){
     $('.data').mask('00/00/0000');
     $('.telefone').mask('000000000');
     $('.cpf').mask('00000000000', {reverse: true});
+    $(".estatura").mask('0.00');
 
     $('.selectPesquisa').select2()
 
@@ -50,4 +51,5 @@ $(function(){
     $('.numerico').keyup(function() {
         $(this).val(this.value.replace(/\D/g, ''));
     });
+    
 });

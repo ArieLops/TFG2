@@ -176,13 +176,6 @@ return [
             'icon' => 'fa fa-stethoscope',
             'can'  => 'isAdmin',
         ],
-        //Anamense - Praticante
-        [
-            'text' => 'Anamnese',
-            'url'  => 'praticante/anamnese',
-            'icon' => 'fa fa-stethoscope',
-            'can'  => 'isUser',
-        ],
         //Configurações - Administrador
         [
             'text'    => 'Configurações',

@@ -21,11 +21,11 @@
 <div class="form-row">
     <div class="form-group col-md-2">
         <label for="massa" class="required">Massa (kg)</label>
-            <input type="number" class="form-control numerico" id="massa" name="massa" value="{{old('massa', $dados->massa ?? '')}}" />
+            <input type="number" class="form-control altura" id="massa" name="massa" value="{{old('massa', $dados->massa ?? '')}}" />
     </div>
     <div class="form-group col-md-2">
         <label for="estatura" class="required">Estatura</label>
-        <input type="number" class="form-control numerico" id="estatura" name="estatura" value="{{old('estatura', $dados->estatura ?? '')}}" />
+        <input type="number" class="form-control estatura" id="estatura" name="estatura" value="{{old('estatura', $dados->estatura ?? '')}}" />
     </div>
     <div class="form-group col-md-2">
         <label for="peitoral" class="required">Peitoral</label>
