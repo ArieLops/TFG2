@@ -13,7 +13,7 @@
         <table class="table table-bordered table-hover table-striped">
             <tr style="width: 100%">
                 <th style="width: 5%">ID</th>
-                <th style="width: 70%">Nome!!!</th>
+                <th style="width: 70%">Nome</th>
                 <th>Ação</th>
             </tr>
         </table>

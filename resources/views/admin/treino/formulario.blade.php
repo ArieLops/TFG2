@@ -24,10 +24,6 @@
                     <thead>
                         <tr style="width: 100%">
                             <th class="text-center" style="width: 5%">Criar</th>
-                            <th class="text-center" style="width: 5%">Editar</th>
-                            <th class="text-center" style="width: 5%">Apagar</th>
-                            <th class="text-center" style="width: 5%">Semana</th>
-                            <th class="text-center" style="width: 5%">Visualizar</th>
                             <th class="text-center" style="width: 26,66%">Objetivo</th>
                             <th class="text-center" style="width: 26,66%">Cadastro</th>
                         </tr>
@@ -35,10 +31,6 @@
                     <tbody id="tblConteudo" class="hidden">
                         <tr style="width: 100%">
                             <td class="text-center" style="width: 5%"><a class="btn-class" id="criar"><i class="glyphicon glyphicon-plus-sign"></i></a></td>
-                            <td class="text-center" style="width: 5%"><a class="btn-class"><i class="glyphicon glyphicon-pencil"></i></a></td>
-                            <td class="text-center" style="width: 5%"><a class="btn-class"><i class="glyphicon glyphicon-trash"></i></a></td>
-                            <td class="text-center" style="width: 5%"><a class="btn-class"><i class="glyphicon glyphicon-plus-sign"></i></a></td>
-                            <td class="text-center" style="width: 5%"><a class="btn-class"><i class="glyphicon glyphicon-zoom-in"></i></a></td>
                             <td class="text-center" style="width: 26,66%" id="nomeObjetivoTabela"></td>
                             <td class="text-center" style="width: 26,66%" id="dataTreinoTabela"></td>
                         </tr>
