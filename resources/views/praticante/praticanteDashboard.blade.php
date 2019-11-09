@@ -28,9 +28,15 @@
                     </div>
                 </div>
             </div>
-            <span class="label label-success">{{$dados["objetivo"][0]}}</span>
-            <span class="label label-info">   {{$dados["ultimaAvaliacao"][0] = date('d/m/Y', strtotime($dados["ultimaAvaliacao"][0]))}}</span>
-            <span class="label label-warning">{{$dados["proximaAvaliacao"][0] = date('d/m/Y', strtotime($dados["proximaAvaliacao"][0]))}}</span>
+            <div class="col-lg-3 col-xs-6">
+                <span class="label label-success">{{$dados["objetivo"][0]}}</span>
+            </div>
+            <div class="col-lg-3 col-xs-6">
+                <span class="label label-info">{{$dados["ultimaAvaliacao"][0] = date('d/m/Y', strtotime($dados["ultimaAvaliacao"][0]))}}</span>
+            </div>
+            <div class="col-lg-3 col-xs-6">
+                <span class="label label-warning">{{$dados["proximaAvaliacao"][0] = date('d/m/Y', strtotime($dados["proximaAvaliacao"][0]))}}</span>
+            </div>
         </div>
     </div>
 </div>
