@@ -501,6 +501,7 @@ class ComposerStaticInit882730ad168473ae06b3b26b29ea23fc
         'App\\Providers\\ProviderListaTipos' => __DIR__ . '/../..' . '/app/Providers/ProviderListaTipos.php',
         'App\\Providers\\ProviderListaUsers' => __DIR__ . '/../..' . '/app/Providers/ProviderListaUsers.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'AvaliacaoSeeder' => __DIR__ . '/../..' . '/database/seeds/AvaliacaoSeeder.php',
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
         'BeyondCode\\DumpServer\\DumpServerServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
         'BeyondCode\\DumpServer\\Dumper' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/Dumper.php',
