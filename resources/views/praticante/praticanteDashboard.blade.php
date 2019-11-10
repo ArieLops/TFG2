@@ -3,6 +3,7 @@
 @section('title', 'PRATICANTE')
 
 @section('content_header')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 @stop
 
 @section('content')
@@ -54,7 +55,8 @@
         </div>
     </div>
     <div class="box-body">
-        
+        <!-- Gráfico -->
+        <canvas class="line-chart"></canvas>
     </div>
 </div>
 <div class="box box-primary">
@@ -70,4 +72,45 @@
         </div>
     </div>
 </div>
+<script>
+    var url = "{{url('praticante')}}";
+    /*var avaliacao = new Array();*/
+    var estatura       = new Array();
+    var peso           = new Array();
+
+    $(document).ready(function(){
+        $.ajax(url, function(response){
+            console.log(response);
+            /*response.forEach(function(data){
+                var teste = estatura.push(data.estatura);
+                //alert(teste);
+            });*/
+        });
+    });
+
+    var ctx = document.getElementsByClassName("line-chart");
+
+    var chartGraph = new Chart(ctx, {
+        type: 'line',
+        data : {
+            labels: ["1º", "2º", "3º", "4º", "5º", "6º", "7º", "8º", "9º", "10º"],
+            datasets: [
+                {
+                    label: "IMC",
+                    data: [5,10],
+                    borderWith: 6,
+                    borderColor: 'rgba(77, 166, 253, 0.85)',
+                    backgroundColor: 'transparent',
+                },
+                {
+                    label: "Peso",
+                    data: [2,10],
+                    borderWith: 6,
+                    borderColor: 'rgba(6, 204, 6, 0.85)',
+                    backgroundColor: 'transparent',
+                },
+            ]
+        }
+    });
+</script>
 @stop

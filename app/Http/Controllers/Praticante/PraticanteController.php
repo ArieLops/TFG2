@@ -15,8 +15,42 @@ use Auth;
 
 class PraticanteController extends Controller
 {
-    public function index(){
 
+    public function index(){
+        $idUsuarioLogado   = Auth::user()->id;
+
+        $avaliacao = Avaliacao::where("users_id", "=", $idUsuarioLogado)->get();
+
+        //$result["massa"]  = $avaliacao->pluck('massa')->all();
+        //$result["estatura"] = $avaliacao->pluck('estatura')->all();
+
+        return response()->json($avaliacao);
+    }
+
+    public function create(){
+        $nomeUsuarioLogado = Auth::user()->name;
+        $idUsuarioLogado   = Auth::user()->id;
+
+        $users_id = $idUsuarioLogado;
+
+        return view('praticante.exame.criar', compact('users_id'));
+    }
+
+    public function store(Request $request){
+        $idUsuarioLogado   = Auth::user()->id;
+
+        $path = $request->file('arquivo')->store('storage','public');
+        $exame = new Exame();
+        $exame->users_id = $idUsuarioLogado;
+        $limpaData = str_replace('/', '-', $request->input('dataRealizado'));
+        $exame->dataRealizado = Carbon::parse($limpaData);
+        $exame->arquivo = $path;
+
+        $exame->save();
+        return redirect('praticante/exame/adicionar')->with('mensagem', 'Registro adicionado com sucesso!');
+    }
+    
+    public function getData(){
         //Identifica o usuario logado com o nome e o id
         $nomeUsuarioLogado = Auth::user()->name;
         $idUsuarioLogado   = Auth::user()->id;
@@ -79,28 +113,5 @@ class PraticanteController extends Controller
         }
         
         return view('praticante.praticanteDashboard', compact('dados'));
-    }
-
-    public function create(){
-        $nomeUsuarioLogado = Auth::user()->name;
-        $idUsuarioLogado   = Auth::user()->id;
-
-        $users_id = $idUsuarioLogado;
-
-        return view('praticante.exame.criar', compact('users_id'));
-    }
-
-    public function store(Request $request){
-        $idUsuarioLogado   = Auth::user()->id;
-
-        $path = $request->file('arquivo')->store('storage','public');
-        $exame = new Exame();
-        $exame->users_id = $idUsuarioLogado;
-        $limpaData = str_replace('/', '-', $request->input('dataRealizado'));
-        $exame->dataRealizado = Carbon::parse($limpaData);
-        $exame->arquivo = $path;
-
-        $exame->save();
-        return redirect('praticante/exame/adicionar')->with('mensagem', 'Registro adicionado com sucesso!');
     }
 }

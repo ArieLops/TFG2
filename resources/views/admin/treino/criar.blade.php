@@ -132,7 +132,7 @@
                 data: 'musculatura_id=' + musculatura_id,
                 success:function(res){
                     if(res){
-                        alert(JSON.stringify(res));
+                        //alert(JSON.stringify(res));
                         exercicio_id.empty();
                         $.each(res, function(key, value){
                             exercicio_id.append('<option value="' + res[key]["id"] + '">' + res[key]["nome"] + '</option>');
