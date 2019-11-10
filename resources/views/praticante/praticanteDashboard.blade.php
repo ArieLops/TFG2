@@ -14,7 +14,13 @@
         <script>$("#resultado").addClass('hidden');</script>
     <?php }
 ?>
-<div class="box">
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">Índice de Massa Muscular</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        </div>
+    </div>
     <div class="box-body">
         <div class="row">
             <div class="col-lg-3 col-xs-6">
@@ -40,10 +46,27 @@
         </div>
     </div>
 </div>
-<div class="box">
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">Gráfico de desenvolvimento pessoal</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        </div>
+    </div>
+    <div class="box-body">
+        
+    </div>
+</div>
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">Cadastros</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        </div>
+    </div>
     <div class="box-body">
         <div class="row">
-            <td><a href="/praticante/exame/adicionar" class="btn btn-app"><i class="fa fa-heartbeat"></i>Adicionar Exames</a></td>
+            <td><a href="/praticante/exame/adicionar" class="btn btn-app"><i class="fa fa-heartbeat"></i>Adicionar Exame</a></td>
         </div>
     </div>
 </div>
