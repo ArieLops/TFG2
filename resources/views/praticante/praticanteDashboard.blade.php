@@ -40,4 +40,11 @@
         </div>
     </div>
 </div>
+<div class="box">
+    <div class="box-body">
+        <div class="row">
+            <td><a href="/praticante/exame/adicionar" class="btn btn-app"><i class="fa fa-heartbeat"></i>Adicionar Exames</a></td>
+        </div>
+    </div>
+</div>
 @stop

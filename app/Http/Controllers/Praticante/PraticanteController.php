@@ -5,14 +5,16 @@ namespace App\Http\Controllers\Praticante;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Models\Avaliacao;
+use App\Http\Models\Exame;
 use App\Http\Models\Objetivo;
 use App\Http\Models\Users;
+use Carbon\Carbon;
 use DB;
 use Auth;
 
+
 class PraticanteController extends Controller
 {
-
     public function index(){
 
         //Identifica o usuario logado com o nome e o id
@@ -20,13 +22,11 @@ class PraticanteController extends Controller
         $idUsuarioLogado   = Auth::user()->id;
 
         //Pega todos os dados do usuario 
-        $usuario =   Users::where("id", "=", $idUsuarioLogado)->get();
+        $usuario   = Users::where("id", "=", $idUsuarioLogado)->get();
+        $avaliacao = Avaliacao::where("users_id", "=", $idUsuarioLogado)->get();
 
         //Seleciona apenas o sexo
         $sexo = $usuario->pluck('sexo')->all();
-
-        //Todos os dados das avaliacoes
-        $avaliacao = Avaliacao::where("users_id", "=", $idUsuarioLogado)->get();
 
         //Selectiona apenas a massa e a altura 
         $massa  = $avaliacao->pluck('massa')->all();
@@ -34,15 +34,14 @@ class PraticanteController extends Controller
         $ultimaAvaliacao = $avaliacao->pluck('dataInicial');
         $proximaAvaliacao = $avaliacao->pluck('dataFinal');
 
-        $dados["ultimaAvaliacao"] = $ultimaAvaliacao;
-        $dados["proximaAvaliacao"] = $proximaAvaliacao;
-
         //Pega o objetivo
         $objetivo        = $usuario->pluck('objetivo_id');
         $getNomeObjetivo = Objetivo::where("id", "=", $objetivo)->get();
         $getNomeObjetivo = $getNomeObjetivo->pluck('nome');
 
-        $dados["objetivo"] = $getNomeObjetivo;
+        $dados["ultimaAvaliacao"]  = $ultimaAvaliacao;
+        $dados["proximaAvaliacao"] = $proximaAvaliacao;
+        $dados["objetivo"]         = $getNomeObjetivo;
 
         //Apenas a ultima massa e altura da ultima avaliacao
         $massa  = end($massa);
@@ -80,5 +79,28 @@ class PraticanteController extends Controller
         }
         
         return view('praticante.praticanteDashboard', compact('dados'));
+    }
+
+    public function create(){
+        $nomeUsuarioLogado = Auth::user()->name;
+        $idUsuarioLogado   = Auth::user()->id;
+
+        $users_id = $idUsuarioLogado;
+
+        return view('praticante.exame.criar', compact('users_id'));
+    }
+
+    public function store(Request $request){
+        $idUsuarioLogado   = Auth::user()->id;
+
+        $path = $request->file('arquivo')->store('storage','public');
+        $exame = new Exame();
+        $exame->users_id = $idUsuarioLogado;
+        $limpaData = str_replace('/', '-', $request->input('dataRealizado'));
+        $exame->dataRealizado = Carbon::parse($limpaData);
+        $exame->arquivo = $path;
+
+        $exame->save();
+        return redirect('praticante/exame/adicionar')->with('mensagem', 'Registro adicionado com sucesso!');
     }
 }
