@@ -109,16 +109,12 @@ class PraticanteController extends Controller
 
         $avaliacao = Avaliacao::where("users_id", "=", $idUsuarioLogado)->get();
 
-        $result["massa"]  = $avaliacao->pluck('massa')->all();
+        $result["massa"]    = $avaliacao->pluck('massa')->all();
         $result["estatura"] = $avaliacao->pluck('estatura')->all();
-        /*
-        foreach ($result as $key => $value) {
-            $result["imc"][$key] = $result["massa"][$key]/$result["estatura"][$key];
+
+        for($i = 0; $i < count($result["massa"]) - 1; $i++){
+            $result["imc"][$i] = $result["massa"][$i] / ($result["estatura"][$i] * $result["estatura"][$i]);
         }
-
-        dd($result["imc"]);
-
-        */
 
         return response()->json($result);
     }

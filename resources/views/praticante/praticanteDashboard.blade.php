@@ -76,12 +76,10 @@
 </div>
 <script>
     var url = "{{url('praticante/dados')}}";
-    var Estatura        = new Array();
-    var Massa           = new Array();
-    var dados           = new Array();
-
+    
     $(document).ready(function(){
         $.get(url, function(response){
+
             var obj = response;
 
             var ctx = document.getElementsByClassName("line-chart");
@@ -93,16 +91,16 @@
                     datasets: [
                         {
                             label: "IMC",
-                            data: obj.estatura,
+                            data: obj.imc,
                             borderWith: 6,
                             borderColor: 'rgba(77, 166, 253, 0.85)',
                             backgroundColor: 'transparent',
                         },
                         {
-                            label: "Peso",
+                            label: "Massa",
                             data: obj.massa,
                             borderWith: 6,
-                            borderColor: 'rgba(6, 204, 6, 0.85)',
+                            borderColor: 'rgba(30, 300, 7, 0.85)',
                             backgroundColor: 'transparent',
                         },
                     ]
@@ -111,7 +109,6 @@
 
         });
     });
-
     
 </script>
 @stop
