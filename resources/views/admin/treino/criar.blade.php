@@ -15,13 +15,13 @@
             <div class="box-body">
                 <form action="{{route('salvarTreino')}}" class="validacao" id="formTreino" method="POST" autocomplete="off">
                     @csrf
-                    <div class="box-body" id="divTreino">
+                    <div class="box-body hidden" id="divTreino">
                         @include('admin.treino.formulario')
                     </div>
                     <div class="box-body hidden" id="divTreinoSemana">
                         @include('admin.treino.formularioSemana')
                     </div>
-                    <div class="box-body hidden" id="divTreinoAdicionarSemana">
+                    <div class="box-body" id="divTreinoAdicionarSemana">
                         @include('admin.treino.formularioAdicionarSemana')
                     </div>
                      <div class="box-footer hidden">
@@ -121,8 +121,7 @@
 
     //Treino - Adicionar - Musculatura
     $(document).on("change", ".musculatura_id" , function(e) {
-        var musculatura_id = $(this).val(),
-            exercicio_id = $(this).parent().next().find('select');
+        var musculatura_id = $(this).val();
 
         if(musculatura_id){
             $.ajax({
@@ -133,17 +132,17 @@
                 success:function(res){
                     if(res){
                         //alert(JSON.stringify(res));
-                        exercicio_id.empty();
+                        $("#exercicio_id").empty();
                         $.each(res, function(key, value){
-                            exercicio_id.append('<option value="' + res[key]["id"] + '">' + res[key]["nome"] + '</option>');
+                            $("#exercicio_id").append('<option value="' + res[key]["id"] + '">' + res[key]["nome"] + '</option>');
                         });
                     }else{
-                        exercicio_id.empty();
+                        $("#exercicio_id").empty();
                     }
                 }
             });
         }else{
-            exercicio_id.empty();
+            $("#exercicio_id").empty();
         }
     });
 
