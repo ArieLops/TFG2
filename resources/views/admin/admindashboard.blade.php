@@ -36,7 +36,7 @@
                     <a href="{{route('listarExercicio')}}" class="small-box-footer">Listar <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
-            <div class="col-lg-3 col-xs-6">
+            <!--<div class="col-lg-3 col-xs-6">
                 <div class="small-box bg-yellow">
                     <div class="inner">
                     <h3>0</h3>
@@ -47,7 +47,7 @@
                     </div>
                     <a href="#" class="small-box-footer">Listar <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 </div>

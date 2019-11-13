@@ -3,12 +3,13 @@
         <div class="form-group col-xs-5">
             <label for="musculaturaSelecionada">Musculatura</label>
             <select class="form-control musculatura_id" name="musculatura_id" id="musculatura_id">
-                <option selected disabled value="">Selecione a Musculatura</option>
+                <option id="optMusculatura" selected disabled value="">Selecione a Musculatura</option>
                 @<?php foreach ($arrayMusculaturas as $dados): ?>
                     <option id="selectMusculaturaArray" value="{{$dados->id}}">{{$dados->nome}}</option>
                 <?php endforeach; ?>
             </select>
         </div>
+        @include('includes.formWarnings')
         <a class="btn btn-warning pull-right add-exercicio" data-added="0">
             <i class="glyphicon glyphicon-plus"></i> Adicionar exercício
         </a>
@@ -54,7 +55,8 @@
                 <td class="text-center" style="width:14,6%;">
                     <input type="text" class="form-control">
                 </td>
-                <td class="text-center" style="width:5%;">
+                <td class="text-center" style="width:10%;">
+                    <a class="btn btn-danger seleciona-exercicio tdIdExercicio" data-id="1" type="button"><i class="fas fa-trash-alt"></i></a>
                     <a class="btn btn-danger delete-exercicio" data-id="1" type="button"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
@@ -89,6 +91,7 @@
                 <input type="text" class="form-control">
             </td>
             <td class="text-center" style="width:10%;">
+                <a class="btn btn-danger seleciona-exercicio tdIdExercicio" data-id="1" type="button"><i class="fas fa-trash-alt"></i></a>
                 <a class="btn btn-danger delete-exercicio" data-id="0" type="button"><i class="fas fa-trash-alt"></i></a>
             </td>
         </tr>

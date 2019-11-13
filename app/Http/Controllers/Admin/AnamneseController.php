@@ -65,7 +65,8 @@ class AnamneseController extends Controller
         if($request->lesao_id != NULL){
             if($id != 0){
                 foreach($request->lesao_id as $key => $value){
-                    (new Anamnese_Lesao())->createAnamneseLesao($id, $request->lesao_id[$key], $request->tipo_id[$key], $request->local_id[$key]);
+                    (new Anamnese_Lesao())->createAnamneseLesao($id, $request->lesao_id[$key], 
+                     $request->tipo_id[$key], $request->local_id[$key]);
                 }
             }
         }
@@ -77,6 +78,26 @@ class AnamneseController extends Controller
         $local = DB::table("local")
         ->where("tipo_id", $request->tipo_id)
         ->pluck("nome", "id");
+
         return response()->json($local);
+    }
+
+    public function getLesoesList(Request $request){
+
+        $Anamnese_lesao = new Anamnese_Lesao();
+
+        $anamnese = DB::table("anamnese")
+        ->where("users_id", "=", $request->users_id)
+        ->orderBy("id","desc")
+        ->pluck("id");
+
+        $anamnese = $anamnese[0];
+        
+        $anamnese_lesao = Anamnese_Lesao::where('anamnese_id',"=", $anamnese)
+        ->with(['lesoes', 'tipos', 'locais'])
+        ->get()
+        ->first();
+
+        return response()->json($anamnese_lesao);
     }
 }

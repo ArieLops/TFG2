@@ -62,7 +62,8 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function(){
     Route::get('admin/anamnese/{id}/editar',     'AnamneseController@edit')->name('editarAnamnese');
     Route::put('admin/anamnese/{id}',            'AnamneseController@update')->name('atualizarAnamnese');
     Route::get('admin/anamnese/{id}/excluir',    'AnamneseController@destroy')->name('excluirAnamnese');
-    Route::get('admin/anamnese/getLocalList',       'AnamneseController@getLocalList');
+    Route::get('admin/anamnese/getLocalList',    'AnamneseController@getLocalList');
+    Route::get('admin/anamnese/getLesoesList',   'AnamneseController@getLesoesList');
     /*Rotas Exame*/
     Route::get('admin/exame/adicionar',          'ExameController@create')->name('adicionarExame');
     Route::post('admin/exame/adicionar',         'ExameController@store')->name('salvarExame');

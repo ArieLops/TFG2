@@ -120,6 +120,7 @@
     $(document).on("change", ".tipo_id" , function(e) {
         var tipo_id = $(this).val(),
             local = $(this).parent().next().find('select');
+
         if(tipo_id){
             $.ajax({
                 url: "/admin/anamnese/getLocalList",

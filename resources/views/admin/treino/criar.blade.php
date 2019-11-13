@@ -15,16 +15,16 @@
             <div class="box-body">
                 <form action="{{route('salvarTreino')}}" class="validacao" id="formTreino" method="POST" autocomplete="off">
                     @csrf
-                    <div class="box-body hidden" id="divTreino">
+                    <div class="box-body " id="divTreino">
                         @include('admin.treino.formulario')
                     </div>
                     <div class="box-body hidden" id="divTreinoSemana">
                         @include('admin.treino.formularioSemana')
                     </div>
-                    <div class="box-body" id="divTreinoAdicionarSemana">
-                        @include('admin.treino.formularioAdicionarSemana')
+                    <div class="box-body hidden" id="divTreinoAdicionarSemana">
+                        @include('admin.treino.formularioAdicionarExercicio')
                     </div>
-                     <div class="box-footer hidden">
+                     <div class="box-footer">
                         @include('includes.botaoFormCriar')
                     </div>
                 </form>
@@ -85,6 +85,49 @@
             $("#divTreinoAdicionarSemana").removeClass('hidden');
         });
 
+        /*
+        $('.addRowExercicio').on('click', function(){
+            var contador = 1;
+            //contador ++;
+            addRowExercicio(contador);
+        });
+
+        function addRowExercicio(contador){
+            contador++;
+            var tr = '<tr id="exercicio-1">'+
+                    '<td><span class="sn" style="width: 2%">1</span>.</td>'+
+                    '<td class="text-center" style="width: 20%;">'+
+                    '<select class="form-control exercicio_id" name="exercicio_id[]" id="exercicio_id_'+contador+'">'+
+                    '<option selected disabled value="">Exercício</option>'+
+                    '@<?php foreach ($arrayExercicios as $dados): ?>'+
+                    '<option id="selectExercicioArray" value="{{$dados->id}}">{{$dados->nome}}</option>'+
+                    '<?php endforeach; ?>'+
+                    '</select>'+
+                    '</td>'+
+                    '<td class="text-center" style="width:14,6%;">'+
+                    '<input type="text" class="form-control">'+
+                    '</td>'+
+                    '<td class="text-center" style="width:14,6%;">'+
+                    '<input type="text" class="form-control">'+
+                    '</td>'+
+                    '<td class="text-center" style="width:14,6%;">'+
+                    '<input type="text" class="form-control">'+
+                    '</td>'+
+                    '<td class="text-center" style="width:14,6%;">'+
+                    '<input type="text" class="form-control">'+
+                    '</td>'+
+                    '<td class="text-center" style="width:14,6%;">'+
+                    '<input type="text" class="form-control">'+
+                    '</td>'+
+                    '<td class="text-center" style="width:5%;">'+
+                    '<a class="btn btn-danger delete-exercicio" data-id="1" type="button"><i class="fas fa-trash-alt"></i></a>'+
+                    '</td>'+
+                    '</tr>';
+                $("#tabelaExerciciosBody").append(tr);
+        }
+        */
+
+        
         //Adicionar exercicio
         jQuery(document).delegate('.add-exercicio', 'click', function(e) {
             e.preventDefault();
@@ -92,12 +135,22 @@
             var content = jQuery('#sample_table tr'),
                 size = jQuery('#tabelaExercicios >tbody >tr').length + 1,
                 element = null,    
-                element = content.clone();
+                element = content.clone(true);
                 element.attr('id', 'exercicio-' + size);
                 element.find('.delete-exercicio').attr('data-id', size);
                 element.appendTo('#tabelaExerciciosBody');
                 element.find('.sn').html(size);
         });
+        
+        jQuery(document).delegate('.seleciona-exercicio', 'click', function(e) {
+
+            alert(JSON.stringify($(this)));
+            /*$("#tabelaExercicios tr").each(function(){
+                //alert(arr.push($(this).find("td:first").text()));
+                alert($(this).prev());
+            });*/
+        });
+        
 
         //Remover linha
         jQuery(document).delegate('.delete-exercicio', 'click', function(e) {
@@ -117,11 +170,11 @@
                 return false;
             }
         });
-    //NAO ESTÀ FUNCIONANDO
 
     //Treino - Adicionar - Musculatura
     $(document).on("change", ".musculatura_id" , function(e) {
         var musculatura_id = $(this).val();
+        alert(musculatura_id);
 
         if(musculatura_id){
             $.ajax({
@@ -131,7 +184,6 @@
                 data: 'musculatura_id=' + musculatura_id,
                 success:function(res){
                     if(res){
-                        //alert(JSON.stringify(res));
                         $("#exercicio_id").empty();
                         $.each(res, function(key, value){
                             $("#exercicio_id").append('<option value="' + res[key]["id"] + '">' + res[key]["nome"] + '</option>');
@@ -146,5 +198,47 @@
         }
     });
 
+    $(document).on("change", ".tipo_id" , function(e) {
+        var tipo_id = $(this).val(),
+            local = $(this).parent().next().find('select');
+        if(tipo_id){
+            $.ajax({
+                url: "/admin/anamnese/getLocalList",
+                type:"GET",
+                dataType: 'json',
+                data: 'tipo_id=' + tipo_id,
+                success:function(res){
+                    if(res){
+                        local.empty();
+                        $.each(res, function(key, value){
+                            local.append('<option value="'+key+'">'+value+'</option>');
+                        });
+                    }else{
+                        local.empty();
+                    }
+                }
+            });
+        }else{
+            local.empty();
+        }
+    });
+
+    //Ajax para encaminhar o id do usuario selecionado no treino para pegar a ultima anamnese dele
+    //para lesoes, locais e tipos
+    $("#addOpcaoTreino").on('click', function(){
+        var users_id = $("#users_id option:selected").val();
+        if(users_id){
+            $.ajax({
+                url: "/admin/anamnese/getLesoesList",
+                type:"GET",
+                dataType: 'json',
+                data: 'users_id=' + users_id,
+                success:function(res){
+                    alert(JSON.stringify(res));
+                    //Mandar para o formulário os erros
+                }
+            });
+        }
+    });
 </script>
 @stop

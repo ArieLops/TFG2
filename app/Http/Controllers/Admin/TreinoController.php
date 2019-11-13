@@ -25,18 +25,31 @@ class TreinoController extends Controller
 
     public function store(Request $request)
     {
-        $treino = new Treino();
+        $treino = new Treino;
+
+        $treino->users_id = $request->users_id;
+
+        $treino->save();
+        
+        $id = $treino->id;
+        dd($id);
+
+        if($request->musculatura_id){
+            if($id != 0){
+                foreach($request->musculatura_id as $key => $value){
+                    //$treino->save($id, $request->musculatura_id[$key]);
+                    echo "$request->musculatura_id[$key]";
+                }
+            }
+        }
+        
     }
 
     public function getExercicioList(Request $request){
 
         $musculatura_id = $request->musculatura_id;
 
-        //DB::enableQueryLog();
-
         $exercicio = Musculatura::find($musculatura_id)->exercicios()->get();
-
-        //dd(DB::getQueryLog());
         
         return response()->json($exercicio);
     }

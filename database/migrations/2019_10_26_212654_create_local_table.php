@@ -13,6 +13,7 @@ class CreateLocalTable extends Migration
             $table->string('nome');
             $table->integer('tipo_id')->unsigned();
             $table->foreign('tipo_id')->references('id')->on('tipo')->onUpdate('cascade')->onDelete('cascade');
+            $table->time('deleted_at')->nullable();
             $table->timestamps();
         });
     }

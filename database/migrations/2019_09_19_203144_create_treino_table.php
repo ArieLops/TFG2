@@ -15,7 +15,9 @@ class CreateTreinoTable extends Migration {
 		Schema::create('treino', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->dateTime('dtCadastro');
+
+			$table->integer('users_id')->unsigned();
+			$table->foreign('users_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
 			$table->timestamps();
 			$table->time('deleted_at')->nullable();
 		});

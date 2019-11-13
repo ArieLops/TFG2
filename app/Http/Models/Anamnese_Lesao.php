@@ -16,4 +16,17 @@ class Anamnese_Lesao extends Model
                        'tipo_id'    => $tipo_id,
                        'local_id'    => $local_id]);
     }
+
+    public function lesoes(){
+        return $this->belongsTo("App\Http\Models\Lesao", "lesao_id");
+    }
+
+    public function tipos(){
+        return $this->belongsTo("App\Http\Models\Tipo", "tipo_id");
+    }
+
+    public function locais(){
+        return $this->belongsTo("App\Http\Models\Local", "local_id");
+    }
+    
 }
