@@ -51,16 +51,26 @@ class AnamneseController extends Controller
         $anamnese->glicose              = $request->glicose;
         $anamnese->triglicerideos       = $request->triglicerideos;
 
+
+
+        //dd($request);
+        //dd($anamnese);
+
         $anamnese->save();
         $id = $anamnese->id;
+
+        //dd($request);
 
         if($request->sinalID != NULL){
             if($id != 0){
                 foreach($request->sinalID as $key => $value){
+                    //echo 'DD'.$request->sinalID[$key].'<br>';
                     (new Anamnese_Sinal())->createAnamneseSinal($id, $request->sinalID[$key]);
                 }
             }
         }        
+
+        exit;
 
         if($request->lesao_id != NULL){
             if($id != 0){

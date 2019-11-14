@@ -41,4 +41,8 @@ class Users extends Authenticatable
     public function anamnese(){
         return $this->hasOne(Anamnese::class);
     }
+
+    public function treinos(){
+        return $this->hasMany(Treino::class);
+    }
 }

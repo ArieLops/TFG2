@@ -5,11 +5,6 @@ use Illuminate\Database\Schema\Blueprint;
 
 class CreateTreinoTable extends Migration {
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
 	public function up()
 	{
 		Schema::create('treino', function(Blueprint $table)
@@ -17,18 +12,17 @@ class CreateTreinoTable extends Migration {
 			$table->increments('id');
 
 			$table->integer('users_id')->unsigned();
-			$table->foreign('users_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+			$table->foreign('users_id')->references('id')->on('users');
+			$table->float('serie');
+			$table->float('repeticao');
+			$table->float('carga');
+			$table->float('intervalo');
+			$table->float('cadencia');
 			$table->timestamps();
 			$table->time('deleted_at')->nullable();
 		});
 	}
-
-
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
+	
 	public function down()
 	{
 		Schema::drop('treino');

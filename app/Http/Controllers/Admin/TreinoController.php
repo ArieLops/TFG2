@@ -28,21 +28,16 @@ class TreinoController extends Controller
         $treino = new Treino;
 
         $treino->users_id = $request->users_id;
-
+        
         $treino->save();
-        
         $id = $treino->id;
-        dd($id);
-
-        if($request->musculatura_id){
-            if($id != 0){
-                foreach($request->musculatura_id as $key => $value){
-                    //$treino->save($id, $request->musculatura_id[$key]);
-                    echo "$request->musculatura_id[$key]";
-                }
-            }
-        }
         
+        if($id){
+            $treino->musculaturas()->sync((array)$request->input('musculatura_id'));
+            $treino->exercicios()->sync((array)$request->input('exercicio_id'));
+            //verifiar como fica os outros campos, provavelmente tenho que fazer um foreach para cadastrar 
+            //todos eles
+        }
     }
 
     public function getExercicioList(Request $request){

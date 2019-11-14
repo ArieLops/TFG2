@@ -9,20 +9,20 @@
         <thead>
             <tr style="width: 100%">
                 <th class="text-center" style="width: 2%">ID</th>
-                <th class="text-center" style="width: 10%">Musculatura</th>
-                <th class="text-center" style="width: 10%">Exercicio</th>
-                <th class="text-center" style="width: 14,6%">Série</th>
-                <th class="text-center" style="width: 14,6%">Repetição</th>
-                <th class="text-center" style="width: 14,6%">Carga</th>
-                <th class="text-center" style="width: 14,6%">Intervalo</th>
-                <th class="text-center" style="width: 14,6%">Cadência</th>
-                <th class="text-center" style="width: 5%">Ação</th>
+                <th class="text-center" style="width: 15%">Musculatura</th>
+                <th class="text-center" style="width: 15%">Exercicio</th>
+                <th class="text-center" style="width: 11,6%">Série</th>
+                <th class="text-center" style="width: 11,6%">Repetição</th>
+                <th class="text-center" style="width: 11,6%">Carga</th>
+                <th class="text-center" style="width: 11,6%">Intervalo</th>
+                <th class="text-center" style="width: 11,6%">Cadência</th>
+                <th class="text-center" style="width: 10%">Ação</th>
             </tr>
         </thead>
         <tbody id="tabelaExerciciosBody" class="">
             <tr id="exercicio-1">
                 <td><span class="sn" style="width: 2%">1</span>.</td>
-                <td class="text-center" style="width: 10%;">
+                <td class="text-center" style="width: 15%;">
                     <select class="form-control musculatura_id" name="musculatura_id[]" id="musculatura_id">
                         <option selected disabled value="">Musculatura</option>
                         @<?php foreach ($arrayMusculaturas as $dados): ?>
@@ -30,24 +30,24 @@
                         <?php endforeach; ?>
                     </select>
                 </td>
-                <td class="text-center" style="width:10%;">
+                <td class="text-center" style="width:15%;">
                     <select name="exercicio_id[]" id="exercicio_id" class="form-control">
                         <option selected disabled value="">Exercicio</option>
                     </select>
                 </td>
-                <td class="text-center" style="width:14,6%;">
+                <td class="text-center" style="width:11,6%;">
                     <input type="text" name="serie[]" class="form-control">
                 </td>
-                <td class="text-center" style="width:14,6%;">
+                <td class="text-center" style="width:11,6%;">
                     <input type="text" name="repeticao[]" class="form-control">
                 </td>
-                <td class="text-center" style="width:14,6%;">
+                <td class="text-center" style="width:11,6%;">
                     <input type="text" name="carga[]" class="form-control">
                 </td>
-                <td class="text-center" style="width:14,6%;">
+                <td class="text-center" style="width:11,6%;">
                     <input type="text" name="intervalo[]" class="form-control">
                 </td>
-                <td class="text-center" style="width:14,6%;">
+                <td class="text-center" style="width:11,6%;">
                     <input type="text" name="cadencia[]" class="form-control">
                 </td>
                 <td class="text-center" style="width:10%;">

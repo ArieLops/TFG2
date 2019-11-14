@@ -24,7 +24,7 @@
                     <div class="box-body hidden" id="divTreinoAdicionarSemana">
                         @include('admin.treino.formularioAdicionarExercicio')
                     </div>
-                     <div class="box-footer">
+                    <div class="box-footer">
                         @include('includes.botaoFormCriar')
                     </div>
                 </form>
@@ -84,49 +84,6 @@
         $('#addOpcaoTreino').on('click', function(){
             $("#divTreinoAdicionarSemana").removeClass('hidden');
         });
-
-        /*
-        $('.addRowExercicio').on('click', function(){
-            var contador = 1;
-            //contador ++;
-            addRowExercicio(contador);
-        });
-
-        function addRowExercicio(contador){
-            contador++;
-            var tr = '<tr id="exercicio-1">'+
-                    '<td><span class="sn" style="width: 2%">1</span>.</td>'+
-                    '<td class="text-center" style="width: 20%;">'+
-                    '<select class="form-control exercicio_id" name="exercicio_id[]" id="exercicio_id_'+contador+'">'+
-                    '<option selected disabled value="">Exercício</option>'+
-                    '@<?php foreach ($arrayExercicios as $dados): ?>'+
-                    '<option id="selectExercicioArray" value="{{$dados->id}}">{{$dados->nome}}</option>'+
-                    '<?php endforeach; ?>'+
-                    '</select>'+
-                    '</td>'+
-                    '<td class="text-center" style="width:14,6%;">'+
-                    '<input type="text" class="form-control">'+
-                    '</td>'+
-                    '<td class="text-center" style="width:14,6%;">'+
-                    '<input type="text" class="form-control">'+
-                    '</td>'+
-                    '<td class="text-center" style="width:14,6%;">'+
-                    '<input type="text" class="form-control">'+
-                    '</td>'+
-                    '<td class="text-center" style="width:14,6%;">'+
-                    '<input type="text" class="form-control">'+
-                    '</td>'+
-                    '<td class="text-center" style="width:14,6%;">'+
-                    '<input type="text" class="form-control">'+
-                    '</td>'+
-                    '<td class="text-center" style="width:5%;">'+
-                    '<a class="btn btn-danger delete-exercicio" data-id="1" type="button"><i class="fas fa-trash-alt"></i></a>'+
-                    '</td>'+
-                    '</tr>';
-                $("#tabelaExerciciosBody").append(tr);
-        }
-        */
-
         
         //Adicionar exercicio
         jQuery(document).delegate('.add-exercicio', 'click', function(e) {
@@ -234,7 +191,7 @@
                 dataType: 'json',
                 data: 'users_id=' + users_id,
                 success:function(res){
-                    alert(JSON.stringify(res));
+                    //alert(JSON.stringify(res));
                     //Mandar para o formulário os erros
                 }
             });
