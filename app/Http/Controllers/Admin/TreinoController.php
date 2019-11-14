@@ -28,7 +28,7 @@ class TreinoController extends Controller
         $treino = new Treino;
 
         $treino->users_id = $request->users_id;
-        $data = explode('-', $request->input('vigenciaAvaliacao'));
+        $data = explode('-', $request->input('vigenciaTreino'));
         $dataInicial = $data[0];
         $dataFinal   = $data[1];
         $treino->dataInicial = str_replace(' ', '', $dataInicial);
@@ -54,8 +54,16 @@ class TreinoController extends Controller
         if($id){
             $treino->musculaturas()->sync((array)$request->input('musculatura_id'));
             $treino->exercicios()->sync((array)$request->input('exercicio_id'));
-            //verifiar como fica os outros campos, provavelmente tenho que fazer um foreach para cadastrar 
-            //todos eles
+            
+            foreach($request->serie as $key => $value){
+                $treino->serie = $request->serie[$key];
+                $treino->repeticao = $request->repeticao[$key];
+                $treino->carga = $request->carga[$key];
+                $treino->intervalo = $request->intervalo[$key];
+                $treino->cadencia = $request->cadencia[$key];
+                
+                $treino->save();
+            }
         }
     }
 
