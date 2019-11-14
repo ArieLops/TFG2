@@ -11,7 +11,7 @@ class Treino extends Model
 
     public $timestamps  = true;
     protected $table    = 'treino';
-    //protected $fillable = ['users_id', 'musculatura_id', 'exercicio_id'];
+    protected $fillable = ['users_id','dataInicial','dataFinal', 'musculatura_id', 'exercicio_id'];
     protected $dates    = ['deleted_at'];
     
     public function user(){

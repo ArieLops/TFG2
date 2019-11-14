@@ -28,6 +28,25 @@ class TreinoController extends Controller
         $treino = new Treino;
 
         $treino->users_id = $request->users_id;
+        $data = explode('-', $request->input('vigenciaAvaliacao'));
+        $dataInicial = $data[0];
+        $dataFinal   = $data[1];
+        $treino->dataInicial = str_replace(' ', '', $dataInicial);
+        $treino->dataFinal   = str_replace(' ', '', $dataFinal);
+        
+        if(count(explode("/",$dataInicial)) > 1){
+            $dataInicial =  implode("-",array_reverse(explode("/",$dataInicial)));
+        }
+
+        if(count(explode("/",$dataFinal)) > 1){
+            $dataFinal =  implode("-",array_reverse(explode("/",$dataFinal)));
+        }
+
+        $treino->dataInicial = str_replace(' ', '', $dataInicial);
+        $treino->dataFinal   = str_replace(' ', '', $dataFinal);
+
+        $treino->dataInicial;
+        $treino->dataFinal;
         
         $treino->save();
         $id = $treino->id;
