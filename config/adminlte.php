@@ -150,9 +150,9 @@ return [
         ],
         //Dashboard - Administrador
         [
-            'text' => 'Treinos',
-            'url'  => 'admin/treino/adicionar',
-            'icon' => 'fa fa-edit',
+            'text' => 'Anamnese',
+            'url'  => 'admin/anamnese',
+            'icon' => 'fa fa-stethoscope',
             'can'  => 'isAdmin',
         ],
         //Dashboard - Administrador
@@ -164,18 +164,19 @@ return [
         ],
         //Dashboard - Administrador
         [
+            'text' => 'Treinos',
+            'url'  => 'admin/treino/adicionar',
+            'icon' => 'fa fa-edit',
+            'can'  => 'isAdmin',
+        ],
+        //Dashboard - Administrador
+        [
             'text' => 'Exames',
             'url'  => 'admin/exame',
             'icon' => 'fa fa-heartbeat',
             'can'  => 'isAdmin',
         ],
-        //Dashboard - Administrador
-        [
-            'text' => 'Anamnese',
-            'url'  => 'admin/anamnese',
-            'icon' => 'fa fa-stethoscope',
-            'can'  => 'isAdmin',
-        ],
+        
         //Configurações - Administrador
         [
             'text'    => 'Configurações',
