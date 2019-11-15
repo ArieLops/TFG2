@@ -191,15 +191,15 @@
                 dataType: 'json',
                 data: 'users_id=' + users_id,
                 success:function(res){
-                    //Adicionar o response no modal
-                    $('.modal-body').html(res);
+                    $("#contModal").append('<h2>' +  + '</h2>');
+                    
                     //Abre o modal pelo id
                     $('#modalLesoes').modal('show');
                 }
             });
         }
     });
-
+    
 
 </script>
 @stop

@@ -34,8 +34,8 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
-            
+        <div class="modal-body" id="contModal">
+            <h2>Este usuário contém lesões que devem ser lembradas!</h2>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -43,4 +43,4 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
