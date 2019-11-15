@@ -151,14 +151,14 @@ return [
         //Dashboard - Administrador
         [
             'text' => 'Anamnese',
-            'url'  => 'admin/anamnese',
+            'url'  => 'admin/anamnese/adicionar',
             'icon' => 'fa fa-stethoscope',
             'can'  => 'isAdmin',
         ],
         //Dashboard - Administrador
         [
             'text' => 'Avaliações',
-            'url'  => 'admin/avaliacao',
+            'url'  => 'admin/avaliacao/adicionar',
             'icon' => 'fa fa-address-book',
             'can'  => 'isAdmin',
         ],

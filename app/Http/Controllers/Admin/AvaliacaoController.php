@@ -18,7 +18,8 @@ class AvaliacaoController extends Controller
 
     public function index()
     {
-        //Listar todos as musculaturas cadastradas
+        //Listar todos as avaliacoes cadastradas
+        /*
         $avaliacoes = Avaliacao::orderBy('id')->get();
         $avaliacoes = $this->avaliacao->paginate($this->paginacao);
 
@@ -26,8 +27,8 @@ class AvaliacaoController extends Controller
             $avaliacao->dataInicial = date('d/m/Y', strtotime($avaliacao->dataInicial));
             $avaliacao->dataFinal   = date('d/m/Y', strtotime($avaliacao->dataFinal));
         }
-
-        return view('admin.listarAvaliacao', compact('avaliacoes'));
+        */
+        //return view('admin.listarAvaliacao', compact('avaliacoes'));
     }
 
     public function create()

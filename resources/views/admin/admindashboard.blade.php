@@ -36,18 +36,32 @@
                     <a href="{{route('listarExercicio')}}" class="small-box-footer">Listar <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
-            <!--<div class="col-lg-3 col-xs-6">
+            <div class="col-lg-3 col-xs-6">
                 <div class="small-box bg-yellow">
                     <div class="inner">
-                    <h3>0</h3>
-                    <p>Avaliações agendadas</p>
+                    @inject('anamneses', '\App\Http\Models\Anamnese')
+                    <h3>{{$anamneses->count()}}</h3>
+                    <p>Anamneses cadastradas</p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-fw fa-calendar"></i>
                     </div>
                     <a href="#" class="small-box-footer">Listar <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
-            </div>-->
+            </div>
+            <div class="col-lg-3 col-xs-6">
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                    @inject('treinos', '\App\Http\Models\Treino')
+                    <h3>{{$treinos->count()}}</h3>
+                    <p>Treinos cadastradas</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-fw fa-calendar"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">Listar <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

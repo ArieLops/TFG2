@@ -25,8 +25,6 @@ class AnamneseController extends Controller
     {
         $anamneses = Anamnese::orderBy('id')->get();
         $anamneses = $this->anamnese->paginate($this->paginacao);
-
-        return view('admin.listarAnamnese', compact('anamneses'));
     }
 
     public function create()
