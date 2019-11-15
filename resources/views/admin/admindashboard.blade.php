@@ -31,7 +31,7 @@
                         <p>Exercícios cadastrados</p>
                     </div>
                     <div class="icon">
-                        <i class="fa fa-fw fa-edit"></i>
+                        <i class="fas fa-dumbbell"></i>
                     </div>
                     <a href="{{route('listarExercicio')}}" class="small-box-footer">Listar <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
@@ -44,22 +44,22 @@
                     <p>Anamneses cadastradas</p>
                     </div>
                     <div class="icon">
-                        <i class="fa fa-fw fa-calendar"></i>
+                        <i class="fas fa-clipboard"></i>
                     </div>
-                    <a href="#" class="small-box-footer">Listar <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="#" class="small-box-footer">Cadastrar <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <div class="col-lg-3 col-xs-6">
-                <div class="small-box bg-yellow">
+                <div class="small-box bg-red">
                     <div class="inner">
                     @inject('treinos', '\App\Http\Models\Treino')
                     <h3>{{$treinos->count()}}</h3>
                     <p>Treinos cadastradas</p>
                     </div>
                     <div class="icon">
-                        <i class="fa fa-fw fa-calendar"></i>
+                        <i class="fas fa-running"></i>
                     </div>
-                    <a href="#" class="small-box-footer">Listar <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="#" class="small-box-footer">Cadastrar <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
         </div>

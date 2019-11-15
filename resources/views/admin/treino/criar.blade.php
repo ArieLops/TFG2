@@ -191,11 +191,15 @@
                 dataType: 'json',
                 data: 'users_id=' + users_id,
                 success:function(res){
-                    //alert(JSON.stringify(res));
-                    //Mandar para o formulário os erros
+                    //Adicionar o response no modal
+                    $('.modal-body').html(res);
+                    //Abre o modal pelo id
+                    $('#modalLesoes').modal('show');
                 }
             });
         }
     });
+
+
 </script>
 @stop
