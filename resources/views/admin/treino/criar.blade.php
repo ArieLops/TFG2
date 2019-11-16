@@ -190,15 +190,24 @@
                 type:"GET",
                 dataType: 'json',
                 data: 'users_id=' + users_id,
-                success:function(res){
-                    $("#contModal").append(
-                        $.each(res, function(){
-                            '<h2>' + 'Lesão: ' + res.lesoes["nome"] + '</h2>',
-                            '<h2>' + 'Tipo:  ' + res.tipos["nome"] + '</h2>',
-                            '<h2>' + 'Local: ' + res.locais["nome"] + '</h2>',                            
-                        });
-                    );
+                success:function(response){
+                    var trHTML = '<table border="1">';
 
+                    $.each(response, function(i, item){
+                        trHTML += '<tr>';
+                        trHTML += '<th>' + [i] + '->' + item.lesoes["nome"] + '</th>';
+                        trHTML += '</tr>';
+                        trHTML += '<tr>';
+                        trHTML += '<td>' + item.tipos["nome"] + '</td>';
+                        trHTML += '</tr>';
+                        trHTML += '<tr>'
+                        trHTML += '<td>' + item.locais["nome"] + '</td>';
+                        trHTML += '</tr>';
+                    });
+
+                    trHTML += '</table>';
+
+                    $("#contModal").append(trHTML);
                     //Abre o modal pelo id
                     $('#modalLesoes').modal('show');
                 }
