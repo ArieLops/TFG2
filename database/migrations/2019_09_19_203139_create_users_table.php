@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration {
 			$table->string('telefone', 45)->nullable();
 			$table->string('user_type', 50)->default('user')->nullable();
 			$table->string('password')->default(bcrypt('123456'));
-			$table->string('tipo', 1)->default('1');
+			$table->string('tipo')->default('0');
 			$table->timestamps();
 			$table->time('deleted_at')->nullable();
 		});

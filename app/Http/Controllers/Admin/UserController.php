@@ -24,7 +24,7 @@ class UserController extends Controller
         $users = Users::orderBy('id')->get();
 
         foreach($users as $user):
-            if($user->tipo == 0){
+            if($user->tipo == 1){
                 $user->tipo = "Educador Físico";
             }else{
                 $user->tipo = "Aluno";
