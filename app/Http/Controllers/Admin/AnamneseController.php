@@ -93,8 +93,7 @@ class AnamneseController extends Controller
         
         $anamnese_lesao = Anamnese_Lesao::where('anamnese_id',"=", $anamnese)
         ->with(['lesoes', 'tipos', 'locais'])
-        ->get()
-        ->first();
+        ->get();
 
         return response()->json($anamnese_lesao);
     }

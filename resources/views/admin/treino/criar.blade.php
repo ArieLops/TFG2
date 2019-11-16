@@ -191,8 +191,14 @@
                 dataType: 'json',
                 data: 'users_id=' + users_id,
                 success:function(res){
-                    $("#contModal").append('<h2>' +  + '</h2>');
-                    
+                    $("#contModal").append(
+                        $.each(res, function(){
+                            '<h2>' + 'Lesão: ' + res.lesoes["nome"] + '</h2>',
+                            '<h2>' + 'Tipo:  ' + res.tipos["nome"] + '</h2>',
+                            '<h2>' + 'Local: ' + res.locais["nome"] + '</h2>',                            
+                        });
+                    );
+
                     //Abre o modal pelo id
                     $('#modalLesoes').modal('show');
                 }
