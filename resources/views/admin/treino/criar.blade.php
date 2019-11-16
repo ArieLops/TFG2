@@ -191,21 +191,19 @@
                 dataType: 'json',
                 data: 'users_id=' + users_id,
                 success:function(response){
-                    var trHTML = '<table border="1">';
+                    var trHTML = '';
 
                     $.each(response, function(i, item){
                         trHTML += '<tr>';
-                        trHTML += '<th>' + [i] + '->' + item.lesoes["nome"] + '</th>';
+                        trHTML += '<th>' + 'Lesão: ' + item.lesoes["nome"] + '</th>';
                         trHTML += '</tr>';
                         trHTML += '<tr>';
-                        trHTML += '<td>' + item.tipos["nome"] + '</td>';
+                        trHTML += '<td>' + 'Tipo: ' + item.tipos["nome"] + '</td>';
                         trHTML += '</tr>';
                         trHTML += '<tr>'
-                        trHTML += '<td>' + item.locais["nome"] + '</td>';
+                        trHTML += '<td>' + 'Local: ' + item.locais["nome"] + '</td>';
                         trHTML += '</tr>';
                     });
-
-                    trHTML += '</table>';
 
                     $("#contModal").append(trHTML);
                     //Abre o modal pelo id
