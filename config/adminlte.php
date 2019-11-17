@@ -185,13 +185,8 @@ return [
             'can'  => 'isAdmin',
             'submenu' => [
                 [
-                    'text' => 'Musculatura',
-                    'url'  => 'admin/configuracao/musculatura',
-                    'icon_color' => 'yellow',
-                ],
-                [
-                    'text' => 'Exercício',
-                    'url'  => 'admin/configuracao/exercicio',
+                    'text' => 'Objetivo',
+                    'url'  => 'admin/configuracao/objetivo',
                     'icon_color' => 'yellow',
                 ],
                 [
@@ -200,8 +195,13 @@ return [
                     'icon_color' => 'yellow',
                 ],
                 [
-                    'text' => 'Objetivo',
-                    'url'  => 'admin/configuracao/objetivo',
+                    'text' => 'Musculatura',
+                    'url'  => 'admin/configuracao/musculatura',
+                    'icon_color' => 'yellow',
+                ],
+                [
+                    'text' => 'Exercício',
+                    'url'  => 'admin/configuracao/exercicio',
                     'icon_color' => 'yellow',
                 ],
             ],
