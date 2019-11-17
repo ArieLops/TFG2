@@ -15,7 +15,7 @@
                     <div class="inner">
                         @inject('users', '\App\Http\Models\Users')
                         <h3>{{$users->where('tipo','1')->count()}}</h3>
-                        <p>Alunos cadastrados</p>
+                        <p>Alunos</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-person-add"></i>
@@ -28,7 +28,7 @@
                     <div class="inner">
                         @inject('exercicios', '\App\Http\Models\Exercicio')
                         <h3>{{$exercicios->count()}}</h3>
-                        <p>Exercícios cadastrados</p>
+                        <p>Exercícios</p>
                     </div>
                     <div class="icon">
                         <i class="fas fa-dumbbell"></i>
@@ -41,12 +41,12 @@
                     <div class="inner">
                     @inject('anamneses', '\App\Http\Models\Anamnese')
                     <h3>{{$anamneses->count()}}</h3>
-                    <p>Anamneses cadastradas</p>
+                    <p>Anamneses</p>
                     </div>
                     <div class="icon">
                         <i class="fas fa-clipboard"></i>
                     </div>
-                    <a href="#" class="small-box-footer">Cadastrar <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="{{route('adicionarAnamnese')}}" class="small-box-footer">Cadastrar <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <div class="col-lg-3 col-xs-6">
@@ -54,12 +54,12 @@
                     <div class="inner">
                     @inject('treinos', '\App\Http\Models\Treino')
                     <h3>{{$treinos->count()}}</h3>
-                    <p>Treinos cadastradas</p>
+                    <p>Treinos</p>
                     </div>
                     <div class="icon">
                         <i class="fas fa-running"></i>
                     </div>
-                    <a href="#" class="small-box-footer">Cadastrar <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="{{route('adicionarTreino')}}" class="small-box-footer">Cadastrar <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
         </div>
