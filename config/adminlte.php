@@ -150,7 +150,7 @@ return [
         ],
         //Dashboard - Administrador
         [
-            'text' => 'Anamnese',
+            'text' => 'Anamneses',
             'url'  => 'admin/anamnese/adicionar',
             'icon' => 'fa fa-stethoscope',
             'can'  => 'isAdmin',

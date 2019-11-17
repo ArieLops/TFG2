@@ -30,7 +30,6 @@
     function verificaExtensao($input){
         var extPermitidas = ['jpg', 'png'];
         var extArquivo = $input.value.split('.').pop();
-        alert(extArquivo);
         var url = "/admin/exame";
 
         if($.inArray(extArquivo,extPermitidas) == -1){
