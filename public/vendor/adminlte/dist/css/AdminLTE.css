@@ -3301,12 +3301,13 @@ table.text-center th {
 }
 .login-logo a,
 .register-logo a {
-  color: #444;
+  color: #741212;
 }
 .login-page,
 .register-page {
   height: auto;
-  background: #d2d6de;
+  background: url("../../img2.png");
+  background-size: cover;
 }
 .login-box,
 .register-box {

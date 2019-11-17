@@ -12,7 +12,6 @@ use Carbon\Carbon;
 use DB;
 use Auth;
 
-
 class PraticanteController extends Controller
 {
 
