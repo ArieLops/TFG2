@@ -158,7 +158,7 @@ return [
         //Dashboard - Administrador
         [
             'text' => 'Avaliações',
-            'url'  => 'admin/avaliacao/adicionar',
+            'url'  => 'admin/avaliacao',
             'icon' => 'fa fa-address-book',
             'can'  => 'isAdmin',
         ],

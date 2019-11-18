@@ -15,9 +15,7 @@ class Avaliacao extends Model
     protected $dates    = ['deleted_at'];
 
     public function user(){
-        $caminhoUser = 'App\Http\Models\Users';
-        
-        return $this->belongsTo($caminhoUser);
+        return $this->belongsTo('App\Http\Models\Users', 'users_id', 'id');
     }
 
 }
