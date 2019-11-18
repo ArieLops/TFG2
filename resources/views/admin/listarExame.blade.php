@@ -20,7 +20,7 @@
             @foreach($exames as $exame)
             <tr>
                 <td>{{$exame->id}}</td>
-                <td></td>
+                <td>{{$exame->user->name}}</td>
                 <td>{{$exame->dataRealizado}}</td>
                 <td><a href="/admin/exame/{{$exame->id}}/download" class="btn btn-info"><i class="fas fa-download"></i></a></td>
             </tr>

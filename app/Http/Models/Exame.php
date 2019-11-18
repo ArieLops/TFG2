@@ -15,6 +15,6 @@ class Exame extends Model
     protected $dates    = ['deleted_at'];
 
     public function user(){
-        return $this->belongsTo('App\Http\Models\Users');
+        return $this->belongsTo('App\Http\Models\Users', 'users_id', 'id');
     }
 }
