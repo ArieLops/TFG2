@@ -78,7 +78,8 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function(){
     Route::post('admin/avaliacao',                'AvaliacaoController@store')->name('salvarAvaliacao');
     Route::get('admin/avaliacao/{id}/editar',     'AvaliacaoController@edit')->name('editarAvaliacao');
     Route::put('admin/avaliacao/{id}',            'AvaliacaoController@update')->name('atualizarAvaliacao');
-    Route::get('admin/avaliacao/{id}/excluir',    'AvaliacaoController@destroy')->name('excluirAvaliacao'); 
+    Route::get('admin/avaliacao/{id}/excluir',    'AvaliacaoController@destroy')->name('excluirAvaliacao');
+    Route::get('admin/avaliacao/{id}/visualizar',    'AvaliacaoController@view')->name('visualizarAvaliacao'); 
     /*Rota Limpeza*/
     Route::get('admin/limparcache', function(){
         Artisan::call('cache:clear');

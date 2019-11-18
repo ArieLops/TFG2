@@ -23,7 +23,7 @@
                     <td>{{$avaliacao->id}}</td>
                     <td>{{$avaliacao->user->name}}</td>
                     <td>
-                        <a href="/admin/avaliacao/{{$avaliacao->id}}/editar" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                        <a href="/admin/avaliacao/{{$avaliacao->id}}/visualizar" class="btn btn-primary"><i class="fas fa-eye"></i></a>
                         <a href="/admin/avaliacao/{{$avaliacao->id}}/excluir" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>

@@ -106,4 +106,8 @@ class AvaliacaoController extends Controller
         return redirect('admin/avaliacao')->with('mensagem', 'Registro excluído com sucesso!');
     }
 
+    public function view($id){
+        //Gerar um PDF com a avaliação do praticante 
+    }
+
 }
