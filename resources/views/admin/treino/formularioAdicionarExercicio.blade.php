@@ -1,6 +1,6 @@
 <div class="box box-warning">    
     <div class="box-body">
-        <a class="btn btn-warning pull-right add-exercicio" data-added="0">
+        <a class="btn btn-warning pull-right add-exercicio" id="add-exercicio" data-added="0">
             <i class="glyphicon glyphicon-plus"></i> Adicionar exercício
         </a>
     </div>
@@ -19,8 +19,8 @@
                 <th class="text-center" style="width: 10%">Ação</th>
             </tr>
         </thead>
-        <tbody id="tabelaExerciciosBody" class="">
-            <tr id="exercicio-1">
+        <tbody id="tabelaExerciciosBody">
+            <tr id="template">
                 <td><span class="sn" style="width: 2%">1</span>.</td>
                 <td class="text-center" style="width: 15%;">
                     <select class="form-control musculatura_id" name="musculatura_id[]" id="musculatura_id">
@@ -31,7 +31,7 @@
                     </select>
                 </td>
                 <td class="text-center" style="width:15%;">
-                    <select name="exercicio_id[]" id="exercicio_id" class="form-control">
+                    <select class="form-control exercicio_id" name="exercicio_id[]" id="exercicio_id">
                         <option selected disabled value="">Exercicio</option>
                     </select>
                 </td>
@@ -51,8 +51,7 @@
                     <input type="text" name="cadencia[]" class="form-control">
                 </td>
                 <td class="text-center" style="width:10%;">
-                    <a class="btn btn-danger clone-exercicio" data-id="1" type="button"><i class=""></i></a>
-                    <a class="btn btn-danger delete-exercicio" data-id="1" type="button"><i class="fas fa-trash-alt"></i></a>
+                    <a class="btn btn-danger delete-exercicio" value="remove" data-id="1" type="button"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
         </tbody>
