@@ -106,8 +106,12 @@ class AvaliacaoController extends Controller
         return redirect('admin/avaliacao')->with('mensagem', 'Registro excluído com sucesso!');
     }
 
-    public function view($id){
-        //Gerar um PDF com a avaliação do praticante 
+    public function searchAvaliacao(Request $request){
+        $idAvaliacao = $request->idAvaliacao;
+
+        $dadosAvaliacao = Avaliacao::where('id', $idAvaliacao)->with('user')->get();
+
+        return \json_encode($dadosAvaliacao);
     }
 
 }

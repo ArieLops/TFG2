@@ -83,7 +83,7 @@ class UserController extends Controller
 
         $usuario = $request->users_id;
         
-        $consultaObjetivoId   = Users::where('id',"=", $usuario)->with('objetivo')->get()->first();
+        $consultaObjetivoId   = Users::where('id', "=", $usuario)->with('objetivo')->get()->first();
         return \json_encode($consultaObjetivoId);
     }
 }

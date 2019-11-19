@@ -224,7 +224,6 @@
                     });
 
                     $("#contModal").append(trHTML);
-                    //Abre o modal pelo id
                     $('#modalLesoes').modal('show');
                 }
             });
