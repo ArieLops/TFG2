@@ -15,13 +15,13 @@
             <div class="box-body">
                 <form action="{{route('salvarTreino')}}" class="validacao" id="formTreino" method="POST" autocomplete="off">
                     @csrf
-                    <div class="box-body hidden" id="divTreino">
+                    <div class="box-body " id="divTreino">
                         @include('admin.treino.formulario')
                     </div>
-                    <div class="box-body" id="divTreinoSemana">
+                    <div class="box-body hidden" id="divTreinoSemana">
                         @include('admin.treino.formularioSemana')
                     </div>
-                    <div class="box-body " id="divTreinoAdicionarSemana">
+                    <div class="box-body hidden" id="divTreinoAdicionarSemana">
                         @include('admin.treino.formularioAdicionarExercicio')
                     </div>
                     <div class="box-footer">
@@ -84,22 +84,6 @@
         $('#addOpcaoTreino').on('click', function(){
             $("#divTreinoAdicionarSemana").removeClass('hidden');
         });
-        
-        //Adicionar exercicio
-        /*
-        jQuery(document).delegate('.add-exercicio', 'click', function(e) {
-            e.preventDefault();
-
-            var content = jQuery('#sample_table tr'),
-                size = jQuery('#tabelaExercicios >tbody >tr').length + 1,
-                element = null,    
-                element = content.clone(true);
-                element.attr('id', 'exercicio-' + size);
-                element.find('.delete-exercicio').attr('data-id', size);
-                element.appendTo('#tabelaExerciciosBody');
-                element.find('.sn').html(size);
-        });
-        */
 
         //Adicionar Linha exercicios, nesta ele troca tudo junto
         $(document).ready(function(){
@@ -114,22 +98,8 @@
                 template.after(row);
             });
         });
-
-        /*
-        $(document).ready(function(){
-            $('#add-exercicio').click(function(){
-                //var row = $("#tabelaExercicios tr:last").clone().insertAfter("#tabelaExercicios tr:last");
-                var row = $("#tabelaExercicios tr:last").clone();
-                console.log(row);
-                var teste = row.find('td:first').text($("tabelaExercicios tr").length - 1);
-                console.log(teste);
-            });
-        });
-        */
-        
-    
+            
         //Remover linha
-        /*
         jQuery(document).delegate('.delete-exercicio', 'click', function(e) {
             e.preventDefault();    
 
@@ -147,7 +117,6 @@
                 return false;
             }
         });
-        */
 
     //Treino - Adicionar - Musculatura
     $(document).on("change", ".musculatura" , function(e) {
@@ -161,13 +130,9 @@
                 dataType: 'json',
                 data: 'musculatura_id=' + musculatura_id,
                 success:function(res){
-                    console.log(res);
-                    console.log(exercicio);
-                    console.log(e);
                     if(res){
                         exercicio.empty();
                         $.each(res, function(key, value){
-                            //$(".exercicio_id").append('<option value="' + res[key]["id"] + '">' + res[key]["nome"] + '</option>');
                             exercicio.append('<option value="' + res[key]["id"] + '">' + res[key]["nome"] + '</option>');
                         });
                     }else{

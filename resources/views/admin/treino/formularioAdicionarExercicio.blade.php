@@ -11,11 +11,11 @@
                 <th class="text-center" style="width: 2%">ID</th>
                 <th class="text-center" style="width: 15%">Musculatura</th>
                 <th class="text-center" style="width: 15%">Exercicio</th>
-                <th class="text-center" style="width: 11,6%">Série</th>
-                <th class="text-center" style="width: 11,6%">Repetição</th>
-                <th class="text-center" style="width: 11,6%">Carga</th>
-                <th class="text-center" style="width: 11,6%">Intervalo</th>
-                <th class="text-center" style="width: 11,6%">Cadência</th>
+                <th class="text-center" style="width: 10%">Série</th>
+                <th class="text-center" style="width: 10%">Repetição</th>
+                <th class="text-center" style="width: 10%">Carga</th>
+                <th class="text-center" style="width: 10%">Intervalo</th>
+                <th class="text-center" style="width: 10%">Cadência</th>
                 <th class="text-center" style="width: 10%">Ação</th>
             </tr>
         </thead>
@@ -35,19 +35,19 @@
                         <option selected disabled value="">Exercicio</option>
                     </select>
                 </td>
-                <td class="text-center" style="width:11,6%;">
+                <td class="text-center" style="width:10%;">
                     <input type="text" name="serie[]" class="form-control">
                 </td>
-                <td class="text-center" style="width:11,6%;">
+                <td class="text-center" style="width:10%;">
                     <input type="text" name="repeticao[]" class="form-control">
                 </td>
-                <td class="text-center" style="width:11,6%;">
+                <td class="text-center" style="width:10%;">
                     <input type="text" name="carga[]" class="form-control">
                 </td>
-                <td class="text-center" style="width:11,6%;">
+                <td class="text-center" style="width:10%;">
                     <input type="text" name="intervalo[]" class="form-control">
                 </td>
-                <td class="text-center" style="width:11,6%;">
+                <td class="text-center" style="width:10%;">
                     <input type="text" name="cadencia[]" class="form-control">
                 </td>
                 <td class="text-center" style="width:10%;">
