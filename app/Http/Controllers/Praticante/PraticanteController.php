@@ -14,18 +14,43 @@ use Auth;
 
 class PraticanteController extends Controller
 {
-
-    public function index(){
-        //Identifica o usuario logado com o nome e o id
+    public function infoUser(){
         $nomeUsuarioLogado = Auth::user()->name;
         $idUsuarioLogado   = Auth::user()->id;
 
-        //Pega todos os dados do usuario 
-        $usuario   = Users::where("id", "=", $idUsuarioLogado)->get();
-        $avaliacao = Avaliacao::where("users_id", "=", $idUsuarioLogado)->get();
+        $usuario         = Users::where("id", "=", $idUsuarioLogado)->with('objetivo')->get();
+        $objetivo        = $usuario->pluck('objetivo_id');
+        $getNomeObjetivo = Objetivo::where("id", "=", $objetivo)->get();
+        $getNomeObjetivo = $getNomeObjetivo->pluck('nome');
 
-        //Seleciona apenas o sexo
-        $sexo = $usuario->pluck('sexo')->all();
+        $dados["usuario"]       = $usuario;
+        $dados["objetivo"]      = $getNomeObjetivo;
+
+        return $dados;
+    }
+
+    public function avaliacaoUser(){
+        $dados = PraticanteController::infoUser();
+
+        $dados["avaliacao"] = Avaliacao::where('users_id', "=", $dados["usuario"][0]["id"])->get();
+
+        return $dados;
+    }
+
+    public function indiceMC(){
+        $dados = PraticanteController::avaliacaoUser();
+        //dd($dados["avaliacao"]);
+    }
+
+    /*
+    public function index(){
+        //Identifica o usuario logado com o nome e o id
+        //$nomeUsuarioLogado = Auth::user()->name;
+        //$idUsuarioLogado   = Auth::user()->id;
+
+        //Pega todos os dados do usuario 
+        //$usuario   = Users::where("id", "=", $idUsuarioLogado)->get();
+        //$avaliacao = Avaliacao::where("users_id", "=", $idUsuarioLogado)->get();
 
         //Selectiona apenas a massa e a altura 
         $massa  = $avaliacao->pluck('massa')->all();
@@ -79,6 +104,7 @@ class PraticanteController extends Controller
         
         return view('praticante.praticanteDashboard', compact('dados'));
     }
+    */
 
     public function create(){
         $nomeUsuarioLogado = Auth::user()->name;

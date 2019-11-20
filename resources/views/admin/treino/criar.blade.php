@@ -102,27 +102,30 @@
         */
 
         //Adicionar Linha exercicios, nesta ele troca tudo junto
-        /*
         $(document).ready(function(){
             var template = $('#template'),
                 id = 0;
 
             $('#add-exercicio').click(function(){
                 var row = template.clone();
-                row.attr('id', 'row_' + (++id));
-                //row.attr('id', 'musculatura_id_' + (++id));
-                //row.attr('id', 'exercicio_id_' + (++id));
-                template.before(row);
+                ++id;
+                row.find(".musculatura").attr('id', 'musculatura_' + id);
+                row.find(".exercicio").attr('id', 'exercicio_' + id);
+                template.after(row);
             });
         });
 
-        */
+        /*
         $(document).ready(function(){
             $('#add-exercicio').click(function(){
-                var row = $("#tabelaExercicios tr:last").clone().insertAfter("#tabelaExercicios tr:last");
-                row.find('td:first').text($("tabelaExercicios tr").length - 1);
+                //var row = $("#tabelaExercicios tr:last").clone().insertAfter("#tabelaExercicios tr:last");
+                var row = $("#tabelaExercicios tr:last").clone();
+                console.log(row);
+                var teste = row.find('td:first').text($("tabelaExercicios tr").length - 1);
+                console.log(teste);
             });
         });
+        */
         
     
         //Remover linha
@@ -147,10 +150,10 @@
         */
 
     //Treino - Adicionar - Musculatura
-    $(document).on("change", ".musculatura_id" , function(e) {
-        var musculatura_id = $(this).val();
-        alert(musculatura_id);
-
+    $(document).on("change", ".musculatura" , function(e) {
+        var musculatura_id = $(this).val(),
+            exercicio = $(e.target).closest("#template").find(".exercicio");
+        
         if(musculatura_id){
             $.ajax({
                 url: "/admin/treino/getExercicioList",
@@ -158,18 +161,22 @@
                 dataType: 'json',
                 data: 'musculatura_id=' + musculatura_id,
                 success:function(res){
+                    console.log(res);
+                    console.log(exercicio);
+                    console.log(e);
                     if(res){
-                        $(".exercicio_id").empty();
+                        exercicio.empty();
                         $.each(res, function(key, value){
-                            $(".exercicio_id").append('<option value="' + res[key]["id"] + '">' + res[key]["nome"] + '</option>');
+                            //$(".exercicio_id").append('<option value="' + res[key]["id"] + '">' + res[key]["nome"] + '</option>');
+                            exercicio.append('<option value="' + res[key]["id"] + '">' + res[key]["nome"] + '</option>');
                         });
                     }else{
-                        $(".exercicio_id").empty();
+                        exercicio.empty();
                     }
                 }
             });
         }else{
-            $(".exercicio_id").empty();
+            exercicio.empty();
         }
     });
 

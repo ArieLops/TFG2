@@ -23,7 +23,7 @@
             <tr id="template">
                 <td><span class="sn" style="width: 2%">1</span>.</td>
                 <td class="text-center" style="width: 15%;">
-                    <select class="form-control musculatura_id" name="musculatura_id[]" id="musculatura_id">
+                    <select class="form-control musculatura" name="musculatura_id[]" id="musculatura_id">
                         <option selected disabled value="">Musculatura</option>
                         @<?php foreach ($arrayMusculaturas as $dados): ?>
                             <option id="selectMusculaturaArray" value="{{$dados->id}}">{{$dados->nome}}</option>
@@ -31,7 +31,7 @@
                     </select>
                 </td>
                 <td class="text-center" style="width:15%;">
-                    <select class="form-control exercicio_id" name="exercicio_id[]" id="exercicio_id">
+                    <select class="form-control exercicio" name="exercicio_id[]" id="exercicio_id">
                         <option selected disabled value="">Exercicio</option>
                     </select>
                 </td>

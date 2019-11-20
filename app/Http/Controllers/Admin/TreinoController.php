@@ -12,7 +12,6 @@ use DB;
 
 class TreinoController extends Controller
 {
-    
     public function index()
     {
         return 'Listar Treinos cadastrados';
@@ -25,6 +24,8 @@ class TreinoController extends Controller
 
     public function store(Request $request)
     {
+        dd($request);
+
         $treino = new Treino;
 
         $treino->users_id = $request->users_id;
