@@ -59,6 +59,8 @@ class TreinoController extends Controller
             $treino->repeticoes()->sync((array)$request->input('repeticao_id'));
             $treino->cargas()->sync((array)$request->input('carga_id'));
         }
+
+        return redirect('admin/treino/adicionar')->with('mensagem', 'Registro adicionado com sucesso!');
     }
 
     public function getExercicioList(Request $request){

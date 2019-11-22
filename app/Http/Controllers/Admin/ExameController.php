@@ -35,13 +35,14 @@ class ExameController extends Controller
         return view('admin.exame.criar');
     }
 
-    public function store(Request $request){
+    public function store(ValidacaoExame $request){
         $path = $request->file('arquivo')->store('storage','public');
         $exame = new Exame();
         $exame->users_id = $request->input('users_id');
         $limpaData = str_replace('/', '-', $request->input('dataRealizado'));
         $exame->dataRealizado = Carbon::parse($limpaData);
         $exame->arquivo = $path;
+
         $exame->save();
         return redirect('admin/exame/adicionar')->with('mensagem', 'Registro adicionado com sucesso!');
     }

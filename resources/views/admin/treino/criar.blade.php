@@ -23,9 +23,9 @@
                     </div>
                     <div class="box-body hidden" id="divTreinoAdicionarSemana">
                         @include('admin.treino.formularioAdicionarExercicio')
-                    </div>
-                    <div class="box-footer">
-                        @include('includes.botaoFormCriar')
+                        <div class="box-footer">
+                            @include('includes.botaoFormCriar')
+                        </div>
                     </div>
                 </form>
             </div>
@@ -201,7 +201,5 @@
             });
         }
     });
-    
-
 </script>
 @stop

@@ -17,7 +17,7 @@ class ValidacaoExame extends FormRequest
         return [
             'users_id'  => 'required',
             'dataRealizado' => 'required',
-            //'arquivo' => 'required|mimes:jpg|mimes:png',
+            'arquivo' => 'required'
         ];
         
     }
@@ -26,7 +26,7 @@ class ValidacaoExame extends FormRequest
         return [
             'users_id.required' => "O campo NOME deve ser preenchido",
             'dataRealizado.required' => "O campo DATA deve ser preenchido",
-            'arquivo.required' => 'O campo ARQUIVO deve receber um arquivo JPG ou PNG',
+            'arquivo.required' => 'O campo ARQUIVO deve ser selecionado',
         ];
     }
 }

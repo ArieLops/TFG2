@@ -26,14 +26,15 @@
         </div>
     </div>
 </div>
+
 <script type="text/javascript">
     function verificaExtensao($input){
-        var extPermitidas = ['jpg', 'png'];
+        var extPermitidas = ['jpg'];
         var extArquivo = $input.value.split('.').pop();
-        var url = "/admin/exame";
+        var url = "/admin/exame/adicionar";
 
         if($.inArray(extArquivo,extPermitidas) == -1){
-            alert("Esta extensão não pode ser adicionada");
+            alert("Esta extensão não pode ser adicionada, permitido apenas JPG");
             window.history.pushState("", "", "/");
             $(location).attr("href", url);
         }
