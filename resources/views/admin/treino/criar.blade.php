@@ -99,24 +99,15 @@
             });
         });
             
-        //Remover linha
-        jQuery(document).delegate('.delete-exercicio', 'click', function(e) {
-            e.preventDefault();    
-
-            var didConfirm = confirm("Deseja remover esta linha?");
-                if (didConfirm == true) {
-                    var id = jQuery(this).attr('data-id');
-                    var targetDiv = jQuery(this).attr('targetDiv');
-                jQuery('#exercicio-' + id).remove();
-      
-                $('#tabelaExerciciosBody tr').each(function(index) {
-                $(this).find('span.sn').html(index+1);
+        //Remover linha dos exercicios selecionados
+        remove = function(item){
+            var tr = $(item).closest('tr');
+            tr.fadeOut(400, function(){
+                tr.remove();
             });
-                return true;
-            } else {
-                return false;
-            }
-        });
+
+            return false;
+        }
 
     //Treino - Adicionar - Musculatura
     $(document).on("change", ".musculatura" , function(e) {

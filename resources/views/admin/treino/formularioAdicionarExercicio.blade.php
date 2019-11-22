@@ -56,7 +56,7 @@
                     </select>
                 </td>
                 <td class="text-center" style="width:10%;">
-                    <a class="btn btn-danger delete-exercicio" value="remove" data-id="1" type="button"><i class="fas fa-trash-alt"></i></a>
+                    <a class="btn btn-danger" type="button" onclick="remove(this)"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
         </tbody>
