@@ -177,6 +177,12 @@ return [
         App\Providers\ProviderListaTipos::class,
         //Provider registrado para realizar a listagem de musculaturas
         App\Providers\ProviderListaMusculaturas::class,
+        //Provider registrado para realizar a listagem de series
+        App\Providers\ProviderListaSeries::class,
+        //Provider registrado para realizar a listagem de repeticoes
+        App\Providers\ProviderListaRepeticoes::class,
+        //Provider registrado para realizar a listagem de cargas
+        App\Providers\ProviderListaCargas::class,
 
         /*
          * Package Service Providers...

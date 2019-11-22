@@ -27,4 +27,19 @@ class Treino extends Model
     public function exercicios(){
         return $this->belongsToMany("App\Http\Models\Exercicio", "treino_exercicio");
     }
+
+    //Um Treino pode ter(pertence) a varios series
+    public function series(){
+        return $this->belongsToMany("App\Http\Models\Serie", "treino_serie");
+    }
+
+    //Um Treino pode ter(pertence) a varias repeticoes
+    public function repeticoes(){
+        return $this->belongsToMany("App\Http\Models\Repeticao", "treino_repeticao");
+    }
+
+    //Um Treino pode ter(pertence) a varias cargas
+    public function cargas(){
+        return $this->belongsToMany("App\Http\Models\Carga", "treino_carga");
+    }
 }

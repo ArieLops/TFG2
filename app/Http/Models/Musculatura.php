@@ -21,5 +21,4 @@ class Musculatura extends Model
     public function exercicios(){
         return $this->belongsToMany("App\Http\Models\Exercicio", 'exercicio_musculatura', 'musculatura_id', 'exercicio_id');
     }
-
 }

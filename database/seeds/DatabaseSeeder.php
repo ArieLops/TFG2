@@ -17,5 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call(TipoSeeder::class);
         $this->call(LocalSeeder::class);
         $this->call(AvaliacaoSeeder::class);
+        $this->call(SerieSeeder::class);
+        $this->call(RepeticaoSeeder::class);
+        $this->call(CargaSeeder::class);
     }
 }

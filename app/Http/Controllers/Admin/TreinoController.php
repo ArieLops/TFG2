@@ -24,7 +24,7 @@ class TreinoController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
+        //dd($request);
 
         $treino = new Treino;
 
@@ -51,20 +51,13 @@ class TreinoController extends Controller
         
         $treino->save();
         $id = $treino->id;
-        
+
         if($id){
             $treino->musculaturas()->sync((array)$request->input('musculatura_id'));
             $treino->exercicios()->sync((array)$request->input('exercicio_id'));
-            
-            foreach($request->serie as $key => $value){
-                $treino->serie = $request->serie[$key];
-                $treino->repeticao = $request->repeticao[$key];
-                $treino->carga = $request->carga[$key];
-                $treino->intervalo = $request->intervalo[$key];
-                $treino->cadencia = $request->cadencia[$key];
-                
-                $treino->save();
-            }
+            $treino->series()->sync((array)$request->input('serie_id'));
+            $treino->repeticoes()->sync((array)$request->input('repeticao_id'));
+            $treino->cargas()->sync((array)$request->input('carga_id'));
         }
     }
 
