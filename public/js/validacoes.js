@@ -111,9 +111,6 @@ $(function () {
             tipo: {
                 required: true,
             },
-            sinalID: {
-
-            }
         },
         messages: {
             nome: {

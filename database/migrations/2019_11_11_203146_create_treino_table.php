@@ -15,11 +15,6 @@ class CreateTreinoTable extends Migration {
 			$table->foreign('users_id')->references('id')->on('users');
 			$table->date('dataInicial');
 			$table->date('dataFinal');
-			$table->float('serie');
-			$table->float('repeticao');
-			$table->float('carga');
-			$table->float('intervalo');
-			$table->float('cadencia');
 			$table->timestamps();
 			$table->time('deleted_at')->nullable();
 		});

@@ -2,7 +2,6 @@
     <div class="form-group col-md-6">
         <label for="users_id" class="required">Nome</label>
         <select class="form-control" name="users_id" id="users_id">
-            <option selected disabled value="">Selecione o Aluno</option>
             @<?php foreach ($arrayUsers as $dados): ?>
                 <option id="selectUserArray" value="{{$dados->id}}">{{$dados->name}}</option>
             <?php endforeach; ?>
@@ -10,7 +9,7 @@
     </div>
 </div>
 <div class="form-row">
-    <button type="button" id="btnAdicionar" class="btn btn-info" >Adicionar</button>
+    <button type="button" id="btnAdicionar" class="btn btn-info">Adicionar</button>
 </div>
 <div class="row">
     <div class="col-xs-12">
