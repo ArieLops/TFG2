@@ -106,7 +106,7 @@ return [
     |
     */
 
-    //'dashboard_url' => 'praticante', 
+    'dashboard_url' => 'admin', 
 
     'logout_url' => 'logout',
 
