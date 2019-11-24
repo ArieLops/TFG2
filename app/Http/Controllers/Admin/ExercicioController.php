@@ -49,6 +49,7 @@ class ExercicioController extends Controller
         //para apontar um relacionamento de n para n
         $exercicio->musculaturas()->sync((array)$request->input('tagsMusculatura'));
         $exercicio->aparelhos()->sync((array)$request->input('tagsAparelho'));
+
         return redirect('admin/configuracao/exercicio/adicionar')->with('mensagem', 'Registro adicionado com sucesso!');
     }
 

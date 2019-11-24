@@ -1,10 +1,12 @@
 <?php
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Praticante'], function(){
-    Route::get('praticante/dados',                  'PraticanteController@getDataAvaliacao')->name('praticanteGrafico');
+    
+    Route::get('praticante/dados',            'PraticanteController@getDataAvaliacao')->name('praticanteGrafico');
     Route::get('praticante',                  'PraticanteController@index')->name('praticante');
     Route::get('praticante/exame/adicionar',  'PraticanteController@create')->name('praticanteExameAdicionar');
     Route::post('praticante/exame/',          'PraticanteController@store')->name('praticanteExameSalvar');
+    Route::get('praticante/treino',           'PraticanteController@visualizarTreino')->name('praticanteVisualizarTreino');
 });
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function(){

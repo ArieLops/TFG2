@@ -11,5 +11,9 @@ class MusculaturaSeeder extends Seeder
         DB::table('musculatura')->insert(['nome' => 'Tríceps']);
         DB::table('musculatura')->insert(['nome' => 'Glúteo']);
         DB::table('musculatura')->insert(['nome' => 'Coxa']);
+        DB::table('musculatura')->insert(['nome' => 'Peitoral']);
+        DB::table('musculatura')->insert(['nome' => 'Costas']);
+        DB::table('musculatura')->insert(['nome' => 'Quadríceps']);
+        DB::table('musculatura')->insert(['nome' => 'Braços']);
     }
 }

@@ -5,11 +5,12 @@ use Illuminate\Database\Seeder;
 class ExercicioSeeder extends Seeder
 {
     public function run()
-    {
+    {   
+        //1
         DB::table('exercicio')->insert(['nome' => 'Supino']);
-        DB::table('exercicio')->insert(['nome' => 'Corrida']);
+        //2
         DB::table('exercicio')->insert(['nome' => 'Agachamento']);
-        DB::table('exercicio')->insert(['nome' => 'Abdominal']);
-        DB::table('exercicio')->insert(['nome' => 'Levantamento Terra']);
+        //3
+        DB::table('exercicio')->insert(['nome' => 'Leg Press']);
     }
 }

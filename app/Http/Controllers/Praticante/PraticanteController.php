@@ -3,18 +3,15 @@
 namespace App\Http\Controllers\Praticante;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Avaliacao;
-use App\Http\Models\Exame;
-use App\Http\Models\Objetivo;
 use App\Http\Models\Users;
-use Carbon\Carbon;
-use DB;
-use Auth;
+use App\Http\Models\Avaliacao;
+use App\Http\Models\Objetivo;
+use App\Http\Models\Treino;
 
 class PraticanteController extends Controller
 {
-
     public function index(){
         //Identifica o usuario logado com o nome e o id
         $nomeUsuarioLogado = Auth::user()->name;
@@ -113,5 +110,22 @@ class PraticanteController extends Controller
         }
 
         return response()->json($result);
+    }
+
+    public function visualizarTreino(){
+        $idUsuarioLogado   = Auth::user()->id;
+
+        $treinos = new Treino;
+        
+        $treinos = $treinos::where("users_id", "=", $idUsuarioLogado)->get();
+        $idTreino = $treinos->pluck('id');
+
+        $consultaTreino["musculaturas"]   = Treino::where('id', "=", $idTreino)->with('musculaturas')->get();
+        $consultaTreino["exercicios"]     = Treino::where('id', "=", $idTreino)->with('exercicios')->get();
+        $consultaTreino["series"]         = Treino::where('id', "=", $idTreino)->with('series')->get();
+        $consultaTreino["repeticoes"]     = Treino::where('id', "=", $idTreino)->with('repeticoes')->get();
+        $consultaTreino["cargas"]         = Treino::where('id', "=", $idTreino)->with('cargas')->get();
+
+        return response()->json($consultaTreino);
     }
 }

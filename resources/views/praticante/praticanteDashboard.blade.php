@@ -70,6 +70,7 @@
     <div class="box-body">
         <div class="row">
             <td><a href="/praticante/exame/adicionar" class="btn btn-app"><i class="fa fa-heartbeat"></i>Adicionar Exame</a></td>
+            <td><a href="/praticante/treino" class="btn btn-app"><i class="fa fa-dumbbell"></i>Visualizar Treino</a></td>
         </div>
     </div>
 </div>
