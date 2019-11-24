@@ -117,15 +117,19 @@ class PraticanteController extends Controller
 
         $treinos = new Treino;
         
-        $treinos = $treinos::where("users_id", "=", $idUsuarioLogado)->get();
-        $idTreino = $treinos->pluck('id');
+        $treinos = $treinos::where("users_id", "=", $idUsuarioLogado)->orderBy('id', 'desc')->get();
 
+        $idTreino = $treinos->pluck('id');
+        
         $consultaTreino["musculaturas"]   = Treino::where('id', "=", $idTreino)->with('musculaturas')->get();
         $consultaTreino["exercicios"]     = Treino::where('id', "=", $idTreino)->with('exercicios')->get();
         $consultaTreino["series"]         = Treino::where('id', "=", $idTreino)->with('series')->get();
         $consultaTreino["repeticoes"]     = Treino::where('id', "=", $idTreino)->with('repeticoes')->get();
         $consultaTreino["cargas"]         = Treino::where('id', "=", $idTreino)->with('cargas')->get();
 
-        return response()->json($consultaTreino);
+        $consultaTreino =  \json_encode($consultaTreino);
+        
+        dd($consultaTreino);
+        return view('praticante.treino.praticanteTreino', compact('consultaTreino'));
     }
 }
