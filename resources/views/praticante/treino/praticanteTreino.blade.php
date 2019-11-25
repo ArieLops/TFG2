@@ -15,6 +15,7 @@
                 <i class="fas fa-table"> Séries: {{$value["serie"]}}</i></br>
                 <i class="fas fa-redo-alt"> Repetições: {{$value["repeticao"]}}</i></br>
                 <i class="fas fa-weight-hanging"> Carga (Kg): {{$value["carga"]}}</i></br>
+                <i class="fas fa-thumbs-up"> Realizado: <input value="{{$key}}" id="exercicioRealizado" type="checkbox" onclick="exercicioRealizado()"/></i></br>
             </div>
         </div>
     @else
@@ -31,9 +32,15 @@
                 <i class="fas fa-table"> Séries: {{$value["serie"]}}</i></br>
                 <i class="fas fa-redo-alt"> Repetições: {{$value["repeticao"]}}</i></br>
                 <i class="fas fa-weight-hanging"> Carga (Kg): {{$value["carga"]}}</i></br>
+                <i class="fas fa-thumbs-up"> Realizado: <input value="{{$key}}" id="exercicioRealizado" type="checkbox" onclick="exercicioRealizado()"/></i></br>
             </div>
         </div>
     @endif
 @endforeach
+<script>
+    $("input").on("click", function(){
+        var $checked = $("input:checked").val();
+    });
+</script>
 
         
