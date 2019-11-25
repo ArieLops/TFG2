@@ -14,11 +14,12 @@ class CreateTreinoSerieTable extends Migration
     public function up()
     {
         Schema::create('treino_serie', function (Blueprint $table) {
+            $table->increments('id');
+            
             $table->integer('treino_id')->unsigned();
             $table->foreign('treino_id')->references('id')->on('treino')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('serie_id')->unsigned();
             $table->foreign('serie_id')->references('id')->on('serie')->onUpdate('cascade')->onDelete('cascade');
-            $table->primary(['treino_id','serie_id']);
             $table->timestamps();
         });
     }

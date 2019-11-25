@@ -14,11 +14,12 @@ class CreateTreinoCargaTable extends Migration
     public function up()
     {
         Schema::create('treino_carga', function (Blueprint $table) {
+            $table->increments('id');
+            
             $table->integer('treino_id')->unsigned();
             $table->foreign('treino_id')->references('id')->on('treino')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('carga_id')->unsigned();
             $table->foreign('carga_id')->references('id')->on('carga')->onUpdate('cascade')->onDelete('cascade');
-            $table->primary(['treino_id','carga_id']);
             $table->timestamps();
         });
     }

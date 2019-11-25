@@ -53,11 +53,11 @@ class TreinoController extends Controller
         $id = $treino->id;
 
         if($id){
-            $treino->musculaturas()->sync((array)$request->input('musculatura_id'));
-            $treino->exercicios()->sync((array)$request->input('exercicio_id'));
-            $treino->series()->sync((array)$request->input('serie_id'));
-            $treino->repeticoes()->sync((array)$request->input('repeticao_id'));
-            $treino->cargas()->sync((array)$request->input('carga_id'));
+            $treino->musculaturas()->attach((array)$request->input('musculatura_id'));
+            $treino->exercicios()->attach((array)$request->input('exercicio_id'));
+            $treino->series()->attach((array)$request->input('serie_id'));
+            $treino->repeticoes()->attach((array)$request->input('repeticao_id'));
+            $treino->cargas()->attach((array)$request->input('carga_id'));
         }
 
         return redirect('admin/treino/adicionar')->with('mensagem', 'Registro adicionado com sucesso!');

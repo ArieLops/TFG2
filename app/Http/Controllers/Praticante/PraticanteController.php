@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Praticante;
 
+use League\Fractal\Manager;
+use League\Fractal\Resource\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
@@ -116,20 +118,33 @@ class PraticanteController extends Controller
         $idUsuarioLogado   = Auth::user()->id;
 
         $treinos = new Treino;
+        $fractal = new Manager();
         
-        $treinos = $treinos::where("users_id", "=", $idUsuarioLogado)->orderBy('id', 'desc')->get();
+        $treinos = $treinos::where("users_id", "=", $idUsuarioLogado)->orderBy('id', 'desc')->with(['musculaturas', 'exercicios', 'series', 'repeticoes', 'cargas'])->get()->first();
 
-        $idTreino = $treinos->pluck('id');
-        
-        $consultaTreino["musculaturas"]   = Treino::where('id', "=", $idTreino)->with('musculaturas')->get();
-        $consultaTreino["exercicios"]     = Treino::where('id', "=", $idTreino)->with('exercicios')->get();
-        $consultaTreino["series"]         = Treino::where('id', "=", $idTreino)->with('series')->get();
-        $consultaTreino["repeticoes"]     = Treino::where('id', "=", $idTreino)->with('repeticoes')->get();
-        $consultaTreino["cargas"]         = Treino::where('id', "=", $idTreino)->with('cargas')->get();
+        $resource = new Item($treinos, function($treino) {
+            $a = [];
+            $treino->exercicios()->each( function($item, $key) use ($treino, &$a){
+                $a[] = [
+                    "exercicio"   => $item->nome,
+                    "musculatura" => $treino->musculaturas[$key]["nome"],
+                    "serie"       => $treino->series[$key]["serie"],
+                    "repeticao"   => $treino->repeticoes[$key]["repeticao"],
+                    "carga"       => $treino->cargas[$key]["carga"],
+                ];
+            });
 
-        $consultaTreino =  \json_encode($consultaTreino);
+            return [
+                'id'      => (int) $treino->id,
+                'info'    => $a,
+            ];
+        });
         
-        dd($consultaTreino);
-        return view('praticante.treino.praticanteTreino', compact('consultaTreino'));
+        $treinos = $fractal->createData($resource)->toArray();
+
+        $treinos = $treinos["data"];
+    
+        return view('praticante.treino.praticanteTreino', compact('treinos'));
     }
+
 }

@@ -12,7 +12,7 @@
                 <form action="{{route('praticanteTreinoSalvar')}}" id="formExame" method="POST" autocomplete="off" enctype="multipart/form-data">
                     @csrf
                     <div class="box-body">
-                        @include('praticante.treino.formulario')
+                        @include('praticante.treino.praticanteTreino')
                     </div>
                     <div class="box-footer">
                         @include('includes.botaoFormCriar')
