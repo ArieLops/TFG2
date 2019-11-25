@@ -2,7 +2,7 @@
     <div class="form-group col-md-12">
     @foreach($treinos["info"] as $key => $value)
     @if($flag = null != $key)
-        <div class="box box-success box-solid">
+        <div class="box box-info box-solid">
             <div class="box-header with-border">
                 <h3 class="box-title">Treino</h3>
                     <div class="box-tools pull-right">
@@ -10,15 +10,15 @@
                     </div>
             </div>
             <div class="box-body">
-                <i class="fas fa-dumbbell">{{$value["exercicio"]}}</i></br>
-                <i class="fas fa-dumbbell">{{$value["musculatura"]}}</i></br>
-                <i class="fas fa-dumbbell">{{$value["serie"]}}</i></br>
-                <i class="fas fa-dumbbell">{{$value["repeticao"]}}</i></br>
-                <i class="fas fa-dumbbell">{{$value["carga"]}}</i></br>
+                <i class="fas fa-dumbbell"> Exercício: {{$value["exercicio"]}}</i></br>
+                <i class="fas fa-user-ninja"> Musculatura: {{$value["musculatura"]}}</i></br>
+                <i class="fas fa-table"> Séries: {{$value["serie"]}}</i></br>
+                <i class="fas fa-redo-alt"> Repetições: {{$value["repeticao"]}}</i></br>
+                <i class="fas fa-weight-hanging"> Carga (Kg): {{$value["carga"]}}</i></br>
             </div>
         </div>
     @else
-    <div class="box box-success box-solid">
+    <div class="box box-info box-solid">
             <div class="box-header with-border">
                 <h3 class="box-title">Treino</h3>
                     <div class="box-tools pull-right">
@@ -26,11 +26,11 @@
                     </div>
             </div>
             <div class="box-body">
-                <i class="fas fa-dumbbell">{{$value["exercicio"]}}</i></br>
-                <i class="fas fa-dumbbell">{{$value["musculatura"]}}</i></br>
-                <i class="fas fa-dumbbell">{{$value["serie"]}}</i></br>
-                <i class="fas fa-dumbbell">{{$value["repeticao"]}}</i></br>
-                <i class="fas fa-dumbbell">{{$value["carga"]}}</i></br>
+                    <i class="fas fa-dumbbell"> Exercício: {{$value["exercicio"]}}</i></br>
+                <i class="fas fa-user-ninja"> Musculatura: {{$value["musculatura"]}}</i></br>
+                <i class="fas fa-table"> Séries: {{$value["serie"]}}</i></br>
+                <i class="fas fa-redo-alt"> Repetições: {{$value["repeticao"]}}</i></br>
+                <i class="fas fa-weight-hanging"> Carga (Kg): {{$value["carga"]}}</i></br>
             </div>
         </div>
     @endif
