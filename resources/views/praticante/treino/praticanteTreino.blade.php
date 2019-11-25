@@ -1,19 +1,39 @@
 <div class="form-row">
+    <div class="form-group col-md-12">
     @foreach($treinos["info"] as $key => $value)
-    <h1>{{$value["exercicio"]}}</h1>
-    <h1>{{$value["musculatura"]}}</h1>
-    <h1>{{$value["serie"]}}</h1>
-    <h1>{{$value["repeticao"]}}</h1>
-    <h1>{{$value["carga"]}}</h1>
-    @endforeach
-</div>
-<div class="container">
-    <div class="box box-primary">
-        <div class="box-header with-border">
-            <h3 class="box-title">Índice de Massa Muscular</h3>
-            <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+    @if($flag = null != $key)
+        <div class="box box-success box-solid">
+            <div class="box-header with-border">
+                <h3 class="box-title">Treino</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+                    </div>
+            </div>
+            <div class="box-body">
+                <i class="fas fa-dumbbell">{{$value["exercicio"]}}</i></br>
+                <i class="fas fa-dumbbell">{{$value["musculatura"]}}</i></br>
+                <i class="fas fa-dumbbell">{{$value["serie"]}}</i></br>
+                <i class="fas fa-dumbbell">{{$value["repeticao"]}}</i></br>
+                <i class="fas fa-dumbbell">{{$value["carga"]}}</i></br>
             </div>
         </div>
-    </div>
-</div>
+    @else
+    <div class="box box-success box-solid">
+            <div class="box-header with-border">
+                <h3 class="box-title">Treino</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+                    </div>
+            </div>
+            <div class="box-body">
+                <i class="fas fa-dumbbell">{{$value["exercicio"]}}</i></br>
+                <i class="fas fa-dumbbell">{{$value["musculatura"]}}</i></br>
+                <i class="fas fa-dumbbell">{{$value["serie"]}}</i></br>
+                <i class="fas fa-dumbbell">{{$value["repeticao"]}}</i></br>
+                <i class="fas fa-dumbbell">{{$value["carga"]}}</i></br>
+            </div>
+        </div>
+    @endif
+@endforeach
+
+        

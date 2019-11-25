@@ -144,7 +144,7 @@ class PraticanteController extends Controller
 
         $treinos = $treinos["data"];
     
-        return view('praticante.treino.praticanteTreino', compact('treinos'));
+        return view('praticante.treino.criar', compact('treinos'));
     }
 
 }
