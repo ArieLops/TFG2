@@ -147,4 +147,12 @@ class PraticanteController extends Controller
         return view('praticante.treino.criar', compact('treinos'));
     }
 
+    public function salvaTreinoPraticante(Request $request){
+        $idUsuarioLogado   = Auth::user()->id;
+
+        
+
+        
+    }
+
 }

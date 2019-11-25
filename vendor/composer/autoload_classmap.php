@@ -89,6 +89,7 @@ return array(
     'App\\Providers\\ProviderListaTipos' => $baseDir . '/app/Providers/ProviderListaTipos.php',
     'App\\Providers\\ProviderListaUsers' => $baseDir . '/app/Providers/ProviderListaUsers.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
+    'App\\Users_Treino' => $baseDir . '/app/Http/Models/Users_Treino.php',
     'BeyondCode\\DumpServer\\DumpServerCommand' => $vendorDir . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
     'BeyondCode\\DumpServer\\DumpServerServiceProvider' => $vendorDir . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
     'BeyondCode\\DumpServer\\Dumper' => $vendorDir . '/beyondcode/laravel-dump-server/src/Dumper.php',

@@ -14,9 +14,6 @@
                     <div class="box-body">
                         @include('praticante.treino.praticanteTreino')
                     </div>
-                    <div class="box-footer">
-                        @include('includes.botaoFormCriar')
-                    </div>
                 </form>
             </div>
         </div>
