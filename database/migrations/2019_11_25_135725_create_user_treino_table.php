@@ -14,7 +14,14 @@ class CreateUserTreinoTable extends Migration
     public function up()
     {
         Schema::create('user_treino', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
+            
+            $table->integer('users_id')->unsigned();
+            $table->foreign('users_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('treino_id')->unsigned();
+            $table->foreign('treino_id')->references('id')->on('treino')->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('total');
+            $table->integer('indice');
             $table->timestamps();
         });
     }

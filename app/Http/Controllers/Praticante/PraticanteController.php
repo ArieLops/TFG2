@@ -11,6 +11,8 @@ use App\Http\Models\Users;
 use App\Http\Models\Avaliacao;
 use App\Http\Models\Objetivo;
 use App\Http\Models\Treino;
+use App\Http\Models\Exame;
+use Carbon\Carbon;
 
 class PraticanteController extends Controller
 {
@@ -118,41 +120,31 @@ class PraticanteController extends Controller
         $idUsuarioLogado   = Auth::user()->id;
 
         $treinos = new Treino;
-        $fractal = new Manager();
         
         $treinos = $treinos::where("users_id", "=", $idUsuarioLogado)->orderBy('id', 'desc')->with(['musculaturas', 'exercicios', 'series', 'repeticoes', 'cargas'])->get()->first();
 
-        $resource = new Item($treinos, function($treino) {
-            $a = [];
-            $treino->exercicios()->each( function($item, $key) use ($treino, &$a){
-                $a[] = [
-                    "exercicio"   => $item->nome,
-                    "musculatura" => $treino->musculaturas[$key]["nome"],
-                    "serie"       => $treino->series[$key]["serie"],
-                    "repeticao"   => $treino->repeticoes[$key]["repeticao"],
-                    "carga"       => $treino->cargas[$key]["carga"],
-                ];
-            });
-
-            return [
-                'id'      => (int) $treino->id,
-                'info'    => $a,
-            ];
-        });
-        
-        $treinos = $fractal->createData($resource)->toArray();
-
-        $treinos = $treinos["data"];
+        for($i = 0; $i < count($treinos->musculaturas); $i++){
+            $j = $i +1;
+            $dados[$j]["musculatura"] = $treinos->musculaturas[$i]["nome"];
+            $dados[$j]["exercicio"] = $treinos->exercicios[$i]["nome"];
+            $dados[$j]["serie"] = $treinos->series[$i]["serie"];
+            $dados[$j]["repeticao"] = $treinos->repeticoes[$i]["repeticao"];
+            $dados[$j]["carga"] = $treinos->cargas[$i]["carga"];
+        }
     
-        return view('praticante.treino.criar', compact('treinos'));
+        return view('praticante.treino.criar', compact('dados'));
     }
 
-    public function salvaTreinoPraticante(Request $request){
+    public function praticanteSalvarTreino(Request $request){
         $idUsuarioLogado   = Auth::user()->id;
+        $treinos            = new Treino;
 
+        $treinos = new Treino;
+        $treinos = $treinos::where("users_id", "=", $idUsuarioLogado)->orderBy('id', 'desc')->with(['musculaturas', 'exercicios', 'series', 'repeticoes', 'cargas'])->get()->first();
         
-
+        $idTreino = $treinos["id"];
         
+        return redirect('praticante/treino')->with('mensagem', 'Registro adicionado com sucesso!');
     }
 
 }
